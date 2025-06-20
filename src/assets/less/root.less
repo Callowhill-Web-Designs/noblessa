@@ -191,6 +191,48 @@
         }
     }
 
+    .cs-button-nodeco-white {
+        border: none;
+        background: none;
+        cursor: pointer;
+        color:#fff;
+
+        .cs-hover-underline-white {
+            padding-bottom: 7px;
+            letter-spacing: 4px;
+            font-size: 14px;
+            padding-right: 15px;
+            text-transform: uppercase;
+            color: #fff;
+
+            &:before {
+                content: '';
+                display: block;
+                position: relative;
+                height: 2px;
+                left: 0;
+                bottom: -30px;
+                width: 0%;
+                background: #fff;
+                transition: width .5s;
+            }
+        }
+
+        &:hover {
+            &:before {
+                width: 0%;
+            }
+        }
+
+        &:hover {
+            .cs-hover-underline-white {
+                &:before {
+                    width: 100%;
+                }
+            }
+        }
+    }
+
     .cs-button-outline {
         z-index: 1;
         position: relative;

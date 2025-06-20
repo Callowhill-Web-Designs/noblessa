@@ -146,7 +146,8 @@
 /* Large Desktop - 1200px */
 @media only screen and (min-width: 75rem) {
     #sbs-2369 {
-        padding-bottom: 60px;
+        padding-top: 120px;
+        padding-bottom: 120px;
 
         .cs-container {
             width: 100%;
@@ -155,7 +156,7 @@
             align-items: center;
             position: relative;
             z-index: 1;
-            gap: auto;
+            gap: 0px;
         }
 
         .cs-content {
@@ -209,6 +210,178 @@
                 height: 100%;
                 width: auto;
             }
+        }
+    }
+}
+                                
+
+/*-- -------------------------- -->
+<---        Side By Side        -->
+<--- -------------------------- -*/
+
+/* Mobile */
+@media only screen and (min-width: 0rem) {
+    #sbs-2358 {
+        padding: var(--sectionPadding);
+
+        .cs-container {
+            width: 100%;
+            /* changes to 1800px at tablet */
+            max-width: (584/16rem);
+            margin: auto;
+            display: flex;
+            flex-direction: column;
+            gap: (32/16rem);
+        }
+
+        .cs-content {
+            width: 100%;
+            max-width: (1215/16rem);
+        }
+
+        .cs-flex {
+            display: flex;
+            flex-direction: column;
+            gap: (32/16rem);
+        }
+
+        .cs-topper {
+            margin-bottom: (24/16rem);
+            text-align: center;
+            max-width: 20ch;
+            margin: auto;
+        }
+
+        
+        .cs-title {
+            text-align: center;
+            max-width: 20ch;
+            margin: auto;
+            /* 48px - 64px */
+            padding-bottom: 60px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .cs-text {
+            max-width: (954/16rem);
+        }
+
+        .cs-number {
+            /* 39px - 90px */
+            font-size: clamp(2.4375rem, 7vw, 5.625rem);
+            line-height: 1.2em;
+            font-weight: 700;
+            margin: 0;
+            color: var(--headerColor);
+        }
+
+        .cs-color {
+            color: var(--primary);
+            display: inline-block;
+            transform: translateX(-.5rem);
+        }
+
+        .cs-desc {
+            font-size: (16/16rem);
+            line-height: 1.5em;
+            color: var(--bodyTextColor);
+        }
+
+        .cs-picture {
+            width: 100%;
+            max-height: (640/16rem);
+            display: block;
+            position: relative;
+            z-index: 1;
+
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                position: absolute;
+                top: 0;
+                left: 0;
+            }
+        } 
+
+        .cs-image-group {
+            position: relative;
+            z-index: 1;
+        }
+
+        .cs-picture1 {
+            height: 110vw;
+        }
+
+        .cs-picture2 {
+            height: 132vw;
+            margin-bottom: (24/16rem);
+        }
+
+        .cs-link {
+            /* 13px - 16px */
+            font-size: 24px;
+            line-height: 1.2em;
+            text-decoration: none;
+            font-weight: 700;
+            font-family: "Simplifica", sans-serif;
+            text-transform: uppercase;
+            max-width: 85%;
+            height: (56/16rem);
+            margin: 0;
+            padding: 0 (16/16rem);
+            background-color: #fff;
+            color: var(--headerColor);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: (8/16rem);
+            position: absolute;
+            right: (24/16rem);
+            bottom: (24/16rem);
+            z-index: 10;
+            transition: background-color .3s, color .3s;
+
+            &:hover {
+                background-color: #1a1a1a;
+                color: #fff;
+            }
+        }
+
+        .cs-icon {
+            width: (24/16rem);
+            height: auto;
+            display: block;
+        }
+    }
+}
+
+/* Tablet - 768px */
+@media only screen and (min-width: 48rem) {
+    #sbs-2358 {
+        .cs-container {
+            max-width: (1800/16rem);
+            flex-direction: row;
+            justify-content: space-between;
+        }
+
+        .cs-flex {
+            width: 53%;
+            max-width: (457/16rem);
+            flex: none;
+            justify-content: space-between;
+            gap: 0;
+        }
+
+        .cs-topper {
+            margin-bottom: (24/16rem);
+        }
+
+        .cs-picture2 {
+            max-height: 100%;
+            /* 480px - 660px */
+            height: clamp(30rem, 60vw, 42.5rem);
         }
     }
 }
