@@ -11,120 +11,44 @@
 
 /* Mobile - 360px */
 @media only screen and (min-width: 0rem) {
+    @keyframes rigoAnimation {
+        0% {
+            height: 0px;
+        }
+        80% {
+            height: 64px;
+        }
+        100% {
+            height: 0px;
+        }
+    }
+
     #hero-143 {
-        /* Centers button */
-        text-align: center;
-        /* 144px - 300px - leaving extra space for the navigation */
-        padding: clamp(9rem, 25.95vw, 18.75rem) (16/16rem) 0;
-        /* 130px - 450px */
-        padding-bottom: clamp(12.125rem, 30.95vw, 28.125rem);
+        height: 100vh;
         position: relative;
         z-index: 1;
-        /* Prevents white rectangle pseudos from overlapping the sections below */
-        overflow: hidden;
-
-        &:before {
-            /* Left side of the triangle */
-            content: "";
-            width: (500/16rem);
-            /* make really long so it covers the whole screen all the way to desktop */
-            height: (4000/16rem);
-            background: #fff;
-            opacity: 1;
-            transform: rotate(-67deg);
-            transform-origin: center;
-            position: absolute;
-            display: block;
-            bottom: (-2235/16rem);
-            /* this makes the right edge sit at the 50% line at all times */
-            right: 50%;
-            z-index: 0;
-        }
-
-        &:after {
-            /* Right side of the triangle */
-            content: "";
-            width: (500/16rem);
-            height: (4000/16rem);
-            background: #fff;
-            opacity: 1;
-            transform: rotate(67deg);
-            transform-origin: center;
-            position: absolute;
-            display: block;
-            bottom: (-2235/16rem);
-            /* this makes the left edge sit at the 50% line at all times */
-            left: 50%;
-            z-index: 0;
-        }
-
-        .cs-background {
-            width: 100%;
-            height: 100%;
-            display: block;
-            position: absolute;
-            top: 0;
-            left: 0;
-            z-index: -2;
-
-            &:before {
-                /* Overlay */
-                content: "";
-                width: 100%;
-                height: 100%;
-                background: #000;
-                opacity: 0.7;
-                position: absolute;
-                display: block;
-                top: 0;
-                left: 0;
-                z-index: 1;
-                /* prevents the cursor from interacting with it */
-                pointer-events: none;
-            }
-
-            img {
-                position: absolute;
-                top: 0;
-                left: 0;
-                height: 100%;
-                width: 100%;
-                object-fit: cover;
-            }
-        }
 
         .cs-container {
             width: 100%;
             max-width: (1280/16rem);
             margin: auto;
+            position: absolute;
+            bottom: 5%;
+            left: 50%;
+            padding-left: 10px;
+            transform: translateX(-50%);
+            mix-blend-mode: difference;
+            display: flex;
         }
 
         .cs-title {
-            /* 39px - 61px */
-            font-size: clamp(2.4375rem, 6.4vw, 3.8125rem);
+            font-size: 64px;
             font-weight: 700;
             line-height: 1.2em;
             text-align: center;
             max-width: (829/16rem);
-            /* 16px - 24px */
-            margin: 0 auto clamp(1rem, 4vw, 1.5rem);
-            color: #fff;
-            position: relative;
-
-            &:after {
-                /* Divider Line */
-                content: "";
-                /* 60px - 100px */
-                width: clamp(3.75rem, 9.5vw, 6.25rem);
-                /* 4px - 8px */
-                height: clamp(0.25rem, 0.8vw, 0.5rem);
-                /* 16px - 24px */
-                margin: clamp(1rem, 4vw, 1.5rem) auto clamp(1rem, 4vw, 1.5rem);
-                background: var(--primary);
-                opacity: 1;
-                position: relative;
-                display: block;
-            }
+            margin: 0 10px 0 10px;
+            color: #ffffff;
         }
 
         .cs-text {
@@ -140,44 +64,36 @@
             margin-bottom: clamp(2.5rem, 4vw, 3rem);
             color: #fff;
         }
-    }
-}
 
-/* Desktop - 1300px (To make image background parallax) */
-@media only screen and (min-width: 81.25rem) {
-    #hero-143 {
-        background: url("/assets/images/landing.jpg");
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
-        /* makes the parallax effect */
-        background-attachment: fixed;
+        .cs-text-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            z-index: 2;
+        }
 
-        .cs-background {
-            img {
-                display: none;
-            }
+        .cs-video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: flex;
+        }
+
+        .cs-rigo {
+            height: 100px;
+            overflow: hidden; 
+            position: relative; 
+            width: 4px;
+            background-color: #fff;
+            animation-name: rigoAnimation;
+            animation-duration: 4s;
+            animation-timing-function: ease-in-out;
+            animation-iteration-count: infinite;
         }
     }
-}
-
-/* Dark Mode */
-@media only screen and (min-width: 0rem) {
-    body.dark-mode {
-        #hero-143 {
-            &:before,
-            &:after {
-                background: var(--dark);
-            }
-
-            .cs-background {
-                &:before {
-                    opacity: 0.85;
-                }
-            }
-        }
-    }
-}
+ }
 
 /*-- -------------------------- -->
 <---         Services           -->

@@ -62,6 +62,7 @@
         font-size: var(--topperFontSize);
         line-height: 1.2em;
         text-transform: uppercase;
+        font-family: var(--headerFont);
         text-align: inherit;
         letter-spacing: 0.1em;
         font-weight: 700;
@@ -473,6 +474,10 @@ html {
                     height: 100%;
                 }
             }
+
+            .cs-logo {
+                color: #000
+            }
         }
     }
 
@@ -481,9 +486,9 @@ html {
         padding: (20/16rem) (16/16rem);
         /* prevents padding and border from affecting height and width */
         box-sizing: border-box;
-        background: rgba(26, 26, 26, 0.08);
-        -webkit-backdrop-filter: blur(5px);
-        backdrop-filter: blur(5px);
+        background: rgba(0, 0, 0, 0.02);
+        -webkit-backdrop-filter: blur(10px);
+        backdrop-filter: blur(10px);
         position: fixed;
         z-index: 10000;
         transition: background-color 0.3s;
@@ -546,24 +551,20 @@ html {
         }
 
         .cs-logo {
-            width: auto;
-            /* 56px - 80px */
-            height: clamp(3.5rem, 5vw, 5rem);
+            font-family: "Simplifica", Arial, sans-serif;
+            font-size: 48px;
+            text-align: left;
+            color: var(--bodyTextColorWhite);
+            text-decoration: none;
+            /* margin-right auto pushes everything away from it to the right */
+            left: 0;
             margin: 0 auto 0 0;
-            padding: 0;
+            position: absolute;
+            padding: 0 0 0 16px;
+            z-index: 100;
             /* prevents padding and border from affecting height and width */
             box-sizing: border-box;
-            display: flex;
-            justify-content: center;
-            align-items: center;
             z-index: 10;
-
-            img {
-                width: 100%;
-                height: 100%;
-                /* ensures the image never overflows the container. It stays contained within it's width and height and expands to fill it then stops once it reaches an edge */
-                object-fit: contain;
-            }
         }
 
         .cs-toggle {
@@ -779,6 +780,10 @@ html {
             .cs-li-link {
                 color: #000
             }
+
+            .cs-logo {
+                color: #000
+            }
         }
     }
 
@@ -787,9 +792,9 @@ html {
         padding: 0 (32/16rem);
         /* prevents padding and border from affecting height and width */
         box-sizing: border-box;
-        background: rgba(0, 0, 0, 0.02);
-        -webkit-backdrop-filter: blur(1px);
-        backdrop-filter: blur(1px);
+        background: rgba(0, 0, 0, 0.1);
+        -webkit-backdrop-filter: blur(5px);
+        backdrop-filter: blur(5px);
         position: fixed;
         z-index: 10000;
 
@@ -824,21 +829,17 @@ html {
         }
 
         .cs-logo {
-            width: auto;
-            height: (32/16rem);
+            font-family: "Simplifica", Arial, sans-serif;
+            font-size: 48px;
+            text-align: left;
+            color: var(--bodyTextColorWhite);
+            text-decoration: none;
             /* margin-right auto pushes everything away from it to the right */
             left: 0;
             margin: 0 auto 0 0;
             position: absolute;
             padding: 0;
             z-index: 100;
-
-            img {
-                width: 100%;
-                height: 100%;
-                /* ensures the image never overflows the container. It stays contained within it's width and height and expands to fill it then stops once it reaches an edge */
-                object-fit: contain;
-            }
         }
 
         .cs-ul-wrapper {
@@ -949,9 +950,7 @@ html {
         }
     }
 }
-
-                                
-                                                       
+                                                      
 
 /*-- -------------------------- -->
 <---          Banner            -->
@@ -1024,10 +1023,6 @@ html {
                 background-size: contain;
                 background-position: center;
                 background-repeat: no-repeat;
-            }
-
-            &.cs-active {
-                
             }
         }
 
