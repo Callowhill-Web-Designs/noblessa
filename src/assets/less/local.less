@@ -38,6 +38,7 @@
             flex-direction: column;
             /* left aligns content, set to center to align content horizontally */
             align-items: center;
+            z-index: 10;
         }
 
         .cs-topper {
@@ -67,6 +68,7 @@
             margin-bottom: (16/16rem);
             padding-top: 30px;
             padding: 30px 10px 0px 10px;
+            width: 100%;
 
             &:last-of-type {
                 /* 24px - 32px */
@@ -144,6 +146,7 @@
 /* Large Desktop - 1200px */
 @media only screen and (min-width: 75rem) {
     #sbs-2369 {
+        padding-bottom: 60px;
 
         .cs-container {
             width: 100%;
@@ -152,12 +155,13 @@
             align-items: center;
             position: relative;
             z-index: 1;
+            gap: auto;
         }
 
         .cs-content {
-            width: 100%;
-            padding-bottom: clamp(3.75rem, 7.82vw, 6.25rem);
+            width: 50%;
             align-items: flex-start;
+            overflow: visible;
         }
 
         .cs-topper, .cs-title {
@@ -165,30 +169,38 @@
             margin: 0;
         }
 
-        .cs-topper {
-            margin-bottom: (4/16rem);
+        .cs-text {
+            margin-bottom: (0rem);
+            padding-top: 0px;
+            padding: 30px 10px 0px 0px;
+            width: 100%;
+
+            &:last-of-type {
+                /* 24px - 32px */
+                margin-bottom: clamp(1.5rem, 3vw, 2rem);
+            }
         }
 
-        .cs-title {
-            margin-bottom: (32/16rem);
+        .cs-divider {
+            width: 100%;
+            height: 1px;
+            background: #D2D8DF;
+            opacity: 1;
+            display: block;
         }
 
         .cs-image-group {
             /* set to inherit at Large Desktop */
-            width: 100%;
-            height: auto;
+            width: 50%;
+            height: 100%;
             order: -1;
-            position: absolute;
-            top: 0;
-            bottom: 0;
-            left: 0;
         }
 
         .cs-picture {
             height: 100%;
             width: 100%;
             display: flex;
-            justify-content: flex-end;
+            justify-content: flex-start;
             align-items: flex-end;
             position: relative;
             z-index: 1;
