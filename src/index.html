@@ -14,6 +14,9 @@ tags: "sitemap" # content/content.json will make sure that all pages in content/
     <!-- Hover Effect Styles -->
     <script defer type="module" src="assets/js/hover.js"></script>
 
+    <!-- Transform Gallery JS -->
+    <script defer src="assets/js/transformgallery.js"></script>
+
     <!-- If we're in production, defer the rest of the home page styles. In development, always load it. Otherwise the site will break when hot-reload is used. -->
     {% if kit.isProduction %}
         <link rel="preload" href="/assets/css/local.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
@@ -46,6 +49,120 @@ tags: "sitemap" # content/content.json will make sure that all pages in content/
         <video src="/assets/videos/youngers1080x1920.webm" class="cs-video" autoplay muted loop></video>
     </section>
 
+    <!-- ============================================ -->
+    <!--             Transform Gallery                -->
+    <!-- ============================================ -->
+
+    <section id="transform-gallery">
+        <div class="cs-container">
+            <div class="cs-section-header">
+                <div class="cs-left-column">
+                    <span class="cs-topper">Our Collections</span>
+                    <h2 class="cs-title">transforming living<br>spaces & lives</h2>
+                </div>
+                <span class="cs-divider"></span>
+                <div class="cs-right-column">
+                    <p class="cs-text">
+                        noblessa has been a brand of excellence for high-end kitchens since 1996. For almost 30 years, our premium kitchens are made in our state-of-the-art factories located in Germany, and overseen by expert craftsmen. From Dubai to Beirut, Los Angeles, Istanbul, and Prague, we have set the benchmark for high-end kitchen design around the world. The perfection of a noblessa kitchen can be seen in the smallest details. More than a brand, it’s a way of life. We are committed to designing living spaces where elegance and harmony reign supreme – by taking our inspiration from you and your desires. That is who we are.
+                    </p>
+                    <button class="cs-button-nodeco">
+                        <span class="cs-hover-underline"> View Our Collection </span>
+                        <svg id="arrow-horizontal" xmlns="http://www.w3.org/2000/svg" width="30" height="10" viewBox="0 0 46 16">
+                            <path id="Path_10" data-name="Path 10" d="M8,0,6.545,1.455l5.506,5.506H-30V9.039H12.052L6.545,14.545,8,16l8-8Z" transform="translate(30)"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            <!-- Gallery -->
+            <div class='cs-transform-gallery'>
+                <ul class='cs-slider'>
+                    <li class='cs-slider-item' style="background-image: url('assets/images/collections/tempo/tempo1.webp')">
+                        <div class='cs-slider-content'>
+                            <h2 class='cs-title'>tempo</h2>
+                            <p class='cs-text'> With glossy black cabinetry and warm wood countertops, this collection is designed to keep urban kitchens modern and fresh. </p>
+                            <button class="cs-button-nodeco-white">
+                                <span class="cs-hover-underline-white"> See More </span>
+                                <svg id="arrow-horizontal" xmlns="http://www.w3.org/2000/svg" width="30" height="10" viewBox="0 0 46 16" fill="#ffffff">
+                                    <path id="Path_10" data-name="Path 10" d="M8,0,6.545,1.455l5.506,5.506H-30V9.039H12.052L6.545,14.545,8,16l8-8Z" transform="translate(30)"></path>
+                                </svg>
+                            </button>
+                        </div>
+                    </li>
+                    <li class='cs-slider-item' style="background-image: url('assets/images/collections/spirit/spirit1.webp')">
+                        <div class='cs-slider-content'>
+                            <h2 class='cs-title'>spirit</h2>
+                            <p class='cs-text'>The sleek beauty of slate paired with the natural warmth of wood, the sleek elegance of this collection creates a dynamic look for any urban kitchen.</p>
+                            <button class="cs-button-nodeco-white">
+                                <span class="cs-hover-underline-white"> See More </span>
+                                <svg id="arrow-horizontal" xmlns="http://www.w3.org/2000/svg" width="30" height="10" viewBox="0 0 46 16" fill="#ffffff">
+                                    <path id="Path_10" data-name="Path 10" d="M8,0,6.545,1.455l5.506,5.506H-30V9.039H12.052L6.545,14.545,8,16l8-8Z" transform="translate(30)"></path>
+                                </svg>
+                            </button>
+                        </div>
+                    </li>
+                    <li class='cs-slider-item' style="background-image: url('assets/images/collections/sentido/sentido1.webp')">
+                        <div class='cs-slider-content'>
+                            <h2 class='cs-title'>sentido</h2>
+                            <p class='cs-text'> Transform your kitchen with a fresh, chic color scheme with this collection's premium and vibrant design elements. </p>
+                            <button class="cs-button-nodeco-white">
+                                <span class="cs-hover-underline-white"> See More </span>
+                                <svg id="arrow-horizontal" xmlns="http://www.w3.org/2000/svg" width="30" height="10" viewBox="0 0 46 16" fill="#ffffff">
+                                    <path id="Path_10" data-name="Path 10" d="M8,0,6.545,1.455l5.506,5.506H-30V9.039H12.052L6.545,14.545,8,16l8-8Z" transform="translate(30)"></path>
+                                </svg>
+                            </button>
+                        </div>
+                    </li>
+                    <li class='cs-slider-item' style="background-image: url('assets/images/collections/chance/chance1.webp')">
+                        <div class='cs-slider-content'>
+                            <h2 class='cs-title'>chance</h2>
+                            <p class='cs-text'>
+                            The perfect combination of warm natural wood with the sleek elegance of metal. Whether you're outdoorsy or a homebody, you’ll feel right at home in this collection.
+                            </p>
+                            <button class="cs-button-nodeco-white">
+                                <span class="cs-hover-underline-white"> See More </span>
+                                <svg id="arrow-horizontal" xmlns="http://www.w3.org/2000/svg" width="30" height="10" viewBox="0 0 46 16" fill="#ffffff">
+                                    <path id="Path_10" data-name="Path 10" d="M8,0,6.545,1.455l5.506,5.506H-30V9.039H12.052L6.545,14.545,8,16l8-8Z" transform="translate(30)"></path>
+                                </svg>
+                            </button>
+                        </div>
+                    </li>
+                    <li class='cs-slider-item' style="background-image: url('assets/images/collections/divine/divine1.webp')">
+                        <div class='cs-slider-content'>
+                            <h2 class='cs-title'>divine</h2>
+                            <p class='cs-text'> With its bold, vibrant colors and a streamlined silhouette, this collection provides a touch of elegance to the kitchen.</p>
+                            <button class="cs-button-nodeco-white">
+                                <span class="cs-hover-underline-white"> See More </span>
+                                <svg id="arrow-horizontal" xmlns="http://www.w3.org/2000/svg" width="30" height="10" viewBox="0 0 46 16" fill="#ffffff">
+                                    <path id="Path_10" data-name="Path 10" d="M8,0,6.545,1.455l5.506,5.506H-30V9.039H12.052L6.545,14.545,8,16l8-8Z" transform="translate(30)"></path>
+                                </svg>
+                            </button>
+                        </div>
+                    </li>
+                    <li class='cs-slider-item' style="background-image: url('assets/images/collections/grace/grace1.webp')">
+                        <div class='cs-slider-content'>
+                            <h2 class='cs-title'>Grace</h2>
+                            <p class='cs-text'> Exuding subtle sophistication, whether you prefer warm dark wood or a deep comforting gray for your countertops, this collection lends itself to a dignified and elegant style. </p>
+                            <button class="cs-button-nodeco-white">
+                                <span class="cs-hover-underline-white"> See More </span>
+                                <svg id="arrow-horizontal" xmlns="http://www.w3.org/2000/svg" width="30" height="10" viewBox="0 0 46 16" fill="#ffffff">
+                                    <path id="Path_10" data-name="Path 10" d="M8,0,6.545,1.455l5.506,5.506H-30V9.039H12.052L6.545,14.545,8,16l8-8Z" transform="translate(30)"></path>
+                                </svg>
+                            </button>
+                        </div>
+                    </li>
+                </ul>
+                <!-- Gallery Navigation -->
+                <nav class='nav'>
+                    <ion-icon class='btn prev' name="arrow-back-outline"></ion-icon>
+                    <ion-icon class='btn next' name="arrow-forward-outline"></ion-icon>
+                </nav>
+            </div>
+
+            <!-- Gallery Scripts -->
+            <script defer type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+            <script defer nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+        </div>
+    </section>
 
     <!-- ============================================ -->
     <!--                 Our Legacy                   -->
@@ -57,10 +174,10 @@ tags: "sitemap" # content/content.json will make sure that all pages in content/
                 <!--Main Image-->
                 <picture class="cs-picture">
                     <!--Mobile Image-->
-                    <source media="(max-width: 600px)" srcset="assets/images/noblessa_values_customize.webp">
+                    <source media="(max-width: 600px)" srcset="/assets/images/walnutkitchen.webp">
                     <!--Tablet and above Image-->
-                    <source media="(min-width: 601px)" srcset="assets/images/noblessa_values_customize.webp">
-                    <img loading="lazy" decoding="async" src="assets/images/noblessa_values_customize.webp" alt="" width="565" height="814">
+                    <source media="(min-width: 601px)" srcset="/assets/images/walnutkitchen.webp">
+                    <img loading="lazy" decoding="async" src="/assets/images/walnutkitchen.webp" alt="" width="565" height="814">
                 </picture>
             </div>
             <div class="cs-content">
