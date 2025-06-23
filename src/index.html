@@ -45,7 +45,7 @@ tags: "sitemap" # content/content.json will make sure that all pages in content/
 
 
     <!-- ============================================ -->
-    <!--                 Side By Side                 -->
+    <!--                 Our Legacy                   -->
     <!-- ============================================ -->
 
     <section id="sbs-2369">
@@ -78,7 +78,7 @@ tags: "sitemap" # content/content.json will make sure that all pages in content/
     </section>
 
     <!-- ============================================ -->
-    <!--                Side By Side                  -->
+    <!--                 What We Do                   -->
     <!-- ============================================ -->
 
     <section id="sbs-2358">
@@ -104,10 +104,10 @@ tags: "sitemap" # content/content.json will make sure that all pages in content/
                 <div class="cs-image-group cs-image-group2">
                     <picture class="cs-picture cs-picture2">
                         <!--Mobile Image-->
-                        <source media="(max-width: 600px)" srcset="/assets/images/whitekitchen.webp">
+                        <source media="(max-width: 600px)" srcset="assets/images/whitekitchen.webp">
                         <!--Tablet and above Image-->
-                        <source media="(min-width: 601px)" srcset="/assets/images/whitekitchen.webp">
-                        <img loading="lazy" decoding="async" src="/assets/images/whitekitchen.webp" alt="nice house" width="1215" height="660">
+                        <source media="(min-width: 601px)" srcset="assets/images/whitekitchen.webp">
+                        <img loading="lazy" decoding="async" src="assets/images/whitekitchen.webp" alt="nice house" width="1215" height="660">
                     </picture>
                     <a href="" class="cs-link">
                         <img class="cs-icon" loading="lazy" decoding="async" src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images/Icons/orange-up-right.svg" alt="icon" width="24" height="24">
@@ -119,10 +119,26 @@ tags: "sitemap" # content/content.json will make sure that all pages in content/
                 </p>
             </div>
         </div>
+        <div class="cs-distortion-hover" width="1000px" height="1000px"></div>
+
+        <script src="assets/js/three.min.js"></script>
+        <script src="assets/js/gsap.min.js"></script>
+        <script src="assets/js/hover-effect.umd.js"></script>
+
+        <script>
+            var myAnimation = new hoverEffect({
+                parent: document.querySelector('.cs-distortion-hover'),
+                intensity: 0.3,
+                image1: 'assets/images/whitekitchen.webp',
+                image2: 'assets/images/walnutkitchen.webp',
+                displacementImage: 'assets/images/2.jpg'
+            });
+        </script>
+
     </section>
                                   
     <!-- ============================================ -->
-    <!--                 Side By Side                 -->
+    <!--                  About Us                    -->
     <!-- ============================================ -->
 
     <section id="sbs-2346">
