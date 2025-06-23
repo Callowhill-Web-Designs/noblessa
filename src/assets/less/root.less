@@ -1166,11 +1166,13 @@ html {
             width: 100%;
             max-width: (1280/16rem);
             margin: auto;
+            position: relative;
             display: flex;
             flex-direction: column;
             align-items: center;
             /* 48px - 64px */
             gap: clamp(3rem, 6vw, 4rem);
+            z-index: 5;
         }
 
         .cs-content {
@@ -1184,12 +1186,12 @@ html {
         }
 
         .cs-title {
-            color: var(--bodyTextColorWhite);
+            color: #fff;
         }
 
         .cs-text {
             margin-bottom: (16/16rem);
-            color: var(--bodyTextColorWhite);
+            color: #fff;
             opacity: 0.8;
             &:last-of-type {
                 margin-bottom: (32/16rem);
@@ -1201,10 +1203,9 @@ html {
             width: 100%;
             display: block;
             position: absolute;
-            z-index: -1;
             top: 0;
             left: 0;
-            z-index: -1;
+            z-index: 0;
 
             &:before {
                 /* black color overlay */
