@@ -1,13 +1,5 @@
 import HoverEffect from 'hover-effect';
 
-new HoverEffect({
-  parent: document.querySelector('.cs-hover-container'),
-  intensity: .1,
-  image1: '/assets/images/walnutkitchen.webp',
-  image2: '/assets/images/whitekitchen.webp',
-  displacementImage: '/assets/images/2.jpg',
-});
-
 const imageGroup1 = document.querySelector('.cs-picture1');
 if (imageGroup1) {
   new HoverEffect({
