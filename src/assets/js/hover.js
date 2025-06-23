@@ -34,3 +34,4 @@ if (imageGroup3) {
     displacementImage: '/assets/images/2.jpg',
   });
 }
+
