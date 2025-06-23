@@ -35,3 +35,15 @@ if (imageGroup3) {
   });
 }
 
+const imageGroup4 = document.querySelector('.cs-picture4');
+if (imageGroup4) {
+  new HoverEffect({
+    parent: imageGroup4,
+    intensity: .1,
+    image1: '/assets/images/lazarpepper.webp',
+    image2: '/assets/images/lazar/lazarhome1.webp',
+    displacementImage: '/assets/images/2.jpg',
+    imagesRatio: 1.1,
+  });
+}
+
