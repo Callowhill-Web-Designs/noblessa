@@ -21,3 +21,14 @@ if (imageGroup2) {
     displacementImage: '/assets/images/2.jpg',
   });
 }
+
+const imageGroup3 = document.querySelector('.cs-picture3');
+if (imageGroup3) {
+  new HoverEffect({
+    parent: imageGroup3,
+    intensity: .1,
+    image1: '/assets/images/walnutkitchen.webp',
+    image2: '/assets/images/whitekitchen.webp',
+    displacementImage: '/assets/images/2.jpg',
+  });
+}
