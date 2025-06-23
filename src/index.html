@@ -11,6 +11,9 @@ tags: "sitemap" # content/content.json will make sure that all pages in content/
     <!-- Critical styles are loaded first -->
     <link rel="stylesheet" href="/assets/css/critical.css"/>
 
+    <!-- Hover Effect Styles -->
+    <script defer type="module" src="assets/js/hover.js"></script>
+
     <!-- If we're in production, defer the rest of the home page styles. In development, always load it. Otherwise the site will break when hot-reload is used. -->
     {% if kit.isProduction %}
         <link rel="preload" href="/assets/css/local.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
@@ -84,16 +87,10 @@ tags: "sitemap" # content/content.json will make sure that all pages in content/
     <section id="sbs-2358">
         <div class="cs-container">
             <div class="cs-flex">
-                <div class="cs-image-group cs-image-group1">
+                <div class="cs-image-group">
                     <span class="cs-topper">What We Do</span>
                     <h2 class="cs-title">crafting every element with expertise</h2>
-                    <picture class="cs-picture cs-picture1">
-                        <!--Mobile Image-->
-                        <source media="(max-width: 600px)" srcset="assets/images/walnutkitchen.webp">
-                        <!--Tablet and above Image-->
-                        <source media="(min-width: 601px)" srcset="assets/images/walnutkitchen.webp">
-                        <img loading="lazy" decoding="async" src="assets/images/walnutkitchen.webp" alt="nice house" width="517" height="650">
-                    </picture>
+                    <div class="cs-picture cs-picture1"></div>
                     <a href="" class="cs-link">
                         <img class="cs-icon" loading="lazy" decoding="async" src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images/Icons/orange-up-right.svg" alt="icon" width="24" height="24">
                         The Lazar Project, Los Angeles
@@ -101,14 +98,8 @@ tags: "sitemap" # content/content.json will make sure that all pages in content/
                 </div>
             </div>
             <div class="cs-content">
-                <div class="cs-image-group cs-image-group2">
-                    <picture class="cs-picture cs-picture2">
-                        <!--Mobile Image-->
-                        <source media="(max-width: 600px)" srcset="/assets/images/whitekitchen.webp">
-                        <!--Tablet and above Image-->
-                        <source media="(min-width: 601px)" srcset="/assets/images/whitekitchen.webp">
-                        <img loading="lazy" decoding="async" src="/assets/images/whitekitchen.webp" alt="nice house" width="1215" height="660">
-                    </picture>
+                <div class="cs-image-group">
+                    <div class="cs-picture cs-picture2"></div>
                     <a href="" class="cs-link">
                         <img class="cs-icon" loading="lazy" decoding="async" src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images/Icons/orange-up-right.svg" alt="icon" width="24" height="24">
                         The Silva Project, NYC
@@ -119,8 +110,6 @@ tags: "sitemap" # content/content.json will make sure that all pages in content/
                 </p>
             </div>
         </div>
-        <div class="cs-hover-container"></div>
-        <script type="module" src="assets/js/hover.js"></script>
     </section>
                                   
     <!-- ============================================ -->
