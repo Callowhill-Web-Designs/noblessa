@@ -132,7 +132,7 @@
             justify-items: center;
 
             padding: 30px;
-            background-color: rgba(0,0,0,0.8);
+            background-color: rgba(0, 0, 0, 0.4);
             border-radius: 5px;
             position: absolute;
             /* top: 50%; */
@@ -144,12 +144,15 @@
             & .cs-title {
                 color: #fff;
                 text-transform: lowercase;
+                font-size: 64px;
                 letter-spacing: .1rem;
                 font-weight: 500;
+                margin-bottom: 20px;
             }
 
             & .cs-text {
                 color: #fff;
+                display:none;
             }
         }
 
@@ -278,7 +281,7 @@
             .cs-slider-item {
                 width: 240px;
                 height: 160px;
-                top: 50%;
+                top: 20%;
 
                 &:nth-child(1), &:nth-child(2) {
                     left: 0;
@@ -299,8 +302,9 @@
                 width: min(30vw,400px);
                 max-width: none;
                 margin: none;
-                top: 50%;
-                left: 10%;
+                top: 72%;
+                left: none;
+                right: 10%;
                 justify-items: flex-start;
             }
         }
