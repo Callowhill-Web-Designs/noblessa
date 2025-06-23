@@ -324,6 +324,7 @@
         overflow: hidden;
         position: relative;
         z-index: 1;
+        display: none;
         
         .cs-container {
             width: 100%;
@@ -535,7 +536,8 @@
         }
 
         .cs-stat-group {
-            display: grid;
+            display: none;
+            /* display: grid; */
             margin: 0 10px;
             grid-template-columns: 1fr 1fr;
             gap: 32px;
@@ -656,7 +658,8 @@
         }
 
         .cs-stat-group {
-            display: grid;
+            display: none;
+            /* display: grid; */
             grid-template-columns: repeat(2, 1fr);
         }
 
@@ -680,7 +683,8 @@
         }
 
         .cs-stat-group {
-            display: flex;
+            display: none;
+            /* display: flex; */
             flex-direction: row;
             justify-content: space-between;
             margin-left: 0px;
@@ -805,6 +809,7 @@
     #services-2346 {
         padding: var(--sectionPadding);
         padding-top: 0;
+        display: none;
 
         .cs-card-group {
             width: 100%;

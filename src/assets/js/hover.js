@@ -5,9 +5,10 @@ if (imageGroup1) {
   new HoverEffect({
     parent: imageGroup1,
     intensity: .1,
-    image1: '/assets/images/lazar/lazarhome2.webp',
+    image1: '/assets/images/lazarpepper.webp',
     image2: '/assets/images/lazar/lazarhome1.webp',
     displacementImage: '/assets/images/2.jpg',
+    imagesRatio: 1.1,
   });
 }
 
@@ -19,6 +20,7 @@ if (imageGroup2) {
     image1: '/assets/images/silva/silvahome1.webp',
     image2: '/assets/images/silva/silvahome2.webp',
     displacementImage: '/assets/images/2.jpg',
+    imagesRatio: .7,
   });
 }
 
