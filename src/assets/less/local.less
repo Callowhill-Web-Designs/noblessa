@@ -91,9 +91,8 @@
             }
 
         .cs-slider-item {
-            display: none;
             width: 200px;
-            height: 140px;
+            height: 0px;
             list-style-type: none;
             position: absolute;
             top: 78%;
@@ -217,7 +216,7 @@
 
             .cs-slider-item {
                 width: 320px;
-                height: 200px;
+                height: 0px;
 
                 &:nth-child(1), &:nth-child(2) {
                     left: 0;
@@ -292,7 +291,7 @@
 
             .cs-slider-item {
                 width: 240px;
-                height: 160px;
+                height: 0px;
                 top: 20%;
 
                 &:nth-child(1), &:nth-child(2) {
@@ -324,178 +323,15 @@
             }
         }
     }
-}
+}                        
 
 /*-- -------------------------- -->
-<---         Our Legacy         -->
-<--- -------------------------- -*/
-
-/* Mobile - 360px */
-@media only screen and (min-width: 0rem) {
-    #sbs-2369 {
-        padding: 120px 0;
-        /* clips anything overflowing */
-        overflow: hidden;
-        position: relative;
-        z-index: 1;
-        
-        .cs-container {
-            width: 100%;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            /* 48px - 64px */
-            gap: 60px;
-        }
-
-        .cs-content {
-            /* set text align to center if content needs to be centered */
-            text-align: left;
-            width: 100%;
-            max-width: (694/16rem);
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
-            /* left aligns content, set to center to align content horizontally */
-            align-items: left;
-            z-index: 10;
-        }
-
-        .cs-button-nodeco {
-            align-self: flex-start;
-        }
-
-        .cs-topper {
-            text-align: center;
-            margin: auto;
-        }
-
-        .cs-title {
-            text-align: center;
-            max-width: 40ch;
-            margin: auto;
-            /* 48px - 64px */
-            padding-bottom: 30px;
-            position: relative;
-            z-index: 1;
-        }
-
-        .cs-divider {
-            width: 100vw;
-            height: 1px;
-            background: #D2D8DF;
-            opacity: 1;
-            display: block;
-        }
-
-        .cs-text {
-            margin-bottom: (16/16rem);
-            padding-top: 30px;
-            padding: 30px 10px 0px 10px;
-            text-align: center;
-            width: 100%;
-
-            &:last-of-type {
-                /* 24px - 32px */
-                margin-bottom: clamp(1.5rem, 3vw, 2rem);
-            }
-        }
-
-        .cs-image-group {
-            /* scales the whole section down and ties the font size to the vw and stops at 75% of the vale of 1em, changes at desktop */
-            font-size:~"min(2.8vw, .75rem)";
-            /* everything inside this box is in ems so we can scale it all down proportionally with a font size */
-            width: 100%;
-            height: 60vh;
-            order: 2;
-            position: relative;
-            z-index: 1;
-        }
-
-        .cs-picture {
-            width: 100%;
-            height: 100%;
-            display: block;
-        }
-    }
-}
-
-/* Large Desktop - 1200px */
-@media only screen and (min-width: 75rem) {
-    #sbs-2369 {
-        .cs-container {
-            width: 100%;
-            flex-direction: row;
-            justify-content: stretch;
-            align-items: center;
-            position: relative;
-            z-index: 1;
-            gap: 120px;
-        }
-
-        .cs-content {
-            width: 50%;
-            align-items: flex-start;
-            overflow: visible;
-        }
-
-        .cs-topper, .cs-title {
-            text-align: left;
-            margin: 0;
-        }
-
-        .cs-text {
-            margin-bottom: (0rem);
-            padding-top: 0px;
-            padding: 30px 10px 0px 0px;
-            text-align: left;
-
-            &:last-of-type {
-                /* 24px - 32px */
-                margin-bottom: clamp(1.5rem, 3vw, 2rem);
-            }
-        }
-
-        .cs-divider {
-            width: 100%;
-            height: 1px;
-            background: #D2D8DF;
-            opacity: 1;
-            display: block;
-        }
-
-        .cs-image-group {
-            /* set to inherit at Large Desktop */
-            width: 50%;
-            order: -1;
-            overflow: hidden;
-        }
-
-        .cs-picture {
-            width: 100%;
-            display: flex;
-            justify-content: flex-start;
-            align-items: flex-end;
-            position: relative;
-            z-index: 1;
-
-            img {
-                width: 100%;
-                max-height: 600px;
-                object-fit: cover;
-            }
-        }
-    }
-}
-                                
-
-/*-- -------------------------- -->
-<---         What We Do         -->
+<---        Our Clients         -->
 <--- -------------------------- -*/
 
 /* Mobile */
 @media only screen and (min-width: 0rem) {
-    #sbs-2358 {
+    #our-clients {
         padding: 120px 0;
 
         .cs-hover-container {
@@ -528,6 +364,7 @@
             display: flex;
             flex-direction: column;
             gap: 30px;
+            padding-top: 120px;
         }
 
         .cs-text-content {
@@ -535,7 +372,7 @@
             text-align: center;
             width: 100%;
             max-width: (640/16rem);
-            margin: auto;
+            margin: 0 auto;
             overflow: hidden;
             display: flex;
             flex-direction: column;
@@ -676,7 +513,7 @@
 
 /* Tablet - 768px */
 @media only screen and (min-width: 48rem) {
-    #sbs-2358 {
+    #our-clients {
         .cs-container {
             max-width: (1800/16rem);
             flex-direction: row;
@@ -703,15 +540,15 @@
 
         .cs-picture2 {
             max-height: 100%;
-            /* 480px - 660px */
-            height: 480px;
+            /* 480px - 640px */
+            height: clamp(30rem, 60vw, 40rem);
         }
     }
 }
 
 /* Small Desktop - 1024px */
 @media only screen and (min-width: 64rem) {
-    #sbs-2358 {
+    #our-clients {
         .cs-stat-group {
             display: none;
             /* display: flex; */
@@ -754,3 +591,166 @@
         }
     }
 }
+
+/*-- -------------------------- -->
+<---         Our Legacy         -->
+<--- -------------------------- -*/
+
+/* Mobile - 360px */
+@media only screen and (min-width: 0rem) {
+    #our-legacy {
+        padding: 120px 0;
+        /* clips anything overflowing */
+        overflow: hidden;
+        position: relative;
+        z-index: 1;
+        
+        .cs-container {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            /* 48px - 64px */
+            gap: 60px;
+        }
+
+        .cs-content {
+            /* set text align to center if content needs to be centered */
+            text-align: left;
+            width: 100%;
+            max-width: (694/16rem);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            /* left aligns content, set to center to align content horizontally */
+            align-items: left;
+            z-index: 10;
+        }
+
+        .cs-button-nodeco {
+            align-self: flex-start;
+        }
+
+        .cs-topper {
+            text-align: center;
+            margin: auto;
+        }
+
+        .cs-title {
+            text-align: center;
+            max-width: 40ch;
+            margin: auto;
+            /* 48px - 64px */
+            padding-bottom: 30px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .cs-divider {
+            width: 100vw;
+            height: 1px;
+            background: #D2D8DF;
+            opacity: 1;
+            display: block;
+        }
+
+        .cs-text {
+            margin-bottom: (16/16rem);
+            padding-top: 30px;
+            padding: 30px 10px 0px 10px;
+            text-align: center;
+            width: 100%;
+
+            &:last-of-type {
+                /* 24px - 32px */
+                margin-bottom: clamp(1.5rem, 3vw, 2rem);
+            }
+        }
+
+        .cs-image-group {
+            /* scales the whole section down and ties the font size to the vw and stops at 75% of the vale of 1em, changes at desktop */
+            font-size:~"min(2.8vw, .75rem)";
+            /* everything inside this box is in ems so we can scale it all down proportionally with a font size */
+            width: 100%;
+            height: 60vh;
+            order: 2;
+            position: relative;
+            z-index: 1;
+        }
+
+        .cs-picture {
+            width: 100%;
+            height: 100%;
+            display: block;
+        }
+    }
+}
+
+/* Large Desktop - 1200px */
+@media only screen and (min-width: 75rem) {
+    #our-legacy {
+        .cs-container {
+            width: 100%;
+            flex-direction: row;
+            justify-content: stretch;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+            gap: 120px;
+        }
+
+        .cs-content {
+            width: 50%;
+            align-items: flex-start;
+            overflow: visible;
+        }
+
+        .cs-topper, .cs-title {
+            text-align: left;
+            margin: 0;
+        }
+
+        .cs-text {
+            margin-bottom: (0rem);
+            padding-top: 0px;
+            padding: 30px 10px 0px 0px;
+            text-align: left;
+
+            &:last-of-type {
+                /* 24px - 32px */
+                margin-bottom: clamp(1.5rem, 3vw, 2rem);
+            }
+        }
+
+        .cs-divider {
+            width: 100%;
+            height: 1px;
+            background: #D2D8DF;
+            opacity: 1;
+            display: block;
+        }
+
+        .cs-image-group {
+            /* set to inherit at Large Desktop */
+            width: 50%;
+            order: -1;
+            overflow: hidden;
+        }
+
+        .cs-picture {
+            width: 100%;
+            display: flex;
+            justify-content: flex-start;
+            align-items: flex-end;
+            position: relative;
+            z-index: 1;
+
+            img {
+                width: 100%;
+                max-height: 600px;
+                object-fit: cover;
+            }
+        }
+    }
+}
+        
