@@ -530,8 +530,21 @@
             gap: 30px;
         }
 
+        .cs-text-content {
+            /* set text align to center if content needs to be centered */
+            text-align: center;
+            width: 100%;
+            max-width: (640/16rem);
+            margin: auto;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            /* left aligns content, set to center to align content horizontally */
+            align-items: left;
+            z-index: 10;
+        }
+
         .cs-topper {
-            margin-bottom: (24/16rem);
             text-align: center;
             max-width: 20ch;
             margin: auto;
@@ -542,12 +555,19 @@
             text-align: center;
             max-width: 20ch;
             margin: auto;
-            /* 48px - 64px */
-            padding-bottom: 60px;
+            padding-bottom: 30px;
             position: relative;
             z-index: 1;
         }
 
+        .cs-divider {
+            width: 100vw;
+            height: 1px;
+            background: #D2D8DF;
+            opacity: 1;
+            display: block;
+        }
+        
         .cs-text {
             max-width: (954/16rem);
             text-align: center;
@@ -681,14 +701,10 @@
             grid-template-columns: repeat(2, 1fr);
         }
 
-        .cs-topper {
-            margin-bottom: (24/16rem);
-        }
-
         .cs-picture2 {
             max-height: 100%;
             /* 480px - 660px */
-            height: clamp(30rem, 60vw, 42.5rem);
+            height: 480px;
         }
     }
 }
@@ -722,6 +738,11 @@
             padding: 0px 0px;
             margin-top: 20px;
         }
+
+        .cs-center {
+            text-align: center;
+        }
+        
 
         .cs-number {
             /* 32px - 64px */
