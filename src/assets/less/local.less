@@ -12,7 +12,7 @@
 /* Mobile - 360px */
 @media only screen and (min-width: 0rem) {
     #transform-gallery {
-        padding: 120px 0;
+        padding: 120px 0 0 0;
         /* clips anything overflowing */
         overflow: hidden;
         position: relative;
@@ -723,6 +723,10 @@
             margin-top: 20px;
         }
 
+        .cs-right {
+            text-align: right;
+        }
+
         .cs-number {
             /* 32px - 64px */
             font-size: clamp(2.0rem, 4vw, 4rem);
@@ -756,7 +760,7 @@
             flex-direction: column;
             align-items: center;
             /* 48px - 64px */
-            gap: clamp(3rem, 6vw, 4rem);
+            gap: 30px;
         }
 
         .cs-content {
@@ -839,7 +843,7 @@
         .cs-container {
             flex-direction: row;
             align-items: stretch;
-            justify-content: space-between;
+            justify-content: space-around;
         }
 
         .cs-content {

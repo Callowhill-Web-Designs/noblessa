@@ -5,7 +5,7 @@ if (imageGroup1) {
   new HoverEffect({
     parent: imageGroup1,
     intensity: .1,
-    image1: '/assets/images/lazar/lazarpepper.webp',
+    image1: '/assets/images/lazar/lazarhome2.webp',
     image2: '/assets/images/lazar/lazarhome1.webp',
     displacementImage: '/assets/images/2.jpg',
     imagesRatio: 1.1,
