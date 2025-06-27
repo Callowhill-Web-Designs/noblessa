@@ -32,7 +32,7 @@
         --headerFontSize: clamp(1.9375rem, 3.9vw, 3.0625rem);
         --bodyFontSize: 1rem;
         /* 60px - 100px top and bottom */
-        --sectionPadding: clamp(3.75rem, 7.82vw, 6.25rem) 1rem;
+        --sectionPadding: 120px 1rem;
 
         --headerFont: "Simplifica", Arial, sans-serif;
         --bodyFont: "Open Sans", Arial, sans-serif;
@@ -203,14 +203,16 @@
         cursor: pointer;
         color:#fff;
         align-self: center;
+        text-decoration: none;
 
         .cs-hover-underline-white {
             padding-bottom: 7px;
             letter-spacing: 4px;
-            font-size: 14px;
+            font-size: 16px;
             padding-right: 15px;
             text-transform: uppercase;
             text-decoration: none;
+            font-family: var(--bodyFont);
             color: #fff;
 
             &:before {
@@ -246,12 +248,13 @@
         position: relative;
         display: inline-block;
         width: auto;
-        padding: (16/16rem) (32/16rem);
-        text-decoration: none;
+        letter-spacing: 4px;
+        font-size: 16px;
         text-transform: uppercase;
-        font-size: (16/16rem);
+        text-decoration: none;
+        font-family: var(--bodyFont);
+        padding: (16/16rem) (32/16rem);
         line-height: (16/16em);
-        font-weight: bold;
         border: 2px solid #000;
 
         // Transition Properties
@@ -312,11 +315,6 @@
         .cs-dark,
         .dark {
             display: block !important;
-        }
-
-        .cs-button-outline {
-            border-color: #fff;
-            color: #fff;
         }
     }
 }
@@ -1001,45 +999,6 @@ html {
                 }
             }
         }
-
-        .cs-button-solid {
-            font-size: (16/16rem);
-            /* 46px - 56px */
-            line-height: clamp(2.875em, 5.5vw, 3.5em);
-            text-decoration: none;
-            font-weight: 700;
-            text-align: center;
-            margin: 0;
-            color: #fff;
-            min-width: (150/16rem);
-            padding: 0 (32/16rem);
-            background-color: transparent;
-            border: 1px solid var(--primary);
-            display: inline-block;
-            position: relative;
-            z-index: 1;
-            /* prevents padding from adding to the width */
-            box-sizing: border-box;
-
-            &:before {
-                content: "";
-                position: absolute;
-                height: 100%;
-                width: 0%;
-                background: var(--primary);
-                opacity: 1;
-                top: 0;
-                left: 0;
-                z-index: -1;
-                transition: width 0.3s;
-            }
-
-            &:hover {
-                &:before {
-                    width: 100%;
-                }
-            }
-        }
     }
 }
                                                       
@@ -1053,7 +1012,7 @@ html {
     #banner-2285{
         padding: var(--sectionPadding);
         /* 190px - 280px */
-        padding-top: clamp(11.875rem, 25vw, 17.5rem);
+        padding-top: 200px;
         padding-bottom: (0/16rem);
         /* clips the line from causing overflow issues for going off screen */
         overflow: hidden;
@@ -1074,13 +1033,14 @@ html {
 
         .cs-int-title {
             /* 39px - 61px */
-            font-size: clamp(2.4375rem, 6.4vw, 3.8125rem);
+            font-size: 64px;
             font-weight: 700;
             line-height: 1.2em;
             text-align: inherit;
             margin: 0 0 (16/16rem);
             color: var(--bodyTextColorWhite);
             position: relative;
+            font-family: var(--headerFont);
         }
 
         .cs-text {
