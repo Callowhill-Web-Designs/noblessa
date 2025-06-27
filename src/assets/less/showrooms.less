@@ -6,17 +6,16 @@
 // ─────────────────────────────────────────────────────────────────────────────
 
 /*-- -------------------------- -->
-<---          Reviews           -->
+<---         Showrooms          -->
 <--- -------------------------- -*/
 
 /* Mobile - 360px */
 @media only screen and (min-width: 0rem) {
-    #reviews-67 {
-        padding: var(--sectionPadding);
+    #showrooms-67 {
+        padding: 120px 30px;
 
         .cs-container {
             width: 100%;
-            max-width: (1280/16rem);
             margin: auto;
             display: flex;
             flex-direction: column;
@@ -26,57 +25,101 @@
         }
 
         .cs-content {
-            /* set text align to left if content needs to be left aligned */
-            text-align: center;
             width: 100%;
+            height: 100%;
             display: flex;
             flex-direction: column;
-            /* centers content horizontally, set to flex-start to left align */
+            justify-content: space-between;
             align-items: center;
+            mix-blend-mode: difference;
+            filter: drop-shadow(0px 0px 10px white);
         }
 
         .cs-card-group {
+            width: 100%;
             padding: 0;
             margin: 0;
-            display: grid;
-            column-gap: (20/16rem);
-            row-gap: (64/16rem);
-            width: 100%;
-            grid-template-columns: repeat(12, 1fr);
+            display: flex;
+            flex-direction: row;
+            gap: 30px;
         }
 
         .cs-item {
-            grid-column: span 12;
-            text-align: left;
             list-style: none;
             width: 100%;
-            /* pushes up the same amount the cs-item-img overlaps the card */
-            margin: (40/16rem) 0 0 0;
-            /* Padding L & R - 16px - 32px */
-            padding: (60/16rem) clamp(1rem, 3.2vw, 2rem) 0;
-            /* 32px - 40px */
-            padding-bottom: clamp(2rem, 5.4vw, 2.5rem);
-            box-shadow: 0px 20px 39px 0px rgba(0, 0, 0, 0.05);
+            height: 50vh;
+            padding: 30px;
             border-radius: (4/16rem);
-            background: #fff;
             position: relative;
             display: flex;
+            flex-direction: column;
             justify-content: space-between;
-            flex-wrap: wrap;
             align-items: center;
+            overflow: hidden;
             /* Prevents padding from affecting height & width */
             box-sizing: border-box;
 
-            &:last-of-type {
-                margin-bottom: 0;
+            &:hover {
+                .cs-item-background {
+                    transform: scale(1.1);
+                }
             }
         }
 
-        .cs-item-img {
-            width: (80/16rem);
-            height: (80/16rem);
+        .cs-item-background {
+            width: 100%;
+            height: 100%;
+            display: block;
             position: absolute;
-            top: (-40/16rem);
+            top: 0;
+            left: 0;
+            z-index: -1;
+            transition: transform 0.6s;
+
+            &:before {
+                /* background color overlay */
+                content: "";
+                position: absolute;
+                display: block;
+                height: 100%;
+                width: 100%;
+                background: linear-gradient(rgba(0, 0, 0, 0.6) 10%, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, .8) 90%);
+                top: 0;
+                left: 0;
+                z-index: 1;
+            }
+
+            img {
+                position: absolute;
+                top: 0;
+                left: 0;
+                height: 100%;
+                width: 100%;
+                /* Makes img tag act as a background image */
+                object-fit: cover;
+                z-index: -1;
+            }
+        }
+
+        .cs-title {
+            color: #fff;
+            text-transform: lowercase;
+            font-size: 90px;
+            letter-spacing: .1rem;
+            font-weight: 600;
+        }
+
+        .cs-li-link {
+            font-size: 20px;
+            line-height: 1.5em;
+            color: var(--bodyTextColorWhite);
+            text-decoration: none;
+            text-align: center;
+
+            &:hover {
+                text-decoration: underline;
+                color: var(--linkHoverColor);
+            }
         }
 
         .cs-item-text {
@@ -128,7 +171,7 @@
 
 /* Tablet - 768px */
 @media only screen and (min-width: 48rem) {
-    #reviews-67 {
+    #showrooms-67 {
         .cs-item {
             grid-column: span 6;
         }
@@ -137,31 +180,9 @@
 
 /* Desktop - 1024px */
 @media only screen and (min-width: 64rem) {
-    #reviews-67 {
+    #showrooms-67 {
         .cs-item {
             grid-column: span 4;
-        }
-    }
-}
-
-/* Dark Mode */
-@media only screen and (min-width: 0rem) {
-    body.dark-mode {
-        #reviews-67 {
-            .cs-title,
-            .cs-text,
-            .cs-item-text,
-            .cs-name {
-                color: var(--bodyTextColorWhite);
-            }
-
-            .cs-item {
-                background: rgba(0, 0, 0, 0.2);
-            }
-
-            .cs-desc {
-                color: var(--primaryLight);
-            }
         }
     }
 }
