@@ -8,8 +8,6 @@ permalink: "/contact/"
 
 {% block head %}
     <link rel="stylesheet" href="/assets/css/contact.css">
-    <link rel="preload" as="image" href="{% getUrl "/assets/images/cabinets.jpg" | resize({ width: 640, height: 600 }) | avif %}"/>
-    <link rel="preload" as="image" href="{% getUrl "/assets/images/construction.jpg" | resize({ width: 576, height: 640 }) | avif %}"/>
 {% endblock %}
 
 {% block body %}
@@ -18,29 +16,24 @@ permalink: "/contact/"
     <!--                   Banner                     -->
     <!-- ============================================ -->
 
-    <div id="banner-310">
+    <div id="banner-2285">
         <div class="cs-container">
             <span class="cs-int-title">Contact Us</span>
+            <p class="cs-text">
+                Contact a noblessa designer through our form at any of our US showrooms and get answers to your questions.
+            </p>
             <div class="cs-breadcrumbs">
                 <a href="/" class="cs-link">Home</a>
-                <a href="/contact/" class="cs-link cs-active">Contact Us</a>
+                <a href="/contact" class="cs-link cs-active">Contact</a>
             </div>
         </div>
         <!--Background Image-->
         <picture class="cs-background">
             <!--Mobile Image-->
-            <source media="(max-width: 600px)" srcset="{% getUrl "/assets/images/cabinets.jpg" | resize({ width: 640, height: 600 }) | avif %}" type="image/avif">
-            <source media="(max-width: 600px)" srcset="{% getUrl "/assets/images/cabinets.jpg" | resize({ width: 640, height: 600 }) | webp %}" type="image/webp">
-            <source media="(max-width: 600px)" srcset="{% getUrl "/assets/images/cabinets.jpg" | resize({ width: 640, height: 600 }) | jpeg %}" type="image/jpeg">
-            <!--Tablet Image-->
-            <source media="(max-width: 1024px)" srcset="{% getUrl "/assets/images/cabinets.jpg" | resize({ width: 2048, height: 942 }) | avif %}" type="image/avif">
-            <source media="(max-width: 1024px)" srcset="{% getUrl "/assets/images/cabinets.jpg" | resize({ width: 2048, height: 942 }) | webp %}" type="image/webp">
-            <source media="(max-width: 1024px)" srcset="{% getUrl "/assets/images/cabinets.jpg" | resize({ width: 2048, height: 942 }) | jpeg %}" type="image/jpeg">
-            <!--Desktop Image-->
-            <source media="(min-width: 1024px)" srcset="{% getUrl "/assets/images/cabinets.jpg" | resize({ width: 2500, height: 628 }) | avif %}" type="image/avif">
-            <source media="(min-width: 1024px)" srcset="{% getUrl "/assets/images/cabinets.jpg" | resize({ width: 2500, height: 628 }) | webp %}" type="image/webp">
-            <source media="(min-width: 1024px)" srcset="{% getUrl "/assets/images/cabinets.jpg" | resize({ width: 2500, height: 628 }) | jpeg %}" type="image/jpeg">
-            <img src="{% getUrl "/assets/images/cabinets.jpg" | resize({ width: 2500, height: 628 }) | jpeg %}" alt="library" width="1920" height="482" loading="eager" decoding="async">
+            <source media="(max-width: 600px)" srcset="../../assets/images/collections/riva/riva1.webp">
+            <!--Tablet and above Image-->
+            <source media="(min-width: 601px)" srcset="../../assets/images/collections/riva/riva1.webp">
+            <img decoding="async" src="../../assets/images/collections/riva/riva1.webp" alt="" width="1280" height="568" aria-hidden="true">
         </picture>
     </div>
 
@@ -60,7 +53,7 @@ permalink: "/contact/"
                 </div>
                 <form id="cs-form-265" name="Contact Form" method="post">
                     <label>
-                        Name
+                        Full Name
                         <input required type="text" id="name-265" name="name" placeholder="Name">
                     </label>
                     <label>
@@ -72,8 +65,8 @@ permalink: "/contact/"
                         <input required type="text" id="phone-265" name="phone" placeholder="Phone">
                     </label>
                     <label>
-                        How Did You Find Us
-                        <input type="text" id="find-265" name="find-us" placeholder="How did you find us?">
+                        Zip/Postal Code (US Only)
+                        <input type="text" id="zip-265" name="zip" placeholder="Zip/Postal Code">
                     </label>
                     <label class="cs-label-message">
                         Message
@@ -100,18 +93,10 @@ permalink: "/contact/"
                 <!-- Background Image-->
                 <picture class="cs-bg-picture">
                     <!--Mobile Image-->
-                    <source media="(max-width: 600px)" srcset="{% getUrl "/assets/images/construction.jpg" | resize({ width: 576, height: 640 }) | avif %}" type="image/avif">
-                    <source media="(max-width: 600px)" srcset="{% getUrl "/assets/images/construction.jpg" | resize({ width: 576, height: 640 }) | webp %}" type="image/webp">
-                    <source media="(max-width: 600px)" srcset="{% getUrl "/assets/images/construction.jpg" | resize({ width: 576, height: 640 }) | jpeg %}" type="image/jpeg">
-                    <!--Tablet Image-->
-                    <source media="(max-width: 1024px)" srcset="{% getUrl "/assets/images/construction.jpg" | resize({ width: 820, height: 1372 }) | avif %}" type="image/avif">
-                    <source media="(max-width: 1024px)" srcset="{% getUrl "/assets/images/construction.jpg" | resize({ width: 820, height: 1372 }) | webp %}" type="image/webp">
-                    <source media="(max-width: 1024px)" srcset="{% getUrl "/assets/images/construction.jpg" | resize({ width: 820, height: 1372 }) | jpeg %}" type="image/jpeg">
-                    <!--Desktop Image-->
-                    <source media="(min-width: 1024px)" srcset="{% getUrl "/assets/images/construction.jpg" | resize({ width: 1084, height: 1156 }) | avif %}" type="image/avif">
-                    <source media="(min-width: 1024px)" srcset="{% getUrl "/assets/images/construction.jpg" | resize({ width: 1084, height: 1156 }) | webp %}" type="image/webp">
-                    <source media="(min-width: 1024px)" srcset="{% getUrl "/assets/images/construction.jpg" | resize({ width: 1084, height: 1156 }) | jpeg %}" type="image/jpeg">
-                    <img src="{% getUrl "/assets/images/construction.jpg" | resize({ width: 1084, height: 1156 }) | jpeg %}" alt="building" width="542" height="578" decoding="async">
+                    <source media="(max-width: 600px)" srcset="../../assets/images/collections/divine/divine1.webp">
+                    <!--Tablet and above Image-->
+                    <source media="(min-width: 601px)" srcset="../../assets/images/collections/divine/divine1.webp">
+                    <img decoding="async" src="../../assets/images/collections/divine/divine1.webp" alt="" width="1280" height="568" aria-hidden="true">
                 </picture>
             </div>
         </div>
