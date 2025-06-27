@@ -12,7 +12,7 @@
 /* Mobile - 360px */
 @media only screen and (min-width: 0rem) {
     #transform-gallery {
-        padding: 60px 0;
+        padding: 120px 0;
         /* clips anything overflowing */
         overflow: hidden;
         position: relative;
@@ -23,11 +23,11 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 60px;
         }
 
         .cs-section-header {
             display: flex;
+            padding-bottom: 120px;
             flex-direction: column;
             align-items: center;
             max-width: (694/16rem);
@@ -333,7 +333,7 @@
 /* Mobile - 360px */
 @media only screen and (min-width: 0rem) {
     #sbs-2369 {
-        padding: 60px 0;
+        padding: 120px 0;
         /* clips anything overflowing */
         overflow: hidden;
         position: relative;
@@ -357,8 +357,12 @@
             display: flex;
             flex-direction: column;
             /* left aligns content, set to center to align content horizontally */
-            align-items: center;
+            align-items: left;
             z-index: 10;
+        }
+
+        .cs-button-nodeco {
+            align-self: flex-start;
         }
 
         .cs-topper {
@@ -492,7 +496,7 @@
 /* Mobile */
 @media only screen and (min-width: 0rem) {
     #sbs-2358 {
-        padding: 60px 0;
+        padding: 120px 0;
 
         .cs-hover-container {
             margin-top: 100px;
@@ -593,15 +597,6 @@
             display: block;
             position: relative;
             z-index: 1;
-
-            img {
-                width: 100%;
-                height: 100%;
-                object-fit: cover;
-                position: absolute;
-                top: 0;
-                left: 0;
-            }
         } 
 
         .cs-image-group {
@@ -615,6 +610,10 @@
 
         .cs-picture2 {
             height: 132vw;
+        }
+
+        .cs-picture4 {
+            height: 110vw;
         }
 
         .cs-link {
@@ -648,7 +647,7 @@
         }
 
         .cs-icon {
-            width: (24/16rem);
+            width: 24px;
             height: auto;
             display: block;
         }
@@ -664,8 +663,12 @@
             justify-content: space-between;
         }
 
+        .cs-content {
+            width: 50%;
+        }
+
         .cs-flex {
-            width: 53%;
+            width: 25%;
             max-width: (457/16rem);
             flex: none;
             justify-content: space-between;
@@ -717,6 +720,7 @@
         .cs-text {
             text-align: left;
             padding: 0px 0px;
+            margin-top: 20px;
         }
 
         .cs-number {
