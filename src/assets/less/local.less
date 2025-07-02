@@ -765,7 +765,7 @@
 /* Mobile - 360px */
 @media only screen and (min-width: 0rem) {
     #our-legacy {
-        padding: 60px 0;
+        padding: 60px 0 0 0;
         /* clips anything overflowing */
         overflow: hidden;
         position: relative;
@@ -802,7 +802,7 @@
 
         .cs-title {
             text-align: center;
-            max-width: 40ch;
+            max-width: 20ch;
             margin: auto;
             /* 48px - 64px */
             padding-bottom: 30px;
@@ -860,6 +860,8 @@
 /* Large Desktop - 1200px */
 @media only screen and (min-width: 75rem) {
     #our-legacy {
+        padding: 60px 0 120px 0;
+
         .cs-container {
             width: 100%;
             flex-direction: row;
@@ -891,6 +893,10 @@
                 /* 24px - 32px */
                 margin-bottom: clamp(1.5rem, 3vw, 2rem);
             }
+        }
+
+        .cs-title {
+            max-width: 40ch;
         }
 
         .cs-divider {
