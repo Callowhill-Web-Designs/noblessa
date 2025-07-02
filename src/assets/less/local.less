@@ -12,7 +12,7 @@
 /* Mobile - 360px */
 @media only screen and (min-width: 0rem) {
     #transform-gallery {
-        padding: 120px 0 0 0;
+        padding: 60px 0 0 0;
         /* clips anything overflowing */
         overflow: hidden;
         position: relative;
@@ -27,7 +27,7 @@
 
         .cs-section-header {
             display: flex;
-            padding-bottom: 120px;
+            padding-bottom: 60px;
             flex-direction: column;
             align-items: center;
             max-width: (694/16rem);
@@ -69,15 +69,10 @@
         }
 
         .cs-text {
-            margin-bottom: (16/16rem);
+            margin-bottom: 30px;
             padding: 0px 10px;
             width: 100%;
             text-align: center;
-
-            &:last-of-type {
-                /* 24px - 32px */
-                margin-bottom: clamp(1.5rem, 3vw, 2rem);
-            }
         }
 
         .cs-button-nodeco {
@@ -214,7 +209,12 @@
 /* Tablet - 768px */
 @media only screen and (min-width: 48rem) {
     #transform-gallery {
+        padding: 120px 0 0 0;
         /* Transform Gallery Styling */
+        .cs-section-header {
+            padding-bottom: 120px;
+        }
+
         .cs-transform-gallery {
 
             .cs-slider-item {
@@ -341,7 +341,7 @@
 /* Mobile */
 @media only screen and (min-width: 0rem) {
     #our-clients {
-        padding: 120px 0;
+        padding: 60px 0;
 
         .cs-hover-container {
             margin-top: 100px;
@@ -358,7 +358,7 @@
             margin: auto;
             display: flex;
             flex-direction: column;
-            gap: 30px;
+            gap: 0px;
         }
 
         .cs-content {
@@ -366,17 +366,49 @@
             max-width: (1215/16rem);
             display: flex;
             flex-direction: column;
-            gap: 30px;
+            gap: 60px;
+            order: 0;
         }
 
         .cs-flex {
             display: flex;
             flex-direction: column;
             gap: 30px;
-            padding-top: 120px;
+            padding-top: 0px;
+            order: 1;
+
+            .cs-image-group {
+                margin-top: 60px;
+            }
+        }
+
+        .cs-flex-reverse {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            padding-top: 0px;
+            order: 1;
+
+            .cs-image-group {
+            margin-top: 60px;
+        }
         }
 
         .cs-text-content {
+            /* set text align to center if content needs to be centered */
+            text-align: center;
+            width: 100%;
+            max-width: (640/16rem);
+            margin: 0 auto;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            /* left aligns content, set to center to align content horizontally */
+            align-items: left;
+            z-index: 10;
+        }
+
+        .cs-text-content-flex {
             /* set text align to center if content needs to be centered */
             text-align: center;
             width: 100%;
@@ -401,7 +433,6 @@
             text-align: center;
             max-width: 20ch;
             margin: auto;
-            padding-bottom: 30px;
             position: relative;
             z-index: 1;
         }
@@ -410,6 +441,7 @@
             width: 100vw;
             height: 1px;
             background: #D2D8DF;
+            margin: 30px 0px;
             opacity: 1;
             display: block;
         }
@@ -418,6 +450,7 @@
             max-width: (954/16rem);
             text-align: center;
             padding: 0 10px;
+            order: 0;
         }
 
         .cs-stat-group {
@@ -463,10 +496,14 @@
             display: block;
             position: relative;
             z-index: 1;
+            order: 2;
         } 
 
         .cs-image-group {
             position: relative;
+            display: flex;
+            flex-direction: column;
+            gap: 60px;
             z-index: 1;
         }
 
@@ -523,28 +560,67 @@
 /* Tablet - 768px */
 @media only screen and (min-width: 48rem) {
     #our-clients {
+        padding: 120px 0 60px 0;
+
         .cs-container {
-            max-width: (1800/16rem);
+            width: 100%;
+            max-width: (1215/16rem);
+            margin: auto;
+        }
+
+        .cs-flex-reverse {
+            .cs-image-group {
+                flex-direction: row-reverse;
+            }
+        }
+
+        .cs-image-group {
             flex-direction: row;
             justify-content: space-between;
+            align-items: center;
+            gap: 30px;
         }
 
-        .cs-content {
-            width: 50%;
+        .cs-text-content {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            z-index: 10;
+            margin: auto; 
         }
 
-        .cs-flex {
-            width: 25%;
-            max-width: (457/16rem);
-            flex: none;
-            justify-content: space-between;
-            gap: 0;
+        .cs-text-content-flex {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            z-index: 10;
+            margin: 0 10px;
         }
 
-        .cs-stat-group {
-            display: none;
-            /* display: grid; */
-            grid-template-columns: repeat(2, 1fr);
+        .cs-text {
+            text-align: center;
+            padding: 0px 0px;
+            order: none;
+        }
+
+        .cs-center {
+            text-align: center;
+        }
+
+        .cs-right {
+            text-align: center;
+        }
+
+        .cs-picture {
+            width: 100%;
+        }
+
+        .cs-picture1 {
+            height: 50vw;
+        }
+
+        .cs-picture4 {
+            height: 50vw;
         }
 
         .cs-picture2 {
@@ -555,9 +631,68 @@
     }
 }
 
-/* Small Desktop - 1024px */
-@media only screen and (min-width: 64rem) {
+/* Large Desktop - 1024px */
+@media only screen and (min-width: 80rem) {
     #our-clients {
+        padding: 120px 0;
+        .cs-container {
+            max-width: (1800/16rem);
+            flex-direction: row;
+            justify-content: space-between;
+            gap: 30px;
+        }
+
+        .cs-content {
+            width: 45%;
+            order: 1;
+
+            .cs-text-content {
+                .cs-title {
+                    display: block;
+                }
+                .cs-divider {
+                    display: block;
+                }
+            }
+        }
+
+        .cs-flex {
+            width: 25%;
+            max-width: (457/16rem);
+            padding-top: 120px;
+            flex: none;
+            justify-content: space-between;
+            gap: 0;
+            order: none;
+
+            .cs-image-group {
+                margin: none;
+                margin-top: 0px;
+                margin-left: 10px;
+                flex-direction: column;
+            }
+        }
+
+        .cs-flex-reverse {
+            .cs-image-group {
+                margin: none;
+                margin-top: 0px;
+                margin-right: 10px;
+                flex-direction: column;
+            }
+        }
+
+        .cs-text-content {
+            margin: 0px auto;
+        }
+
+        .cs-image-group {
+            flex-direction: column;
+            align-items: center;
+            gap: 30px;
+            margin-top: 0px;
+        }
+
         .cs-stat-group {
             display: none;
             /* display: flex; */
@@ -575,21 +710,10 @@
             align-items: flex-start;
         }
 
-        .cs-text {
-            text-align: left;
-            padding: 0px 0px;
-            margin-top: 30px;
-        }
-
-        .cs-center {
-            text-align: center;
-        }
-
-        .cs-right {
-            text-align: right;
-        }
+        .cs-picture {
+            order: 0;
+        } 
         
-
         .cs-number {
             /* 32px - 64px */
             font-size: clamp(2.0rem, 4vw, 4rem);
@@ -597,6 +721,39 @@
 
         .cs-desc {
             text-align: left;
+        }
+
+        .cs-right {
+            text-align: right;
+        }
+
+        .cs-left{
+            text-align: left;
+        }
+
+        .cs-title {
+            display: none;
+        }
+
+        .cs-divider {
+            display: none;
+        }
+
+        .cs-picture {
+            width: 100%;
+        }
+
+        .cs-picture1 {
+            height: 110vw;
+        }
+
+        .cs-picture2 {
+            height: clamp(30rem, 60vw, 40rem);
+            max-height: 100%;
+        }
+
+        .cs-picture4 {
+            height: 110vw;
         }
     }
 }
@@ -608,7 +765,7 @@
 /* Mobile - 360px */
 @media only screen and (min-width: 0rem) {
     #our-legacy {
-        padding: 120px 0;
+        padding: 60px 0;
         /* clips anything overflowing */
         overflow: hidden;
         position: relative;
@@ -624,20 +781,18 @@
         }
 
         .cs-content {
-            /* set text align to center if content needs to be centered */
-            text-align: left;
+            text-align: center;
             width: 100%;
             max-width: (694/16rem);
             overflow: hidden;
             display: flex;
             flex-direction: column;
-            /* left aligns content, set to center to align content horizontally */
-            align-items: left;
+            align-items: center;
             z-index: 10;
         }
 
         .cs-button-nodeco {
-            align-self: flex-start;
+            align-self: center;
         }
 
         .cs-topper {
@@ -692,6 +847,13 @@
             height: 100%;
             display: block;
         }
+    }
+}
+
+/* Tablet - 768px */
+@media only screen and (min-width: 48rem) {
+    #our-legacy {
+        padding: 60px 0 0px 0;
     }
 }
 
@@ -759,6 +921,10 @@
                 max-height: 600px;
                 object-fit: cover;
             }
+        }
+
+        .cs-button-nodeco {
+            align-self: flex-start;
         }
     }
 }
