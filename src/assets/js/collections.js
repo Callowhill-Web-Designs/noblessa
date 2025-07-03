@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const targetSection = document.getElementById(targetId);
             
             if (targetSection) {
-                const offsetTop = targetSection.offsetTop - 140; // Account for sticky nav
+                const offsetTop = targetSection.offsetTop - 180; // Account for sticky nav
                 window.scrollTo({
                     top: offsetTop,
                     behavior: 'smooth'
@@ -43,13 +43,13 @@ document.addEventListener('DOMContentLoaded', function() {
                     
                     // Remove active class from all navigation links
                     navLinks.forEach(link => {
-                        link.classList.remove('active');
+                        link.classList.remove('cs-nav-active');
                     });
                     
                     // Add active class to corresponding navigation link
                     const activeLink = document.querySelector(`[data-section="${sectionId}"]`);
                     if (activeLink) {
-                        activeLink.classList.add('active');
+                        activeLink.classList.add('cs-nav-active');
                     }
                 }
             }
@@ -65,7 +65,7 @@ document.addEventListener('DOMContentLoaded', function() {
     let ticking = false;
     
     function updateActiveNavigation() {
-        const scrollPosition = window.scrollY + 200; // Account for sticky nav offset
+        const scrollPosition = window.scrollY + 250; // Account for sticky nav offset
         
         for (let i = sections.length - 1; i >= 0; i--) {
             const section = sections[i];
@@ -80,13 +80,13 @@ document.addEventListener('DOMContentLoaded', function() {
                     
                     // Remove active class from all navigation links
                     navLinks.forEach(link => {
-                        link.classList.remove('active');
+                        link.classList.remove('cs-nav-active');
                     });
                     
                     // Add active class to corresponding navigation link
                     const activeLink = document.querySelector(`[data-section="${sectionId}"]`);
                     if (activeLink) {
-                        activeLink.classList.add('active');
+                        activeLink.classList.add('cs-nav-active');
                     }
                 }
                 break;
@@ -108,7 +108,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Set initial active state
     if (navLinks.length > 0) {
-        navLinks[0].classList.add('active');
+        navLinks[0].classList.add('cs-nav-active');
         currentActiveSection = sections[0] ? sections[0].getAttribute('id') : null;
     }
 });
