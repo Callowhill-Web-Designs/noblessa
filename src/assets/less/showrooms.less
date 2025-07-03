@@ -13,7 +13,6 @@
 @media only screen and (min-width: 0rem) {
     #map-section {
         padding: 120px 0 60px 0;
-        background-color: #f8f9fa;
 
         .cs-container {
             width: 100%;
@@ -74,13 +73,13 @@
         width: (30/16rem);
         height: (30/16rem);
         border-radius: 50% 50% 50% 0;
-        background: var(--primary);
+        background: var(--secondary);
         position: absolute;
         transform: rotate(-45deg);
         left: 50%;
         top: 50%;
         margin: (-15/16rem) 0 0 (-15/16rem);
-        animation: bounce 2s infinite;
+        animation: bounce 2s;
 
         &:after {
             content: '';
@@ -174,7 +173,7 @@
     .popup-btn {
         padding: (8/16rem) (16/16rem);
         background: var(--primary);
-        color: #fff;
+        color: var(--secondary) !important;
         text-decoration: none;
         border-radius: (4/16rem);
         font-size: (14/16rem);
@@ -185,15 +184,18 @@
         min-width: (100/16rem);
 
         &:hover {
-            background: var(--primaryLight);
+            background: #fff;
+            color: var(--secondary) !important;
             transform: translateY(-1px);
         }
 
         &.popup-btn-secondary {
-            background: #6b7280;
+            background: #dddddd;
+            color: var(--secondary) !important;
 
             &:hover {
-                background: #4b5563;
+                background: #fff;
+                color: var(--secondary) !important;
             }
         }
     }

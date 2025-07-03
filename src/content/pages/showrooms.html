@@ -112,6 +112,7 @@ permalink: "/showrooms/"
     <script>
         // Initialize the map
         var map = L.map('showroom-map', {
+            attributionControl: false,
             center: [36.7783, -119.4179], // Center of California
             zoom: 6,
             zoomControl: true,
@@ -119,8 +120,9 @@ permalink: "/showrooms/"
         });
 
         // Add tile layer
-        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            attribution: '© OpenStreetMap contributors',
+        L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+            attribution: '© OpenStreetMap contributors, © CartoDB',
+            subdomains: 'abcd',
             maxZoom: 18
         }).addTo(map);
 
@@ -142,8 +144,8 @@ permalink: "/showrooms/"
                 address: '1405 FL A1AAlt #107, Jupiter, FL 33469',
                 lat: 26.9342,
                 lng: -80.0942,
-                phone: '(561) 555-0123',
-                hours: 'Mon-Fri: 9AM-6PM, Sat: 10AM-4PM',
+                phone: '(561) 401-9866',
+                hours: 'Mon-Fri: 9AM-5PM, Sat: 10AM-3PM',
                 mapUrl: 'https://maps.app.goo.gl/6GesrFPCpfVostMm6'
             },
             {
@@ -151,8 +153,8 @@ permalink: "/showrooms/"
                 address: '3109 Stevens Creek Blvd, San Jose, CA 95117',
                 lat: 37.3382,
                 lng: -121.8863,
-                phone: '(408) 555-0123',
-                hours: 'Mon-Fri: 9AM-6PM, Sat: 10AM-4PM',
+                phone: '(408) 674-6493',
+                hours: 'Mon-Fri: 9AM-5PM, Sat-Sun: Closed',
                 mapUrl: 'https://maps.app.goo.gl/5NzkytGaHXwjnJjQ8'
             },
             {
@@ -160,8 +162,8 @@ permalink: "/showrooms/"
                 address: '474 S Arroyo Pkwy, Pasadena, CA 91105',
                 lat: 34.1478,
                 lng: -118.1445,
-                phone: '(626) 555-0123',
-                hours: 'Mon-Fri: 9AM-6PM, Sat: 10AM-4PM',
+                phone: '(626) 314-2994',
+                hours: 'Mon-Sat: 10AM-5PM, Sun: Closed',
                 mapUrl: 'https://maps.app.goo.gl/pTndTscfTQnXUz2F8'
             }
         ];
@@ -177,8 +179,8 @@ permalink: "/showrooms/"
                 <div class="showroom-popup">
                     <h3 class="popup-title">${showroom.name}</h3>
                     <div class="popup-content">
-                        <p class="popup-address"><strong>📍 Address:</strong><br>${showroom.address}</p>
-                        <p class="popup-phone"><strong>📞 Phone:</strong><br>${showroom.phone}</p>
+                        <p class="popup-address"><strong>Address:</strong><br>${showroom.address}</p>
+                        <p class="popup-phone"><strong>Phone:</strong><br>${showroom.phone}</p>
                         <p class="popup-hours"><strong>🕒 Hours:</strong><br>${showroom.hours}</p>
                         <div class="popup-buttons">
                             <a href="${showroom.mapUrl}" target="_blank" class="popup-btn">Get Directions</a>
