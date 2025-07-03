@@ -12,7 +12,7 @@
 /* Mobile - 360px */
 @media only screen and (min-width: 0rem) {
     #map-section {
-        padding: 120px 0 60px 0;
+        padding: 120px 0 120px 0;
 
         .cs-container {
             width: 100%;
@@ -230,6 +230,10 @@
             text-align: left;
             align-items: flex-start;
         }
+        
+        .cs-button-nodeco {
+            align-self: flex-start;
+        }
 
         .cs-title,
         .cs-text {
@@ -243,205 +247,13 @@
 }
 
 /*-- -------------------------- -->
-<---        Ambassadors         -->
-<--- -------------------------- -*/
-
-/* Mobile - 360px */
-@media only screen and (min-width: 0rem) {
-    #ambassadors-67 {
-        padding: 60px 30px 120px 30px;
-
-        .cs-container {
-            width: 100%;
-            margin: auto;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            /* 48px - 64px */
-            gap: clamp(3rem, 6vw, 4rem);
-        }
-
-        .cs-content {
-            width: 100%;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            align-items: center;
-            mix-blend-mode: difference;
-            filter: drop-shadow(0px 0px 4px white);
-        }
-        
-
-        .cs-card-group {
-            width: 100%;
-            padding: 0;
-            margin: 0;
-            display: flex;
-            flex-direction: column;
-            gap: 30px;
-        }
-
-        .cs-item {
-            list-style: none;
-            width: 100%;
-            height: 50vh;
-            padding: 30px;
-            border-radius: (4/16rem);
-            position: relative;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            align-items: center;
-            overflow: hidden;
-            /* Prevents padding from affecting height & width */
-            box-sizing: border-box;
-
-            &:hover {
-                .cs-item-background {
-                    transform: scale(1.1);
-                }
-            }
-        }
-
-        .cs-item-background {
-            width: 100%;
-            height: 100%;
-            display: block;
-            position: absolute;
-            top: 0;
-            left: 0;
-            z-index: -1;
-            transition: transform 0.6s;
-
-            &:before {
-                /* background color overlay */
-                content: "";
-                position: absolute;
-                display: block;
-                height: 100%;
-                width: 100%;
-                background: linear-gradient(rgba(0, 0, 0, 0.6) 10%, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, .8) 90%);
-                top: 0;
-                left: 0;
-                z-index: 1;
-            }
-
-            img {
-                position: absolute;
-                top: 0;
-                left: 0;
-                height: 100%;
-                width: 100%;
-                /* Makes img tag act as a background image */
-                object-fit: cover;
-                z-index: -1;
-            }
-        }
-
-        .cs-title {
-            color: #fff;
-            text-transform: lowercase;
-            text-align: center;
-            font-size: 90px;
-            letter-spacing: .1rem;
-            font-weight: 600;
-        }
-
-        .cs-li-link {
-            font-size: 20px;
-            line-height: 1.5em;
-            color: var(--bodyTextColorWhite);
-            text-decoration: none;
-            text-align: center;
-            transition: color 0.3s;
-
-            &:hover {
-                text-decoration: underline;
-                color: var(--linkHoverColor);
-            }
-        }
-
-        .cs-item-text {
-            font-size: (16/16rem);
-            line-height: 1.5em;
-            margin: 0 0 (20/16rem);
-            padding-bottom: (20/16rem);
-            color: var(--bodyTextColor);
-            border-bottom: 1px solid #e8e9ec;
-        }
-
-        .cs-info {
-            width: 100%;
-            /* margin-top auto pushes up against the rest of the card, that way when one card has more text than the other, the reviewer info is always pushed to the bottom and lined up with the rest of them.  This ensures better responsiveness for changing content */
-            margin: auto 0 0 0;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-
-        .cs-flex-group {
-            width: 100%;
-            margin: 0;
-        }
-
-        .cs-name {
-            font-size: (16/16rem);
-            line-height: 1.5em;
-            font-weight: 700;
-            width: 40%;
-            margin: 0;
-            display: block;
-            color: var(--headerColor);
-        }
-
-        .cs-desc {
-            font-size: (14/16rem);
-            font-weight: 400;
-            color: #7d799c;
-            display: block;
-        }
-
-        .cs-item-stars {
-            width: (96/16rem);
-            height: (16/16rem);
-        }
-    }
-}
-
-/* Tablet - 768px */
-@media only screen and (min-width: 48rem) {
-    #ambassadors-67 {
-        .cs-card-group {
-            width: 100%;
-            display: grid;
-            gap: 30px;
-        }
-    }
-}
-
-/* Desktop - 1024px */
-@media only screen and (min-width: 64rem) {
-    #ambassadors-67 {
-        .cs-card-group {
-            width: 100%;
-            padding: 0;
-            margin: 0;
-            display: flex;
-            flex-direction: row;
-            gap: 30px;
-        }
-    }
-}
-
-/*-- -------------------------- -->
 <---     Ambassador Carousel    -->
 <--- -------------------------- -*/
 
 /* Mobile - 360px */
 @media only screen and (min-width: 0rem) {
     #ambassador-carousel {
-        padding: 60px 0 120px 0;
+        padding: 120px 0 60px 0;
         background: #f8f9fa;
 
         .cs-container {
