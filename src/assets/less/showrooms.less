@@ -12,7 +12,7 @@
 /* Mobile - 360px */
 @media only screen and (min-width: 0rem) {
     #map-section {
-        padding: 120px 0 60px 0;
+        padding: 60px 10px;
 
         .cs-container {
             width: 100%;
@@ -30,7 +30,8 @@
             flex-direction: column;
             align-items: center;
             text-align: center;
-            gap: (16/16rem);
+            gap: (24/16rem);
+            height: 100%;
         }
 
         .cs-title {
@@ -39,7 +40,7 @@
             line-height: 1.2em;
             text-align: center;
             max-width: (700/16rem);
-            margin: 0 0 (16/16rem) 0;
+            margin: 0;
             color: var(--headerColor);
             position: relative;
         }
@@ -48,10 +49,123 @@
             font-size: var(--bodyFontSize);
             line-height: 1.5em;
             text-align: center;
+            text-decoration: none;
             width: 100%;
             max-width: (650/16rem);
-            margin: 0;
+            margin: 0 0 (16/16rem) 0;
             color: var(--bodyTextColor);
+        }
+
+        // Showroom cards within map section
+        .cs-card-group {
+            width: 100%;
+            max-width: (1000/16rem);
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            gap: (12/16rem);
+            flex: 1;
+            min-height: 0; // Important for flex children
+        }
+
+        .cs-item {
+            list-style: none;
+            width: 100%;
+            flex: 1;
+            min-height: (120/16rem);
+            padding: (16/16rem);
+            border-radius: (8/16rem);
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            overflow: hidden;
+            box-sizing: border-box;
+            transition: transform 0.3s ease;
+
+            &:hover {
+                transform: translateY(-2px);
+                
+                .cs-item-background {
+                    transform: scale(1.05);
+                }
+            }
+
+            .cs-content {
+                width: 100%;
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                align-items: center;
+                mix-blend-mode: difference;
+                filter: drop-shadow(0px 0px 4px white);
+                text-decoration: none;
+                z-index: 2;
+                gap: (8/16rem);
+            }
+
+            .cs-title {
+                color: #fff;
+                text-transform: lowercase;
+                text-align: center;
+                font-size: (40/16rem);
+                letter-spacing: .05rem;
+                font-weight: 700;
+                margin: 0;
+                text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+            }
+
+            .cs-li-link {
+                font-size: (18/16rem);
+                line-height: 1.4em;
+                color: var(--bodyTextColorWhite);
+                text-decoration: none;
+                text-align: center;
+                transition: color 0.3s;
+                text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+
+                &:hover {
+                    text-decoration: underline;
+                    color: var(--linkHoverColor);
+                }
+            }
+        }
+
+        .cs-item-background {
+            width: 100%;
+            height: 100%;
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 1;
+            transition: transform 0.3s ease;
+
+            &:before {
+                content: "";
+                position: absolute;
+                display: block;
+                height: 100%;
+                width: 100%;
+                background: linear-gradient(rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.2) 50%, rgba(0, 0, 0, 0.7) 100%);
+                top: 0;
+                left: 0;
+                z-index: 2;
+            }
+
+            img {
+                position: absolute;
+                top: 0;
+                left: 0;
+                height: 100%;
+                width: 100%;
+                object-fit: cover;
+                object-position: center 35%;
+                z-index: 1;
+            }
         }
     }
 
@@ -204,18 +318,45 @@
 /* Tablet - 768px */
 @media only screen and (min-width: 48rem) {
     .cs-map-container {
-        height: (500/16rem);
+        height: (600/16rem);
     }
 
     .popup-buttons {
         flex-wrap: nowrap;
     }
+
+    #map-section {
+        .cs-content {
+            max-height: none; // Allow natural height on tablet
+        }
+
+        .cs-card-group {
+            flex-direction: row;
+            gap: (16/16rem);
+            flex: 0 0 auto; // Don't stretch on tablet
+        }
+
+        .cs-item {
+            flex: 1;
+            min-height: (140/16rem);
+            max-height: (160/16rem); // Limit height on tablet
+
+            .cs-title {
+                font-size: (32/16rem);
+            }
+
+            .cs-li-link {
+                font-size: (16/16rem);
+            }
+        }
+    }
 }
 
 /* Desktop - 1024px */
 @media only screen and (min-width: 64rem) {
+    padding: 120px 0;
     .cs-map-container {
-        height: (600/16rem);
+        height: (800/16rem);
     }
 
     #map-section {
@@ -223,213 +364,48 @@
             flex-direction: row;
             align-items: flex-start;
             gap: (64/16rem);
+            min-height: (600/16rem); // Match map height
         }
 
         .cs-content {
-            flex: 0 0 (400/16rem);
+            flex: 0 0 (500/16rem);
             text-align: left;
             align-items: flex-start;
+            height: (600/16rem); // Match map height
+            max-height: (600/16rem);
         }
 
         .cs-title,
         .cs-text {
             text-align: left;
+            flex-shrink: 0; // Prevent shrinking
+        }
+
+        .cs-card-group {
+            flex-direction: column;
+            gap: (12/16rem);
+            flex: 1;
+            min-height: 0;
+            max-height: calc(100% - 120px); // Account for title and text space
+            overflow: hidden;
+        }
+
+        .cs-item {
+            flex: 1;
+            min-height: 0; // Allow flex to work properly
+            max-height: calc((100% - 24px) / 3); // Divide remaining space by 3 cards minus gaps
+
+            .cs-title {
+                font-size: (28/16rem);
+            }
+
+            .cs-li-link {
+                font-size: (15/16rem);
+            }
         }
     }
 
     .cs-map-container {
         flex: 1;
-    }
-}
-
-/*-- -------------------------- -->
-<---         Showrooms          -->
-<--- -------------------------- -*/
-
-/* Mobile - 360px */
-@media only screen and (min-width: 0rem) {
-    #showrooms-67 {
-        padding: 60px 30px 120px 30px;
-
-        .cs-container {
-            width: 100%;
-            margin: auto;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            /* 48px - 64px */
-            gap: clamp(3rem, 6vw, 4rem);
-        }
-
-        .cs-content {
-            width: 100%;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            align-items: center;
-            mix-blend-mode: difference;
-            filter: drop-shadow(0px 0px 4px white);
-        }
-        
-
-        .cs-card-group {
-            width: 100%;
-            padding: 0;
-            margin: 0;
-            display: flex;
-            flex-direction: column;
-            gap: 30px;
-        }
-
-        .cs-item {
-            list-style: none;
-            width: 100%;
-            height: 50vh;
-            padding: 30px;
-            border-radius: (4/16rem);
-            position: relative;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            align-items: center;
-            overflow: hidden;
-            /* Prevents padding from affecting height & width */
-            box-sizing: border-box;
-
-            &:hover {
-                .cs-item-background {
-                    transform: scale(1.1);
-                }
-            }
-        }
-
-        .cs-item-background {
-            width: 100%;
-            height: 100%;
-            display: block;
-            position: absolute;
-            top: 0;
-            left: 0;
-            z-index: -1;
-            transition: transform 0.6s;
-
-            &:before {
-                /* background color overlay */
-                content: "";
-                position: absolute;
-                display: block;
-                height: 100%;
-                width: 100%;
-                background: linear-gradient(rgba(0, 0, 0, 0.6) 10%, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, .8) 90%);
-                top: 0;
-                left: 0;
-                z-index: 1;
-            }
-
-            img {
-                position: absolute;
-                top: 0;
-                left: 0;
-                height: 100%;
-                width: 100%;
-                /* Makes img tag act as a background image */
-                object-fit: cover;
-                z-index: -1;
-            }
-        }
-
-        .cs-title {
-            color: #fff;
-            text-transform: lowercase;
-            text-align: center;
-            font-size: 90px;
-            letter-spacing: .1rem;
-            font-weight: 600;
-        }
-
-        .cs-li-link {
-            font-size: 20px;
-            line-height: 1.5em;
-            color: var(--bodyTextColorWhite);
-            text-decoration: none;
-            text-align: center;
-            transition: color 0.3s;
-
-            &:hover {
-                text-decoration: underline;
-                color: var(--linkHoverColor);
-            }
-        }
-
-        .cs-item-text {
-            font-size: (16/16rem);
-            line-height: 1.5em;
-            margin: 0 0 (20/16rem);
-            padding-bottom: (20/16rem);
-            color: var(--bodyTextColor);
-            border-bottom: 1px solid #e8e9ec;
-        }
-
-        .cs-info {
-            width: 100%;
-            /* margin-top auto pushes up against the rest of the card, that way when one card has more text than the other, the reviewer info is always pushed to the bottom and lined up with the rest of them.  This ensures better responsiveness for changing content */
-            margin: auto 0 0 0;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-
-        .cs-flex-group {
-            width: 100%;
-            margin: 0;
-        }
-
-        .cs-name {
-            font-size: (16/16rem);
-            line-height: 1.5em;
-            font-weight: 700;
-            width: 40%;
-            margin: 0;
-            display: block;
-            color: var(--headerColor);
-        }
-
-        .cs-desc {
-            font-size: (14/16rem);
-            font-weight: 400;
-            color: #7d799c;
-            display: block;
-        }
-
-        .cs-item-stars {
-            width: (96/16rem);
-            height: (16/16rem);
-        }
-    }
-}
-
-/* Tablet - 768px */
-@media only screen and (min-width: 48rem) {
-    #showrooms-67 {
-        .cs-card-group {
-            width: 100%;
-            display: grid;
-            gap: 30px;
-        }
-    }
-}
-
-/* Desktop - 1024px */
-@media only screen and (min-width: 64rem) {
-    #showrooms-67 {
-        .cs-card-group {
-            width: 100%;
-            padding: 0;
-            margin: 0;
-            display: flex;
-            flex-direction: row;
-            gap: 30px;
-        }
     }
 }
