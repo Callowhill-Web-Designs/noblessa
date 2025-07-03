@@ -1,0 +1,238 @@
+---
+title: "Ambassadors | Noblessa USA"
+description: "Meta description for the page"
+permalink: "/ambassadors/"
+---
+
+{% extends "layouts/base.html" %}
+
+{% block head %}
+    <link rel="stylesheet" href="/assets/css/ambassadors.css">
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+          integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+    <!-- Leaflet JavaScript -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+            integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+{% endblock %}
+
+{% block body %}
+
+    <!-- ============================================ -->
+    <!--                   Banner                     -->
+    <!-- ============================================ -->
+
+    <div id="banner-2285">
+        <div class="cs-container">
+            <span class="cs-int-title">Find Your Noblessa Ambassador</span>
+            <p class="cs-text">
+                Contact a noblessa ambassador near you and begin living the beautiful life.
+            </p>
+            <div class="cs-breadcrumbs">
+                <a href="/" class="cs-link">home</a>
+                <a href="/ambassadors" class="cs-link cs-active">ambassadors</a>
+            </div>
+        </div>
+        <!--Background Video-->
+        <video src="../../assets/videos/showrooms1080x1920.webm" class="cs-video" autoplay muted playsinline loop></video>
+    </div>
+
+    <!-- ============================================ -->
+    <!--                Interactive Map               -->
+    <!-- ============================================ -->
+
+    <section id="map-section">
+        <div class="cs-container">
+            <div class="cs-content">
+                <h2 class="cs-title">Our Ambassadors</h2>
+                <p class="cs-text">Explore our brand ambassadors and get in touch with them to learn more.</p>
+            </div>
+            <div id="ambassador-map" class="cs-map-container"></div>
+        </div>
+    </section>
+
+    {% include 'sections/cta.html' %}
+
+    <script>
+        // Initialize the map
+        var map = L.map('ambassador-map', {
+            attributionControl: false,
+            center: [39.8283, -98.5795], // Center of USA
+            zoom: 4,
+            zoomControl: true,
+            scrollWheelZoom: true
+        });
+
+        // Add tile layer
+        L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+            attribution: '© OpenStreetMap contributors, © CartoDB',
+            subdomains: 'abcd',
+            maxZoom: 18
+        }).addTo(map);
+
+        // Custom marker icon
+        var customIcon = L.divIcon({
+            className: 'custom-marker',
+            html: `<div class="marker-pin">
+                     <div class="marker-inner"></div>
+                   </div>`,
+            iconSize: [30, 30],
+            iconAnchor: [15, 30],
+            popupAnchor: [0, -30]
+        });
+
+        // Ambassador data
+        var ambassadors = [
+            {
+                name: 'Cherisse Sweeny',
+                address: '766 Higuera Street, San Luis Obispo, CA 93401',
+                lat: 35.2828,
+                lng: -120.6596,
+                phone: '(805) 439-1104',
+                hours: 'Contact for hours',
+                mapUrl: 'https://maps.google.com/?q=766+Higuera+Street,+San+Luis+Obispo,+CA+93401'
+            },
+            {
+                name: 'The Guys with Drills',
+                address: '2816 SW 2nd Ln #1N, Cape Coral, FL 33991',
+                lat: 26.5629,
+                lng: -81.9495,
+                phone: '(305) 985-8415',
+                hours: 'Contact for hours',
+                mapUrl: 'https://maps.google.com/?q=2816+SW+2nd+Ln+%231N,+Cape+Coral,+FL+33991'
+            },
+            {
+                name: 'B.Noelle Design',
+                address: 'New Orleans, LA 70131',
+                lat: 29.9511,
+                lng: -90.0715,
+                phone: '(678) 372-8312',
+                hours: 'Contact for hours',
+                mapUrl: 'https://maps.google.com/?q=New+Orleans,+LA+70131'
+            },
+            {
+                name: 'Memar Interiors',
+                address: '13704 Flagstone Ln. Dallas, TX 75240',
+                lat: 32.9537,
+                lng: -96.7586,
+                phone: '(469) 961-6000',
+                hours: 'Contact for hours',
+                mapUrl: 'https://maps.google.com/?q=13704+Flagstone+Ln.+Dallas,+TX+75240'
+            },
+            {
+                name: 'Sonderlust',
+                address: 'Lakewood, CO',
+                lat: 39.7047,
+                lng: -105.0814,
+                phone: '(303) 816-8500',
+                hours: 'Contact for hours',
+                mapUrl: 'https://maps.google.com/?q=Lakewood,+CO'
+            },
+            {
+                name: 'Patina Interior Design',
+                address: '33 N Market St. Wailuku, HI 96793',
+                lat: 20.8914,
+                lng: -156.5044,
+                phone: '(808) 633-4035',
+                hours: 'Contact for hours',
+                mapUrl: 'https://maps.google.com/?q=33+N+Market+St.+Wailuku,+HI+96793'
+            },
+            {
+                name: 'EMDB',
+                address: '43836 U.S. 160 Bayfield, CO 81122',
+                lat: 37.2336,
+                lng: -107.5942,
+                phone: '(970) 779-8119',
+                hours: 'Contact for hours',
+                mapUrl: 'https://maps.google.com/?q=43836+U.S.+160+Bayfield,+CO+81122'
+            },
+            {
+                name: 'Travita Homes',
+                address: '10414 S Wasatch Blvd. Sandy, UT 84092',
+                lat: 40.5649,
+                lng: -111.8389,
+                phone: '(920) 619-0651',
+                hours: 'Contact for hours',
+                mapUrl: 'https://maps.google.com/?q=10414+S+Wasatch+Blvd.+Sandy,+UT+84092'
+            },
+            {
+                name: 'Advanced Construction Allies',
+                address: '2337 N Roscomare Rd Ste 8 Bel Air, CA 90077',
+                lat: 34.1184,
+                lng: -118.4614,
+                phone: '(310) 623-6808',
+                hours: 'Contact for hours',
+                mapUrl: 'https://maps.google.com/?q=2337+N+Roscomare+Rd+Ste+8+Bel+Air,+CA+90077'
+            },
+            {
+                name: 'VC Home and Design',
+                address: '300 E. Santa Clara St. Suite 103 Ventura, CA 93001',
+                lat: 34.2746,
+                lng: -119.2945,
+                phone: '(805) 232-8526',
+                hours: 'Contact for hours',
+                mapUrl: 'https://maps.google.com/?q=300+E.+Santa+Clara+St.+Suite+103+Ventura,+CA+93001'
+            },
+            {
+                name: 'Mendez Interior Design',
+                address: '2500 Tanglewilde St # 475, Houston, TX 77063',
+                lat: 29.7604,
+                lng: -95.3698,
+                phone: '(832) 224-5727',
+                hours: 'Contact for hours',
+                mapUrl: 'https://maps.google.com/?q=2500+Tanglewilde+St+%23+475,+Houston,+TX+77063'
+            },
+            {
+                name: 'Charles Taylor Interior Design',
+                address: '261 N. Highway 101 Suite 1152 Solana Beach, CA 92075',
+                lat: 32.9911,
+                lng: -117.2712,
+                phone: '(858) 779-4556',
+                hours: 'Contact for hours',
+                mapUrl: 'https://maps.google.com/?q=261+N.+Highway+101+Suite+1152+Solana+Beach,+CA+92075'
+            },
+            {
+                name: 'Dear Studio Design',
+                address: 'Newport Beach, CA 92625',
+                lat: 33.6189,
+                lng: -117.9298,
+                phone: '(949) 432-3114',
+                hours: 'Contact for hours',
+                mapUrl: 'https://maps.google.com/?q=Newport+Beach,+CA+92625'
+            }
+        ];
+
+        // Add markers to the map
+        ambassadors.forEach(function(ambassador) {
+            var marker = L.marker([ambassador.lat, ambassador.lng], {
+                icon: customIcon
+            }).addTo(map);
+
+            // Create popup content
+            var popupContent = `
+                <div class="ambassador-popup">
+                    <h3 class="popup-title">${ambassador.name}</h3>
+                    <div class="popup-content">
+                        <p class="popup-address"><strong>Address:</strong><br>${ambassador.address}</p>
+                        <p class="popup-phone"><strong>Phone:</strong><br>${ambassador.phone}</p>
+                        <p class="popup-hours"><strong>🕒 Hours:</strong><br>${ambassador.hours}</p>
+                        <div class="popup-buttons">
+                            <a href="${ambassador.mapUrl}" target="_blank" class="popup-btn">Get Directions</a>
+                            <a href="tel:${ambassador.phone}" class="popup-btn popup-btn-secondary">Call Now</a>
+                        </div>
+                    </div>
+                </div>
+            `;
+
+            marker.bindPopup(popupContent, {
+                maxWidth: 300,
+                className: 'custom-popup'
+            });
+        });
+
+        // Fit map to show all markers
+        var group = new L.featureGroup(ambassadors.map(s => L.marker([s.lat, s.lng])));
+        map.fitBounds(group.getBounds().pad(0.1));
+    </script>
+
+{% endblock %}

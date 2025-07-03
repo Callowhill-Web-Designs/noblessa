@@ -1,0 +1,435 @@
+// ─────────────────────────────────────────────────────────────────────────────
+// PAGE STYLES
+// Interior pages have their own stylesheet for styles that only exist on
+// that page. Any styles shared between pages, including repeated sections,
+// should go into root.less
+// ─────────────────────────────────────────────────────────────────────────────
+
+/*-- -------------------------- -->
+<---        Interactive Map     -->
+<--- -------------------------- -*/
+
+/* Mobile - 360px */
+@media only screen and (min-width: 0rem) {
+    #map-section {
+        padding: 120px 0 60px 0;
+
+        .cs-container {
+            width: 100%;
+            max-width: (1280/16rem);
+            margin: auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: clamp(3rem, 6vw, 4rem);
+        }
+
+        .cs-content {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            gap: (16/16rem);
+        }
+
+        .cs-title {
+            font-size: var(--headerFontSize);
+            font-weight: 900;
+            line-height: 1.2em;
+            text-align: center;
+            max-width: (700/16rem);
+            margin: 0 0 (16/16rem) 0;
+            color: var(--headerColor);
+            position: relative;
+        }
+
+        .cs-text {
+            font-size: var(--bodyFontSize);
+            line-height: 1.5em;
+            text-align: center;
+            width: 100%;
+            max-width: (650/16rem);
+            margin: 0;
+            color: var(--bodyTextColor);
+        }
+    }
+
+    .cs-map-container {
+        width: 100%;
+        height: (400/16rem);
+        border-radius: (8/16rem);
+        overflow: hidden;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    }
+
+    // Custom marker styles
+    .custom-marker {
+        background: transparent;
+        border: none;
+    }
+
+    .marker-pin {
+        width: (30/16rem);
+        height: (30/16rem);
+        border-radius: 50% 50% 50% 0;
+        background: var(--secondary);
+        position: absolute;
+        transform: rotate(-45deg);
+        left: 50%;
+        top: 50%;
+        margin: (-15/16rem) 0 0 (-15/16rem);
+        animation: bounce 2s;
+
+        &:after {
+            content: '';
+            width: (14/16rem);
+            height: (14/16rem);
+            margin: (8/16rem) 0 0 (8/16rem);
+            background: #fff;
+            position: absolute;
+            border-radius: 50%;
+        }
+    }
+
+    .marker-inner {
+        width: (14/16rem);
+        height: (14/16rem);
+        background: #fff;
+        border-radius: 50%;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) rotate(45deg);
+    }
+
+    @keyframes bounce {
+        0%, 20%, 50%, 80%, 100% {
+            transform: translateY(0) rotate(-45deg);
+        }
+        40% {
+            transform: translateY(-10px) rotate(-45deg);
+        }
+        60% {
+            transform: translateY(-5px) rotate(-45deg);
+        }
+    }
+
+    // Custom popup styles
+    .custom-popup {
+        .leaflet-popup-content-wrapper {
+            background: #fff;
+            border-radius: (8/16rem);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            padding: 0;
+            overflow: hidden;
+        }
+
+        .leaflet-popup-content {
+            margin: 0;
+            padding: 0;
+            width: auto !important;
+        }
+
+        .leaflet-popup-tip {
+            background: #fff;
+            border: none;
+        }
+    }
+
+    .ambassador-popup {
+        padding: (24/16rem);
+        min-width: (280/16rem);
+    }
+
+    .popup-title {
+        font-size: (20/16rem);
+        font-weight: 700;
+        margin: 0 0 (16/16rem) 0;
+        color: var(--headerColor);
+        border-bottom: 2px solid var(--primary);
+        padding-bottom: (8/16rem);
+    }
+
+    .popup-content {
+        p {
+            margin: 0 0 (16/16rem) 0;
+            font-size: (14/16rem);
+            line-height: 1.5;
+            color: var(--bodyTextColor);
+
+            &:last-of-type {
+                margin-bottom: (24/16rem);
+            }
+        }
+    }
+
+    .popup-buttons {
+        display: flex;
+        gap: (8/16rem);
+        flex-wrap: wrap;
+    }
+
+    .popup-btn {
+        padding: (8/16rem) (16/16rem);
+        background: var(--primary);
+        color: var(--secondary) !important;
+        text-decoration: none;
+        border-radius: (4/16rem);
+        font-size: (14/16rem);
+        font-weight: 600;
+        transition: all 0.3s ease;
+        flex: 1;
+        text-align: center;
+        min-width: (100/16rem);
+
+        &:hover {
+            background: #fff;
+            color: var(--secondary) !important;
+            transform: translateY(-1px);
+        }
+
+        &.popup-btn-secondary {
+            background: #dddddd;
+            color: var(--secondary) !important;
+
+            &:hover {
+                background: #fff;
+                color: var(--secondary) !important;
+            }
+        }
+    }
+}
+
+/* Tablet - 768px */
+@media only screen and (min-width: 48rem) {
+    .cs-map-container {
+        height: (500/16rem);
+    }
+
+    .popup-buttons {
+        flex-wrap: nowrap;
+    }
+}
+
+/* Desktop - 1024px */
+@media only screen and (min-width: 64rem) {
+    .cs-map-container {
+        height: (600/16rem);
+    }
+
+    #map-section {
+        .cs-container {
+            flex-direction: row;
+            align-items: flex-start;
+            gap: (64/16rem);
+        }
+
+        .cs-content {
+            flex: 0 0 (400/16rem);
+            text-align: left;
+            align-items: flex-start;
+        }
+
+        .cs-title,
+        .cs-text {
+            text-align: left;
+        }
+    }
+
+    .cs-map-container {
+        flex: 1;
+    }
+}
+
+/*-- -------------------------- -->
+<---        Ambassadors         -->
+<--- -------------------------- -*/
+
+/* Mobile - 360px */
+@media only screen and (min-width: 0rem) {
+    #ambassadors-67 {
+        padding: 60px 30px 120px 30px;
+
+        .cs-container {
+            width: 100%;
+            margin: auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            /* 48px - 64px */
+            gap: clamp(3rem, 6vw, 4rem);
+        }
+
+        .cs-content {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            mix-blend-mode: difference;
+            filter: drop-shadow(0px 0px 4px white);
+        }
+        
+
+        .cs-card-group {
+            width: 100%;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .cs-item {
+            list-style: none;
+            width: 100%;
+            height: 50vh;
+            padding: 30px;
+            border-radius: (4/16rem);
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            overflow: hidden;
+            /* Prevents padding from affecting height & width */
+            box-sizing: border-box;
+
+            &:hover {
+                .cs-item-background {
+                    transform: scale(1.1);
+                }
+            }
+        }
+
+        .cs-item-background {
+            width: 100%;
+            height: 100%;
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: -1;
+            transition: transform 0.6s;
+
+            &:before {
+                /* background color overlay */
+                content: "";
+                position: absolute;
+                display: block;
+                height: 100%;
+                width: 100%;
+                background: linear-gradient(rgba(0, 0, 0, 0.6) 10%, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, .8) 90%);
+                top: 0;
+                left: 0;
+                z-index: 1;
+            }
+
+            img {
+                position: absolute;
+                top: 0;
+                left: 0;
+                height: 100%;
+                width: 100%;
+                /* Makes img tag act as a background image */
+                object-fit: cover;
+                z-index: -1;
+            }
+        }
+
+        .cs-title {
+            color: #fff;
+            text-transform: lowercase;
+            text-align: center;
+            font-size: 90px;
+            letter-spacing: .1rem;
+            font-weight: 600;
+        }
+
+        .cs-li-link {
+            font-size: 20px;
+            line-height: 1.5em;
+            color: var(--bodyTextColorWhite);
+            text-decoration: none;
+            text-align: center;
+            transition: color 0.3s;
+
+            &:hover {
+                text-decoration: underline;
+                color: var(--linkHoverColor);
+            }
+        }
+
+        .cs-item-text {
+            font-size: (16/16rem);
+            line-height: 1.5em;
+            margin: 0 0 (20/16rem);
+            padding-bottom: (20/16rem);
+            color: var(--bodyTextColor);
+            border-bottom: 1px solid #e8e9ec;
+        }
+
+        .cs-info {
+            width: 100%;
+            /* margin-top auto pushes up against the rest of the card, that way when one card has more text than the other, the reviewer info is always pushed to the bottom and lined up with the rest of them.  This ensures better responsiveness for changing content */
+            margin: auto 0 0 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .cs-flex-group {
+            width: 100%;
+            margin: 0;
+        }
+
+        .cs-name {
+            font-size: (16/16rem);
+            line-height: 1.5em;
+            font-weight: 700;
+            width: 40%;
+            margin: 0;
+            display: block;
+            color: var(--headerColor);
+        }
+
+        .cs-desc {
+            font-size: (14/16rem);
+            font-weight: 400;
+            color: #7d799c;
+            display: block;
+        }
+
+        .cs-item-stars {
+            width: (96/16rem);
+            height: (16/16rem);
+        }
+    }
+}
+
+/* Tablet - 768px */
+@media only screen and (min-width: 48rem) {
+    #ambassadors-67 {
+        .cs-card-group {
+            width: 100%;
+            display: grid;
+            gap: 30px;
+        }
+    }
+}
+
+/* Desktop - 1024px */
+@media only screen and (min-width: 64rem) {
+    #ambassadors-67 {
+        .cs-card-group {
+            width: 100%;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-direction: row;
+            gap: 30px;
+        }
+    }
+}
