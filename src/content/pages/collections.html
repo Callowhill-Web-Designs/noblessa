@@ -1,0 +1,37 @@
+---
+title: "Collections | Noblessa USA"
+description: "Meta description for the page"
+permalink: "/collections/"
+---
+
+{% extends "layouts/base.html" %}
+
+{% block head %}
+    <link rel="stylesheet" href="/assets/css/collections.css">
+{% endblock %}
+
+{% block body %}
+
+    <!-- ============================================ -->
+    <!--                   Banner                     -->
+    <!-- ============================================ -->
+
+    <div id="banner-2285">
+        <div class="cs-container">
+            <span class="cs-int-title">View Our Designer Collections</span>
+            <p class="cs-text">
+                View our designer collections to find the perfect kitchen, bath, or living space that reflects your style and meets your needs. Each collection is crafted with precision and elegance, offering a unique blend of functionality and beauty.
+            </p>
+            <div class="cs-breadcrumbs">
+                <a href="/" class="cs-link">home</a>
+                <a href="/collections" class="cs-link cs-active">collections</a>
+            </div>
+        </div>
+        <!--Background Video-->
+        <video src="../../assets/videos/showrooms1080x1920.webm" class="cs-video" autoplay muted playsinline loop></video>
+    </div>
+
+
+    {% include 'sections/cta.html' %}
+
+{% endblock %}
