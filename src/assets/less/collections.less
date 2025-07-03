@@ -4,3 +4,271 @@
 // that page. Any styles shared between pages, including repeated sections,
 // should go into root.less
 // ─────────────────────────────────────────────────────────────────────────────
+
+/*-- -------------------------- -->
+<---       Collections           -->
+<--- -------------------------- -*/
+
+/* Mobile - 360px */
+@media only screen and (min-width: 0rem) {
+    #collections-1024 {
+        padding: var(--sectionPadding);
+        background-color: #ffffff;
+        
+        .cs-container {
+            width: 100%;
+            max-width: (1280/16rem);
+            margin: auto;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: (48/16rem);
+        }
+
+        .cs-content {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: (48/16rem);
+        }
+
+        .cs-left {
+            width: 100%;
+            position: sticky;
+            top: (80/16rem);
+            z-index: 100;
+            background-color: rgba(255, 255, 255);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            padding: (24/16rem) 0;
+            border-bottom: 1px solid #e8e8e8;
+        }
+
+        .cs-nav {
+            width: 100%;
+        }
+
+        .cs-nav-list {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            gap: (16/16rem);
+        }
+
+        .cs-nav-item {
+            width: 100%;
+        }
+
+        .cs-nav-link {
+            font-size: (18/16rem);
+            font-family: var(--headerFont);
+            font-weight: 700;
+            line-height: 1.2em;
+            text-decoration: none;
+            color: #707070;
+            transition: all 0.3s ease;
+            display: block;
+            padding: (12/16rem) 0;
+            border-bottom: 2px solid transparent;
+            position: relative;
+            
+            &::before {
+                content: '';
+                position: absolute;
+                left: 0;
+                bottom: 0;
+                width: 0;
+                height: 2px;
+                background-color: var(--secondary);
+                transition: width 0.3s ease;
+            }
+            
+            &:hover {
+                color: var(--primary);
+                
+                &::before {
+                    width: 100%;
+                }
+            }
+            
+            &.active {
+                color: var(--primary);
+                font-weight: 900;
+                
+                &::before {
+                    width: 100%;
+                }
+            }
+        }
+
+        .cs-right {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: (80/16rem);
+        }
+
+        .cs-section {
+            width: 100%;
+            scroll-margin-top: (160/16rem);
+            padding: (40/16rem) 0;
+        }
+
+        .cs-section-title {
+            font-size: (32/16rem);
+            font-family: var(--headerFont);
+            font-weight: 700;
+            line-height: 1.2em;
+            text-align: left;
+            margin: 0 0 (24/16rem) 0;
+            color: var(--headerColor);
+        }
+
+        .cs-section-text {
+            font-size: (18/16rem);
+            line-height: 1.5em;
+            text-align: left;
+            margin: 0 0 (48/16rem) 0;
+            color: var(--bodyTextColor);
+            max-width: (600/16rem);
+        }
+
+        .cs-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: (32/16rem);
+        }
+
+        .cs-item {
+            display: flex;
+            flex-direction: column;
+            gap: (24/16rem);
+        }
+
+        .cs-picture {
+            width: 100%;
+            height: (300/16rem);
+            overflow: hidden;
+            position: relative;
+            border-radius: (8/16rem);
+        }
+
+        .cs-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .cs-item:hover .cs-image {
+            transform: scale(1.05);
+        }
+
+        .cs-item-content {
+            display: flex;
+            flex-direction: column;
+            gap: (12/16rem);
+        }
+
+        .cs-item-title {
+            font-size: (24/16rem);
+            font-family: var(--headerFont);
+            font-weight: 700;
+            line-height: 1.2em;
+            margin: 0;
+            color: var(--headerColor);
+        }
+
+        .cs-item-text {
+            font-size: (16/16rem);
+            line-height: 1.5em;
+            margin: 0;
+            color: var(--bodyTextColor);
+        }
+    }
+}
+
+/* Tablet - 768px */
+@media only screen and (min-width: 48rem) {
+    #collections-1024 {
+        .cs-content {
+            flex-direction: row;
+            align-items: flex-start;
+            gap: (80/16rem);
+        }
+
+        .cs-left {
+            width: (280/16rem);
+            flex-shrink: 0;
+            position: sticky;
+            top: (100/16rem);
+            height: fit-content;
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-bottom: none;
+            border-right: 1px solid #e8e8e8;
+            padding: (32/16rem) (40/16rem) (32/16rem) 0;
+        }
+
+        .cs-nav-list {
+            gap: (24/16rem);
+        }
+
+        .cs-nav-link {
+            font-size: (20/16rem);
+            padding: (16/16rem) 0;
+        }
+
+        .cs-right {
+            flex: 1;
+            gap: (120/16rem);
+        }
+
+        .cs-section-title {
+            font-size: (40/16rem);
+        }
+
+        .cs-section-text {
+            font-size: (20/16rem);
+        }
+
+        .cs-grid {
+            grid-template-columns: repeat(2, 1fr);
+            gap: (40/16rem);
+        }
+
+        .cs-picture {
+            height: (280/16rem);
+        }
+    }
+}
+
+/* Desktop - 1024px */
+@media only screen and (min-width: 64rem) {
+    #collections-1024 {
+        .cs-content {
+            gap: (120/16rem);
+        }
+
+        .cs-left {
+            width: (320/16rem);
+            padding: (40/16rem) (60/16rem) (40/16rem) 0;
+        }
+
+        .cs-nav-link {
+            font-size: (22/16rem);
+        }
+
+        .cs-grid {
+            grid-template-columns: repeat(3, 1fr);
+            gap: (48/16rem);
+        }
+
+        .cs-picture {
+            height: (320/16rem);
+        }
+    }
+}
