@@ -8,6 +8,12 @@ permalink: "/showrooms/"
 
 {% block head %}
     <link rel="stylesheet" href="/assets/css/showrooms.css">
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+          integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+    <!-- Leaflet JavaScript -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+            integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
 {% endblock %}
 
 {% block body %}
@@ -30,6 +36,20 @@ permalink: "/showrooms/"
         <!--Background Video-->
         <video src="../../assets/videos/showrooms1080x1920.webm" class="cs-video" autoplay muted playsinline loop></video>
     </div>
+
+    <!-- ============================================ -->
+    <!--                Interactive Map               -->
+    <!-- ============================================ -->
+
+    <section id="map-section">
+        <div class="cs-container">
+            <div class="cs-content">
+                <h2 class="cs-title">Find Your Nearest Showroom</h2>
+                <p class="cs-text">Explore our showroom locations and get directions to visit us in person.</p>
+            </div>
+            <div id="showroom-map" class="cs-map-container"></div>
+        </div>
+    </section>
 
     <!-- ============================================ -->
     <!--                  Showrooms                   -->
@@ -88,5 +108,95 @@ permalink: "/showrooms/"
     </section>
 
     {% include 'sections/cta.html' %}
+
+    <script>
+        // Initialize the map
+        var map = L.map('showroom-map', {
+            center: [36.7783, -119.4179], // Center of California
+            zoom: 6,
+            zoomControl: true,
+            scrollWheelZoom: true
+        });
+
+        // Add tile layer
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '© OpenStreetMap contributors',
+            maxZoom: 18
+        }).addTo(map);
+
+        // Custom marker icon
+        var customIcon = L.divIcon({
+            className: 'custom-marker',
+            html: `<div class="marker-pin">
+                     <div class="marker-inner"></div>
+                   </div>`,
+            iconSize: [30, 30],
+            iconAnchor: [15, 30],
+            popupAnchor: [0, -30]
+        });
+
+        // Showroom data
+        var showrooms = [
+            {
+                name: 'Jupiter',
+                address: '1405 FL A1AAlt #107, Jupiter, FL 33469',
+                lat: 26.9342,
+                lng: -80.0942,
+                phone: '(561) 555-0123',
+                hours: 'Mon-Fri: 9AM-6PM, Sat: 10AM-4PM',
+                mapUrl: 'https://maps.app.goo.gl/6GesrFPCpfVostMm6'
+            },
+            {
+                name: 'San Jose',
+                address: '3109 Stevens Creek Blvd, San Jose, CA 95117',
+                lat: 37.3382,
+                lng: -121.8863,
+                phone: '(408) 555-0123',
+                hours: 'Mon-Fri: 9AM-6PM, Sat: 10AM-4PM',
+                mapUrl: 'https://maps.app.goo.gl/5NzkytGaHXwjnJjQ8'
+            },
+            {
+                name: 'Pasadena',
+                address: '474 S Arroyo Pkwy, Pasadena, CA 91105',
+                lat: 34.1478,
+                lng: -118.1445,
+                phone: '(626) 555-0123',
+                hours: 'Mon-Fri: 9AM-6PM, Sat: 10AM-4PM',
+                mapUrl: 'https://maps.app.goo.gl/pTndTscfTQnXUz2F8'
+            }
+        ];
+
+        // Add markers to the map
+        showrooms.forEach(function(showroom) {
+            var marker = L.marker([showroom.lat, showroom.lng], {
+                icon: customIcon
+            }).addTo(map);
+
+            // Create popup content
+            var popupContent = `
+                <div class="showroom-popup">
+                    <h3 class="popup-title">${showroom.name}</h3>
+                    <div class="popup-content">
+                        <p class="popup-address"><strong>📍 Address:</strong><br>${showroom.address}</p>
+                        <p class="popup-phone"><strong>📞 Phone:</strong><br>${showroom.phone}</p>
+                        <p class="popup-hours"><strong>🕒 Hours:</strong><br>${showroom.hours}</p>
+                        <div class="popup-buttons">
+                            <a href="${showroom.mapUrl}" target="_blank" class="popup-btn">Get Directions</a>
+                            <a href="tel:${showroom.phone}" class="popup-btn popup-btn-secondary">Call Now</a>
+                        </div>
+                    </div>
+                </div>
+            `;
+
+            marker.bindPopup(popupContent, {
+                maxWidth: 300,
+                className: 'custom-popup'
+            });
+        });
+
+        // Fit map to show all markers
+        var group = new L.featureGroup(showrooms.map(s => L.marker([s.lat, s.lng])));
+        map.fitBounds(group.getBounds().pad(0.1));
+    </script>
 
 {% endblock %}
