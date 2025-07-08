@@ -4,7 +4,7 @@ const imageGroup1 = document.querySelector('.cs-picture1');
 if (imageGroup1) {
   new HoverEffect({
     parent: imageGroup1,
-    intensity: .1,
+    intensity: .02,
     image1: '/assets/images/lazar/lazarhome2.webp',
     image2: '/assets/images/lazar/lazarhome1.webp',
     displacementImage: '/assets/images/2.jpg',
@@ -16,7 +16,7 @@ const imageGroup2 = document.querySelector('.cs-picture2');
 if (imageGroup2) {
   new HoverEffect({
     parent: imageGroup2,
-    intensity: .1,
+    intensity: .04,
     image1: '/assets/images/silva/silvahome1.webp',
     image2: '/assets/images/silva/silvahome2.webp',
     displacementImage: '/assets/images/2.jpg',
@@ -39,7 +39,7 @@ const imageGroup4 = document.querySelector('.cs-picture4');
 if (imageGroup4) {
   new HoverEffect({
     parent: imageGroup4,
-    intensity: .1,
+    intensity: .08,
     image1: '/assets/images/youngers/youngers2.webp',
     image2: '/assets/images/youngers/youngers1.webp',
     displacementImage: '/assets/images/2.jpg',
