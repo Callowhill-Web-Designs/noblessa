@@ -1,0 +1,38 @@
+---
+title: "Clients | Noblessa USA"
+description: "Meta description for the page"
+permalink: "/clients/"
+---
+
+{% extends "layouts/base.html" %}
+
+{% block head %}
+    <link rel="stylesheet" href="/assets/css/clients.css">
+    <script src="/assets/js/clients.js" defer></script>
+    <link rel="preload" as="video" href="../../assets/videos/showrooms1080x1920.webm"/>
+{% endblock %}
+
+{% block body %}
+
+    <!-- ============================================ -->
+    <!--                   Banner                     -->
+    <!-- ============================================ -->
+
+    <div id="banner-2285">
+        <div class="cs-container">
+            <span class="cs-int-title">View Our Work</span>
+            <p class="cs-text">
+                View our designer collections to find the perfect kitchen, bath, or living space that reflects your style and meets your needs. Each collection is crafted with precision and elegance, offering a unique blend of functionality and beauty.
+            </p>
+            <div class="cs-breadcrumbs">
+                <a href="/" class="cs-link">home</a>
+                <a href="/clients" class="cs-link cs-active">clients</a>
+            </div>
+        </div>
+        <!--Background Video-->
+        <video src="../../assets/videos/showrooms1080x1920.webm#t=10" class="cs-video" autoplay muted playsinline loop></video>
+    </div>
+
+    {% include 'sections/cta.html' %}
+
+{% endblock %}

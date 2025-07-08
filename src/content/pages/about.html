@@ -1,5 +1,5 @@
 ---
-title: "About | Code Stitch Web Designs"
+title: "About | Noblessa USA"
 description: "Meta description for the page"
 permalink: "/about/"
 ---
@@ -7,98 +7,186 @@ permalink: "/about/"
 {% extends "layouts/base.html" %}
 
 {% block head %}
-    <link rel="preload" as="image" href="{% getUrl "/assets/images/cabinets.jpg" | resize({ width: 640, height: 600 }) | avif %}"/>
-    <link rel="preload" as="image" href="{% getUrl "/assets/images/cabinets.jpg" | resize({ width: 482, height: 536 }) | avif %}"/>
     <link rel="stylesheet" href="/assets/css/about.css">
 {% endblock %}
 
 {% block body %}
-
     <!-- ============================================ -->
     <!--                   Banner                     -->
     <!-- ============================================ -->
 
-    <div id="banner-310">
+    <div id="banner-2285">
         <div class="cs-container">
             <span class="cs-int-title">About Us</span>
+            <p class="cs-text">
+                Learn more about our designer collections and find the perfect kitchen, bath, or living space that reflects your style and meets your needs. Each collection is crafted with precision and elegance, offering a unique blend of functionality and beauty.
+            </p>
             <div class="cs-breadcrumbs">
-                <a href="/" class="cs-link">Home</a>
-                <a href="/about/" class="cs-link cs-active">About Us</a>
+                <a href="/" class="cs-link">home</a>
+                <a href="/about" class="cs-link cs-active">about</a>
             </div>
         </div>
-        <!--Background Image-->
-        <picture class="cs-background">
-            <!--Mobile Image-->
-            <source media="(max-width: 600px)" srcset="{% getUrl "/assets/images/cabinets.jpg" | resize({ width: 640, height: 600 }) | avif %}" type="image/avif">
-            <source media="(max-width: 600px)" srcset="{% getUrl "/assets/images/cabinets.jpg" | resize({ width: 640, height: 600 }) | webp %}" type="image/webp">
-            <source media="(max-width: 600px)" srcset="{% getUrl "/assets/images/cabinets.jpg" | resize({ width: 640, height: 600 }) | jpeg %}" type="image/jpeg">
-            <!--Tablet Image-->
-            <source media="(max-width: 1024px)" srcset="{% getUrl "/assets/images/cabinets.jpg" | resize({ width: 2048, height: 942 }) | avif %}" type="image/avif">
-            <source media="(max-width: 1024px)" srcset="{% getUrl "/assets/images/cabinets.jpg" | resize({ width: 2048, height: 942 }) | webp %}" type="image/webp">
-            <source media="(max-width: 1024px)" srcset="{% getUrl "/assets/images/cabinets.jpg" | resize({ width: 2048, height: 942 }) | jpeg %}" type="image/jpeg">
-            <!--Desktop Image-->
-            <source media="(min-width: 1024px)" srcset="{% getUrl "/assets/images/cabinets.jpg" | resize({ width: 2500, height: 628 }) | avif %}" type="image/avif">
-            <source media="(min-width: 1024px)" srcset="{% getUrl "/assets/images/cabinets.jpg" | resize({ width: 2500, height: 628 }) | webp %}" type="image/webp">
-            <source media="(min-width: 1024px)" srcset="{% getUrl "/assets/images/cabinets.jpg" | resize({ width: 2500, height: 628 }) | jpeg %}" type="image/jpeg">
-            <img src="{% getUrl "/assets/images/cabinets.jpg" | resize({ width: 2500, height: 628 }) | jpeg %}" alt="library" width="1920" height="482" loading="eager" decoding="async">
-        </picture>
+        <!--Background Video-->
+        <video src="../../assets/videos/showrooms1080x1920.webm#t=10" class="cs-video" autoplay muted playsinline loop></video>
     </div>
 
     <!-- ============================================ -->
-    <!--                 Side By Side                 -->
+    <!--                Our Story                     -->
     <!-- ============================================ -->
 
-    <section id="RPsbs-313">
+    <section id="about-story">
         <div class="cs-container">
-            <!-- Left Image Section -->
+            <div class="cs-content">
+                <span class="cs-topper">Our Story</span>
+                <h2 class="cs-title">Rooted in Excellence, Our Story Begins in Germany</h2>
+                <p class="cs-text">
+                    noblessa has been a brand of excellence for high-end kitchens since 1996. For almost 30 years, our premium kitchens are made in our state-of-the-art factories located in Germany, and overseen by expert craftsmen. From Dubai to Beirut, Los Angeles, Istanbul, and Prague, we have set the benchmark for high-end kitchen design around the world.
+                </p>
+                <p class="cs-text">
+                    The perfection of a noblessa kitchen can be seen in the smallest details. More than a brand, it's a way of life. We are committed to designing living spaces where elegance and harmony reign supreme – by taking our inspiration from you and your desires. That is who we are.
+                </p>
+            </div>
             <div class="cs-image-group">
-                <picture class="cs-picture cs-picture1">
-                    <!--Mobile Image-->
-                    <source media="(max-width: 600px)" srcset="{% getUrl "/assets/images/cabinets.jpg" | resize({ width: 482, height: 536 }) | avif %}" type="image/avif">
-                    <source media="(max-width: 600px)" srcset="{% getUrl "/assets/images/cabinets.jpg" | resize({ width: 482, height: 536 }) | webp %}" type="image/webp">
-                    <source media="(max-width: 600px)" srcset="{% getUrl "/assets/images/cabinets.jpg" | resize({ width: 482, height: 536 }) | jpeg %}" type="image/jpeg">
-                    <!--Tablet Image-->
-                    <source media="(max-width: 1024px)" srcset="{% getUrl "/assets/images/cabinets.jpg" | resize({ width: 802, height: 892 }) | avif %}" type="image/avif">
-                    <source media="(max-width: 1024px)" srcset="{% getUrl "/assets/images/cabinets.jpg" | resize({ width: 802, height: 892 }) | webp %}" type="image/webp">
-                    <source media="(max-width: 1024px)" srcset="{% getUrl "/assets/images/cabinets.jpg" | resize({ width: 802, height: 892 }) | jpeg %}" type="image/jpeg">
-                    <!--Desktop Image-->
-                    <source media="(min-width: 1024px)" srcset="{% getUrl "/assets/images/cabinets.jpg" | resize({ width: 1044, height: 1162 }) | avif %}" type="image/avif">
-                    <source media="(min-width: 1024px)" srcset="{% getUrl "/assets/images/cabinets.jpg" | resize({ width: 1044, height: 1162 }) | webp %}" type="image/webp">
-                    <source media="(min-width: 1024px)" srcset="{% getUrl "/assets/images/cabinets.jpg" | resize({ width: 1044, height: 1162 }) | jpeg %}" type="image/jpeg">
-                    <img src="{% getUrl "/assets/images/cabinets.jpg" | resize({ width: 1044, height: 1162 }) | jpeg %}" alt="lawyers" width="522" height="581" decoding="async">
-                </picture>
-                <picture class="cs-picture cs-picture2">
-                    <!--Mobile Image-->
-                    <source media="(max-width: 600px)" srcset="{% getUrl "/assets/images/construction.jpg" | resize({ width: 366, height: 354 }) | avif %}" type="image/avif">
-                    <source media="(max-width: 600px)" srcset="{% getUrl "/assets/images/construction.jpg" | resize({ width: 366, height: 354 }) | webp %}" type="image/webp">
-                    <source media="(max-width: 600px)" srcset="{% getUrl "/assets/images/construction.jpg" | resize({ width: 366, height: 354 }) | jpeg %}" type="image/jpeg">
-                    <!--Tablet Image-->
-                    <source media="(max-width: 1024px)" srcset="{% getUrl "/assets/images/construction.jpg" | resize({ width: 600, height: 578 }) | avif %}" type="image/avif">
-                    <source media="(max-width: 1024px)" srcset="{% getUrl "/assets/images/construction.jpg" | resize({ width: 600, height: 578 }) | webp %}" type="image/webp">
-                    <source media="(max-width: 1024px)" srcset="{% getUrl "/assets/images/construction.jpg" | resize({ width: 600, height: 578 }) | jpeg %}" type="image/jpeg">
-                    <!--Desktop Image-->
-                    <source media="(min-width: 1024px)" srcset="{% getUrl "/assets/images/construction.jpg" | resize({ width: 780, height: 752 }) | avif %}" type="image/avif">
-                    <source media="(min-width: 1024px)" srcset="{% getUrl "/assets/images/construction.jpg" | resize({ width: 780, height: 752 }) | webp %}" type="image/webp">
-                    <source media="(min-width: 1024px)" srcset="{% getUrl "/assets/images/construction.jpg" | resize({ width: 780, height: 752 }) | jpeg %}" type="image/jpeg">
-                    <img src="{% getUrl "/assets/images/construction.jpg" | resize({ width: 780, height: 752 }) | jpeg %}" alt="gavel" width="390" height="376" loading="lazy" decoding="async">
+                <picture class="cs-picture">
+                    <source media="(max-width: 600px)" srcset="/assets/images/walnutkitchen.webp">
+                    <source media="(min-width: 601px)" srcset="/assets/images/walnutkitchen.webp">
+                    <img loading="lazy" decoding="async" src="/assets/images/walnutkitchen.webp" alt="German craftsmanship" width="630" height="425">
                 </picture>
             </div>
-            <!-- Right Content Section-->
+        </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!--               Our Values                     -->
+    <!-- ============================================ -->
+
+    <section id="about-values">
+        <div class="cs-container">
             <div class="cs-content">
-                <span class="cs-topper">About Us</span>
-                <h2 class="cs-title">About CodeStitch</h2>
-                <p class="cs-text">
-                    In consequat tincidunt turpis sit amet imperdiet. Praesent Class officelan nonatoureanor mauris laoreet, iaculis libero quis. Curabitur et tempus eri consequat tincidunt turpis sit amet imperdiet. Praesent nonatourean olei aptent taciti sociosqu ad litora torquent per.
-                </p>
-                <div class="cs-quote">
-                    <span class="cs-quote-text">
-                        In consequat tincidunt turpis sit amet imperdiet. Praesent Classei consequat tincidunt turpis sit amet imperdiet for mind.
-                    </span>
-                    <span class="cs-name">Justin Time</span>
-                    <span class="cs-job">CEO-Founder</span>
-                    <img class="cs-quote-icon" loading="lazy" decoding="async" src="/assets/svgs/quote.svg" alt="gavel" width="136" height="77">
+                <span class="cs-topper">Our Values</span>
+                <h2 class="cs-title">What Drives Us Forward</h2>
+            </div>
+            <div class="cs-card-group">
+                <div class="cs-item">
+                    <div class="cs-icon-wrapper">
+                        <img class="cs-icon" src="/assets/svgs/up-right-arrow.svg" alt="Customize" width="40" height="40">
+                    </div>
+                    <h3 class="cs-h3">Customize</h3>
+                    <p class="cs-item-text">
+                        Every noblessa kitchen is tailored to your unique vision, reflecting your personal style and functional needs.
+                    </p>
                 </div>
-                <a href="/contact/" class="cs-button-solid">Get in Touch</a>
+                <div class="cs-item">
+                    <div class="cs-icon-wrapper">
+                        <img class="cs-icon" src="/assets/svgs/up-right-arrow.svg" alt="Trust" width="40" height="40">
+                    </div>
+                    <h3 class="cs-h3">Trust</h3>
+                    <p class="cs-item-text">
+                        Built on decades of expertise and reliability, we deliver on our promises with unwavering commitment.
+                    </p>
+                </div>
+                <div class="cs-item">
+                    <div class="cs-icon-wrapper">
+                        <img class="cs-icon" src="/assets/svgs/up-right-arrow.svg" alt="Creative" width="40" height="40">
+                    </div>
+                    <h3 class="cs-h3">Creative</h3>
+                    <p class="cs-item-text">
+                        Innovation drives our design process, creating kitchens that push the boundaries of beauty and functionality.
+                    </p>
+                </div>
+                <div class="cs-item">
+                    <div class="cs-icon-wrapper">
+                        <img class="cs-icon" src="/assets/svgs/up-right-arrow.svg" alt="German Excellence" width="40" height="40">
+                    </div>
+                    <h3 class="cs-h3">German Excellence</h3>
+                    <p class="cs-item-text">
+                        Precision engineering and meticulous craftsmanship define every element of our German-made cabinetry.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!--           German Excellence                  -->
+    <!-- ============================================ -->
+
+    <section id="about-excellence">
+        <div class="cs-container">
+            <div class="cs-image-group">
+                <picture class="cs-picture">
+                    <source media="(max-width: 600px)" srcset="/assets/images/construction.jpg">
+                    <source media="(min-width: 601px)" srcset="/assets/images/construction.jpg">
+                    <img loading="lazy" decoding="async" src="/assets/images/construction.jpg" alt="German manufacturing" width="630" height="425">
+                </picture>
+            </div>
+            <div class="cs-content">
+                <span class="cs-topper">Manufacturing</span>
+                <h2 class="cs-title">Above All, German Excellence</h2>
+                <p class="cs-text">
+                    From our cabinetry to our drawers and handles, every element is made with expert care. We use only quality materials, and the extreme precision you would expect from a brand of German engineers.
+                </p>
+                <p class="cs-text">
+                    Our state-of-the-art factories in Germany combine traditional craftsmanship with cutting-edge technology, ensuring that every noblessa kitchen meets the highest standards of quality and durability.
+                </p>
+                <a href="/contact" class="cs-button-solid">Learn About Our Process</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!--            Recognition                       -->
+    <!-- ============================================ -->
+
+    <section id="about-recognition">
+        <div class="cs-container">
+            <div class="cs-content">
+                <span class="cs-topper">Recognition</span>
+                <h2 class="cs-title">An Internationally Recognized Record of Excellence</h2>
+                <p class="cs-text">
+                    The only company in the kitchen sector to have received the Blauer Engel "Blue Angel" environmental seal. noblessa has garnered international recognition for our commitment to the highest standards of quality and environmental sustainability.
+                </p>
+            </div>
+            <div class="cs-stats-group">
+                <div class="cs-stat">
+                    <span class="cs-number">30<span class="cs-accent">+</span></span>
+                    <span class="cs-desc">Years of Excellence</span>
+                </div>
+                <div class="cs-stat">
+                    <span class="cs-number">5K<span class="cs-accent">+</span></span>
+                    <span class="cs-desc">Cabinet Variations</span>
+                </div>
+                <div class="cs-stat">
+                    <span class="cs-number">20<span class="cs-accent">+</span></span>
+                    <span class="cs-desc">International Awards</span>
+                </div>
+                <div class="cs-stat">
+                    <span class="cs-number">1<span class="cs-accent">st</span></span>
+                    <span class="cs-desc">Blue Angel Certified</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!--            Global Presence                   -->
+    <!-- ============================================ -->
+
+    <section id="about-global">
+        <div class="cs-container">
+            <div class="cs-content">
+                <span class="cs-topper">Global Reach</span>
+                <h2 class="cs-title">Setting the Benchmark Worldwide</h2>
+                <p class="cs-text">
+                    From Los Angeles to Dubai, noblessa is synonymous with timeless refinement. Every line and hidden detail reflects an obsession with the invisible, the kind of beauty only the truly discerning recognize.
+                </p>
+            </div>
+            <div class="cs-image-wrapper">
+                <picture class="cs-picture">
+                    <source media="(max-width: 600px)" srcset="/assets/images/cabinets.jpg">
+                    <source media="(min-width: 601px)" srcset="/assets/images/cabinets.jpg">
+                    <img loading="lazy" decoding="async" src="/assets/images/cabinets.jpg" alt="Global presence" width="1280" height="568">
+                </picture>
             </div>
         </div>
     </section>
