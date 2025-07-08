@@ -307,6 +307,77 @@
         display: none !important;
     }
 
+    /* ============================================ */
+    /*                Scroll Animations             */
+    /* ============================================ */
+    /* 
+     * USAGE INSTRUCTIONS:
+     * 
+     * 1. Add one of these classes to any element (images, text, divs, etc.):
+     *    - .sl-fade-in-up      (fades in from bottom to top)
+     *    - .sl-fade-in-down    (fades in from top to bottom)
+     *    - .sl-fade-in-left    (fades in from right to left)
+     *    - .sl-fade-in-right   (fades in from left to right)
+     * 
+     * 2. The element will automatically fade in with directional movement when scrolled into view
+     * 
+     * EXAMPLES:
+     * <h2 class="sl-fade-in-up">This heading slides up</h2>
+     * <img src="image.jpg" class="sl-fade-in-down" alt="Image slides down">
+     * <div class="cs-content sl-fade-in-left">This content slides left</div>
+     * <p class="sl-fade-in-right">This text slides right</p>
+     * 
+     * NOTE: Elements start invisible and animate to visible when 10% enters viewport
+     */
+
+    // Fade in from bottom (slide up)
+    .sl-fade-in-up {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        
+        &.sl-animate {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    // Fade in from top (slide down)
+    .sl-fade-in-down {
+        opacity: 0;
+        transform: translateY(-30px);
+        transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        
+        &.sl-animate {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    // Fade in from right (slide left)
+    .sl-fade-in-left {
+        opacity: 0;
+        transform: translateX(30px);
+        transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        
+        &.sl-animate {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    }
+
+    // Fade in from left (slide right)
+    .sl-fade-in-right {
+        opacity: 0;
+        transform: translateX(-30px);
+        transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        
+        &.sl-animate {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    }
+
     body.dark-mode {
         .cs-light,
         .light {
