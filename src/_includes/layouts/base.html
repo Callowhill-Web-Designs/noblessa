@@ -16,17 +16,17 @@
         <meta property="og:description" content="{{ description }}"/>
         <meta property="og:type" content="website"/>
         <meta property="og:url" content="{{ client.domain }}{{ page.url }}"/>
-        <meta property="og:image" content="{{ image or "/assets/images/logo-small.png" }}"/>
-        <meta property="og:image:secure_url" content="{{ image or "/assets/images/logo-small.png" }}"/>
+        <!-- <meta property="og:image" content="{{ image or "/assets/images/logo-small.png" }}"/>
+        <meta property="og:image:secure_url" content="{{ image or "/assets/images/logo-small.png" }}"/> -->
 
         <!--Favicons-->
         <!-- https://realfavicongenerator.net/ -->
-        <link rel="icon" type="image/png" href="/assets/favicons/favicon-96x96.png" sizes="96x96"/>
+        <!-- <link rel="icon" type="image/png" href="/assets/favicons/favicon-96x96.png" sizes="96x96"/>
         <link rel="icon" type="image/svg+xml" href="/assets/favicons/favicon.svg"/>
         <link rel="shortcut icon" href="/assets/favicons/favicon.ico"/>
         <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicons/apple-touch-icon.png"/>
-        <meta name="apple-mobile-web-app-title" content="Starter Kit"/>
-        <link rel="manifest" href="/assets/favicons/site.webmanifest"/>
+        <meta name="apple-mobile-web-app-title" content="noblessa-USA"/>
+        <link rel="manifest" href="/assets/favicons/site.webmanifest"/> -->
 
         <!-- Preloads -->
         <!-- <link rel="preload" as="image" href="/assets/svgs/logo-black.svg"> -->
@@ -37,15 +37,6 @@
         <link rel="stylesheet" href="/assets/css/root.css">
         <script defer src="/assets/js/nav.js"></script>
         <script defer src="/assets/js/scroll-animations.js"></script>
-
-        <!-- Shoelace UI Library (Try to localize this with node at somepoint)-->
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/themes/light.css" />
-        <script type="module" src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/shoelace-autoloader.js"></script>
-
-
-
-
-
         {% block head %}{% endblock %}
 
         <title>{{ title }}</title>
