@@ -1,4 +1,4 @@
-/* import HoverEffect from 'hover-effect';
+import HoverEffect from 'hover-effect';
 
 const imageGroup1 = document.querySelector('.cs-picture1');
 if (imageGroup1) {
@@ -45,4 +45,4 @@ if (imageGroup4) {
     displacementImage: '/assets/images/2.jpg',
     imagesRatio: 1.1,
   });
-} */
+}
