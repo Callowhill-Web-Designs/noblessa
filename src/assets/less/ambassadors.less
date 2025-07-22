@@ -747,3 +747,220 @@
         }
     }
 }
+
+/* Modal Styles */
+@media only screen and (min-width: 0rem) {
+    .cs-modal {
+        display: none;
+        position: fixed;
+        z-index: 10999; // Increased from 1000 to 9999
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgba(0, 0, 0, 0.5);
+        backdrop-filter: blur(4px);
+    }
+
+    .cs-modal-content {
+        background-color: #fff;
+        margin: (20/16rem) auto;
+        padding: 0;
+        border-radius: (12/16rem);
+        width: 90%;
+        max-width: (600/16rem);
+        max-height: 90vh;
+        overflow-y: auto;
+        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        position: relative;
+        animation: modalSlideIn 0.3s ease-out;
+        z-index: 11000; // Added z-index to modal content as well
+    }
+
+    @keyframes modalSlideIn {
+        from {
+            opacity: 0;
+            transform: translateY(-50px) scale(0.9);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+    }
+
+    .cs-modal-header {
+        position: relative;
+        padding: (20/16rem);
+    }
+
+    .cs-modal-close {
+        color: #6b7280;
+        float: right;
+        font-size: (28/16rem);
+        font-weight: bold;
+        position: absolute;
+        top: (15/16rem);
+        right: (20/16rem);
+        cursor: pointer;
+        transition: all 0.3s ease;
+        width: (32/16rem);
+        height: (32/16rem);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+
+        &:hover,
+        &:focus {
+            color: var(--primary);
+            background: #f3f4f6;
+        }
+    }
+
+    .cs-modal-body {
+        padding: (40/16rem);
+    }
+
+    .cs-modal-ambassador-info {
+        display: flex;
+        gap: (20/16rem);
+        margin-bottom: (32/16rem);
+        padding-bottom: (24/16rem);
+        border-bottom: 1px solid #e5e7eb;
+    }
+
+    .cs-modal-image {
+        flex-shrink: 0;
+
+        img {
+            width: (80/16rem);
+            height: (80/16rem);
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--primary);
+        }
+    }
+
+    .cs-modal-info {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        gap: (12/16rem);
+    }
+
+    .cs-modal-title {
+        font-size: (20/16rem);
+        font-weight: 700;
+        margin: 0;
+        color: var(--headerColor);
+    }
+
+    .cs-modal-location,
+    .cs-modal-contact {
+        display: flex;
+        align-items: flex-start;
+        gap: (8/16rem);
+        color: var(--bodyTextColor);
+        font-size: (14/16rem);
+        line-height: 1.4em;
+
+        svg {
+            color: var(--primary);
+            flex-shrink: 0;
+            width: (16/16rem);
+            height: (16/16rem);
+            margin-top: (2/16rem);
+        }
+    }
+
+    .cs-modal-form {
+        display: flex;
+        flex-direction: column;
+        gap: (20/16rem);
+    }
+
+    .cs-form-row {
+        display: flex;
+        gap: (16/16rem);
+    }
+
+    .cs-form-group {
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+    }
+
+    .cs-form-label {
+        font-size: (14/16rem);
+        font-weight: 600;
+        margin-bottom: (6/16rem);
+        color: var(--headerColor);
+    }
+
+    .cs-form-input,
+    .cs-form-textarea {
+        padding: (12/16rem) (16/16rem);
+        border: 2px solid #e5e7eb;
+        border-radius: (6/16rem);
+        font-size: (16/16rem);
+        transition: all 0.3s ease;
+        font-family: inherit;
+
+        &:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(var(--primary-rgb), 0.1);
+        }
+
+        &::placeholder {
+            color: #9ca3af;
+        }
+    }
+
+    .cs-form-textarea {
+        resize: vertical;
+        min-height: (100/16rem);
+    }
+
+    .cs-button-nodeco {
+        margin-top: 20px;
+    }
+}
+
+/* Tablet - 768px */
+@media only screen and (min-width: 48rem) {
+    .cs-modal-content {
+        margin: (40/16rem) auto;
+        width: 80%;
+        max-width: (700/16rem);
+    }
+
+    .cs-modal-ambassador-info {
+        gap: (24/16rem);
+    }
+
+    .cs-modal-image {
+        img {
+            width: (100/16rem);
+            height: (100/16rem);
+        }
+    }
+
+    .cs-form-row {
+        .cs-form-group:first-child {
+            flex: 2;
+        }
+        .cs-form-group:last-child {
+            flex: 1;
+        }
+    }
+}
+
+/* Desktop - 1024px */
+@media only screen and (min-width: 64rem) {
+    .cs-modal-content {
+        margin: (60/16rem) auto;
+        max-width: (800/16rem);
+    }
+}
