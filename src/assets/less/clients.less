@@ -4,3 +4,184 @@
 // that page. Any styles shared between pages, including repeated sections,
 // should go into root.less
 // ─────────────────────────────────────────────────────────────────────────────
+
+/*-- -------------------------- -->
+<---      Client Projects        -->
+<--- -------------------------- -*/
+
+#client-projects-2286 {
+    padding: var(--sectionPadding);
+    background-color: #f7f7f7;
+
+    .cs-container {
+        width: 100%;
+        max-width: (1280/16rem);
+        margin: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 120px;
+    }
+
+    .cs-content {
+        text-align: center;
+        width: 100%;
+        max-width: (694/16rem);
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        z-index: 10;
+    }
+
+
+    .cs-topper {
+        text-align: center;
+        margin: auto;
+    }
+    
+    .cs-title {
+        text-align: center;
+        margin: auto;
+        position: relative;
+        z-index: 1;
+    }
+
+    .cs-divider {
+        width: 100%;
+        height: 1px;
+        background: #D2D8DF;
+        margin: 20px 0px;
+        opacity: 1;
+        display: block;
+    }
+
+    .cs-text {
+        max-width: (954/16rem);
+        text-align: center;
+        padding: 0 10px;
+        order: 0;
+    }
+
+    .cs-card-group {
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax((320/16rem), 1fr));
+        gap: 30px;
+    }
+
+    .cs-item {
+        list-style: none;
+        width: 100%;
+        background-color: #fff;
+        border-radius: (12/16rem);
+        /* prevents padding from affecting height and width */
+        box-sizing: border-box;
+        overflow: hidden;
+        border: 1px solid #e8e8e8;
+        transition: transform 0.3s, box-shadow 0.3s;
+        text-decoration: none; // Remove link underline
+        color: inherit; // Inherit text color
+        display: block; // Make the entire card clickable
+
+        &:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+            text-decoration: none; // Ensure no underline on hover
+
+            .cs-picture img {
+                transform: scale(1.05);
+            }
+        }
+
+        // Reset link styles for child elements
+        .cs-h3, .cs-location, .cs-item-text {
+            color: inherit;
+        }
+    }
+
+    .cs-picture {
+        width: 100%;
+        height: (240/16rem);
+        background-color: var(--primary);
+        overflow: hidden;
+        display: block;
+        position: relative;
+
+        img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+            transition: transform 0.6s;
+        }
+    }
+
+    .cs-info {
+        /* 16px - 24px */
+        padding: clamp(1rem, 3vw, 1.5rem);
+    }
+
+    .cs-h3 {
+        font-size: (20/16rem);
+        line-height: 1.2em;
+        font-weight: 700;
+        margin: 0 0 (8/16rem) 0;
+        color: var(--headerColor);
+    }
+
+    .cs-location {
+        font-size: (14/16rem);
+        line-height: 1.2em;
+        font-weight: 600;
+        color: var(--primary);
+        margin-bottom: (12/16rem);
+        display: block;
+    }
+
+    .cs-item-text {
+        font-size: (14/16rem);
+        line-height: 1.5em;
+        margin: 0;
+        color: var(--bodyTextColor);
+    }
+}
+
+/* Tablet - 768px */
+@media only screen and (min-width: 48rem) {
+    #client-projects-2286 {
+        .cs-card-group {
+            grid-template-columns: repeat(auto-fit, minmax((350/16rem), 1fr));
+        }
+
+        .cs-picture {
+            height: (280/16rem);
+        }
+
+        .cs-h3 {
+            font-size: (24/16rem);
+        }
+
+        .cs-item-text {
+            font-size: (16/16rem);
+        }
+    }
+}
+
+/* Desktop - 1024px */
+@media only screen and (min-width: 64rem) {
+    #client-projects-2286 {
+        .cs-card-group {
+            grid-template-columns: repeat(auto-fit, minmax((400/16rem), 1fr));
+        }
+
+        .cs-picture {
+            height: (320/16rem);
+        }
+    }
+}
+

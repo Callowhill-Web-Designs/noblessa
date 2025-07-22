@@ -1,0 +1,910 @@
+// ─────────────────────────────────────────────────────────────────────────────
+// PAGE STYLES
+// Interior pages have their own stylesheet for styles that only exist on
+// that page. Any styles shared between pages, including repeated sections,
+// should go into root.less
+// ─────────────────────────────────────────────────────────────────────────────
+
+/*-- -------------------------- -->
+<---          Banner            -->
+<--- -------------------------- -*/
+
+/* Mobile - 360px */
+@media only screen and (min-width: 0rem) {
+    #banner-2285{
+        .cs-text-wrapper {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            /* Increased padding for larger hero section */
+            padding: 0px 0px;
+            margin: 0px 0;
+        }
+
+        .cs-title {
+            text-align: center;
+        }
+
+        .cs-text {
+            text-align: center;
+        }
+    }
+}
+
+/* Tablet - 768px */
+@media only screen and (min-width: 48rem) {
+    #banner-2285{
+        .cs-text-wrapper {
+            /* Increased padding for tablet */
+            padding: 40px 0px;
+            margin: 20px 0;
+        }
+    }
+}
+
+/* Desktop - 1024px */
+@media only screen and (min-width: 64rem) {
+    #banner-2285{
+        .cs-text-wrapper {
+            /* Increased padding for desktop */
+            padding: 60px 0px;
+            margin: 40px 0;
+        }
+    }
+}
+
+/*-- -------------------------- -->
+<---         SBS Left           -->
+<--- -------------------------- -*/
+
+/* Mobile - 360px */
+@media only screen and (min-width: 0rem) {
+    #sbs-left {
+        padding: 60px 0 60px 0;
+        /* clips anything overflowing */
+        overflow: hidden;
+        position: relative;
+        z-index: 1;
+        
+        .cs-container {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            /* 48px - 64px */
+            gap: 60px;
+        }
+
+        .cs-content {
+            text-align: center;
+            width: 100%;
+            max-width: (694/16rem);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            z-index: 10;
+        }
+
+        .cs-button-nodeco {
+            align-self: center;
+        }
+
+        .cs-topper {
+            text-align: center;
+            margin: auto;
+        }
+
+        .cs-title {
+            text-align: center;
+            max-width: 20ch;
+            margin: auto;
+            /* 48px - 64px */
+            padding-bottom: 30px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .cs-divider {
+            width: 100vw;
+            height: 1px;
+            background: #D2D8DF;
+            opacity: 1;
+            display: block;
+        }
+
+        .cs-text {
+            margin-bottom: (16/16rem);
+            padding-top: 30px;
+            padding: 30px 10px 0px 10px;
+            text-align: center;
+            width: 100%;
+
+            &:last-of-type {
+                /* 24px - 32px */
+                margin-bottom: clamp(1.5rem, 3vw, 2rem);
+            }
+        }
+
+        .cs-image-group {
+            /* scales the whole section down and ties the font size to the vw and stops at 75% of the vale of 1em, changes at desktop */
+            font-size:~"min(2.8vw, .75rem)";
+            /* everything inside this box is in ems so we can scale it all down proportionally with a font size */
+            width: 100%;
+            height: 60vh;
+            order: 2;
+            position: relative;
+            z-index: 1;
+        }
+
+        .cs-picture {
+            width: 100%;
+            height: 100%;
+            display: block;
+            object-fit: cover;
+        }
+    }
+}
+
+/* Tablet - 768px */
+@media only screen and (min-width: 48rem) {
+    #sbs-left {
+        padding: 60px 0 60px 0;
+    }
+}
+
+/* Large Desktop - 1200px */
+@media only screen and (min-width: 75rem) {
+    #sbs-left {
+        padding: 120px 0 120px 0;
+
+        .cs-container {
+            width: 100%;
+            flex-direction: row;
+            justify-content: stretch;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+            gap: 120px;
+        }
+
+        .cs-content {
+            width: 50%;
+            align-items: flex-start;
+            overflow: visible;
+        }
+
+        .cs-topper, .cs-title {
+            text-align: left;
+            margin: 0;
+        }
+
+        .cs-text {
+            margin-bottom: (0rem);
+            padding-top: 0px;
+            padding: 30px 10px 0px 0px;
+            text-align: left;
+
+            &:last-of-type {
+                /* 24px - 32px */
+                margin-bottom: clamp(1.5rem, 3vw, 2rem);
+            }
+        }
+
+        .cs-title {
+            max-width: 40ch;
+        }
+
+        .cs-divider {
+            width: 100%;
+            height: 1px;
+            background: #D2D8DF;
+            opacity: 1;
+            display: block;
+        }
+
+        .cs-image-group {
+            /* set to inherit at Large Desktop */
+            width: 50%;
+            order: -1;
+            overflow: hidden;
+        }
+
+        .cs-picture {
+            width: 100%;
+            display: flex;
+            justify-content: flex-start;
+            align-items: flex-end;
+            position: relative;
+            z-index: 1;
+        }
+
+        .cs-button-nodeco {
+            align-self: flex-start;
+        }
+    }
+}
+
+/*-- -------------------------- -->
+<---        SBS Right           -->
+<--- -------------------------- -*/
+
+/* Mobile - 360px */
+@media only screen and (min-width: 0rem) {
+    #sbs-right {
+        padding: 60px 0 60px 0;
+        /* clips anything overflowing */
+        overflow: hidden;
+        position: relative;
+        z-index: 1;
+        
+        .cs-container {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            /* 48px - 64px */
+            gap: 60px;
+        }
+
+        .cs-content {
+            text-align: center;
+            width: 100%;
+            max-width: (694/16rem);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            z-index: 10;
+        }
+
+        .cs-button-nodeco {
+            align-self: center;
+        }
+
+        .cs-topper {
+            text-align: center;
+            margin: auto;
+        }
+
+        .cs-title {
+            text-align: center;
+            max-width: 20ch;
+            margin: auto;
+            /* 48px - 64px */
+            padding-bottom: 30px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .cs-divider {
+            width: 100vw;
+            height: 1px;
+            background: #D2D8DF;
+            opacity: 1;
+            display: block;
+        }
+
+        .cs-text {
+            margin-bottom: (16/16rem);
+            padding-top: 30px;
+            padding: 30px 10px 0px 10px;
+            text-align: center;
+            width: 100%;
+
+            &:last-of-type {
+                /* 24px - 32px */
+                margin-bottom: clamp(1.5rem, 3vw, 2rem);
+            }
+        }
+
+        .cs-image-group {
+            /* scales the whole section down and ties the font size to the vw and stops at 75% of the vale of 1em, changes at desktop */
+            font-size:~"min(2.8vw, .75rem)";
+            /* everything inside this box is in ems so we can scale it all down proportionally with a font size */
+            width: 100%;
+            height: 60vh;
+            order: 2;
+            position: relative;
+            z-index: 1;
+        }
+
+        .cs-picture {
+            width: 100%;
+            height: 100%;
+            display: block;
+            object-fit: cover;
+        }
+    }
+}
+
+/* Tablet - 768px */
+@media only screen and (min-width: 48rem) {
+    #sbs-right {
+        padding: 60px 0 60px 0;
+    }
+}
+
+/* Large Desktop - 1200px */
+@media only screen and (min-width: 75rem) {
+    #sbs-right {
+        padding: 120px 0 120px 0;
+
+        .cs-container {
+            width: 100%;
+            flex-direction: row;
+            justify-content: flex-end;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+            gap: 120px;
+        }
+
+        .cs-content {
+            width: 50%;
+            padding: 0 0 0 30px;
+            align-items: flex-start;
+            overflow: visible;
+        }
+
+        .cs-topper, .cs-title {
+            text-align: left;
+            margin: 0;
+        }
+
+        .cs-text {
+            margin-bottom: (0rem);
+            padding-top: 0px;
+            padding: 30px 0px 0px 0px;
+            text-align: left;
+
+            &:last-of-type {
+                /* 24px - 32px */
+                margin-bottom: clamp(1.5rem, 3vw, 2rem);
+            }
+        }
+
+        .cs-title {
+            max-width: 40ch;
+        }
+
+        .cs-divider {
+            width: 100%;
+            height: 1px;
+            background: #D2D8DF;
+            opacity: 1;
+            display: block;
+        }
+
+        .cs-image-group {
+            /* set to inherit at Large Desktop */
+            width: 50%;
+            /* Image on the right side */
+            order: 1;
+            overflow: hidden;
+        }
+
+        .cs-picture {
+            width: 100%;
+            display: flex;
+            justify-content: flex-start;
+            align-items: flex-end;
+            position: relative;
+            z-index: 1;
+        }
+
+        .cs-button-nodeco {
+            align-self: flex-start;
+        }
+    }
+}
+
+/*-- -------------------------- -->
+<---         LCC Image           -->
+<--- -------------------------- -*/
+
+/* Mobile - 360px */
+@media only screen and (min-width: 0rem) {
+    #lcc-image {
+        padding: var(--sectionPadding);
+
+        .cs-container {
+            width: 100%;
+            max-width: (1280/16rem);
+            margin: auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: (48/16rem);
+        }
+
+        .cs-content {
+            text-align: center;
+            width: 100%;
+            max-width: (630/16rem);
+        }
+
+        .cs-topper {
+            text-align: center;
+            margin: auto;
+        }
+        
+        .cs-title {
+            text-align: center;
+            margin: auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .cs-divider {
+            width: 100%;
+            height: 1px;
+            background: #D2D8DF;
+            margin: 20px 0px;
+            opacity: 1;
+            display: block;
+        }
+        
+        .cs-text {
+            max-width: (954/16rem);
+            text-align: center;
+            padding: 0 10px;
+            order: 0;
+        }
+
+        .cs-image-wrapper {
+            width: 100%;
+        }
+
+        .cs-picture {
+            width: 100%;
+            height: (300/16rem);
+            border-radius: (8/16rem);
+            overflow: hidden;
+            display: block;
+            position: relative;
+
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                position: absolute;
+                top: 0;
+                left: 0;
+            }
+        }
+    }
+}
+
+/* Tablet - 768px */
+@media only screen and (min-width: 48rem) {
+    #lcc-image {
+        .cs-picture {
+            height: (400/16rem);
+        }
+    }
+}
+
+/* Desktop - 1024px */
+@media only screen and (min-width: 64rem) {
+    #lcc-image {
+        .cs-picture {
+            height: (700/16rem);
+        }
+    }
+}
+
+/*-- -------------------------- -->
+<---         LCC Video           -->
+<--- -------------------------- -*/
+
+/* Mobile - 360px */
+@media only screen and (min-width: 0rem) {
+    #lcc-video {
+        padding: var(--sectionPadding);
+
+        .cs-container {
+            width: 100%;
+            max-width: (1280/16rem);
+            margin: auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: (48/16rem);
+        }
+
+        .cs-content {
+            text-align: center;
+            width: 100%;
+            max-width: (630/16rem);
+        }
+
+        .cs-topper {
+            text-align: center;
+            margin: auto;
+        }
+        
+        .cs-title {
+            text-align: center;
+            margin: auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .cs-divider {
+            width: 100%;
+            height: 1px;
+            background: #D2D8DF;
+            margin: 20px 0px;
+            opacity: 1;
+            display: block;
+        }
+        
+        .cs-text {
+            max-width: (954/16rem);
+            text-align: center;
+            padding: 0 10px;
+            order: 0;
+        }
+
+        .cs-video-wrapper {
+            width: 100%;
+        }
+
+        .cs-video-container {
+            width: 100%;
+            height: (200/16rem);
+            border-radius: (8/16rem);
+            overflow: hidden;
+            display: block;
+            position: relative;
+
+            iframe {
+                width: 100%;
+                height: 100%;
+                position: absolute;
+                top: 0;
+                left: 0;
+            }
+        }
+    }
+}
+
+/* Tablet - 768px */
+@media only screen and (min-width: 48rem) {
+    #lcc-video {
+        .cs-video-container {
+            height: (400/16rem);
+        }
+    }
+}
+
+/* Desktop - 1024px */
+@media only screen and (min-width: 64rem) {
+    #lcc-video {
+        .cs-video-container {
+            height: (700/16rem);
+        }
+    }
+}
+
+/*-- -------------------------- -->
+<---    Large Centered Quote     -->
+<--- -------------------------- -*/
+
+/* Mobile - 360px */
+@media only screen and (min-width: 0rem) {
+    #large-quote {
+        padding: (100/16rem) 0;
+        position: relative;
+        z-index: 1;
+        overflow: hidden;
+        min-height: (400/16rem);
+        display: flex;
+        align-items: center;
+
+        .cs-container {
+            width: 100%;
+            max-width: (1280/16rem);
+            margin: auto;
+            padding: 0 (16/16rem);
+            position: relative;
+            z-index: 10;
+        }
+
+        .cs-quote-wrapper {
+            text-align: center;
+            max-width: (800/16rem);
+            margin: 0 auto;
+        }
+
+        .cs-quote {
+            font-size: (24/16rem);
+            line-height: 1.4em;
+            font-weight: 400;
+            font-style: italic;
+            color: #ffffff;
+            margin: 0 0 (20/16rem) 0;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+
+            &::before {
+                content: '"';
+                font-size: 1.5em;
+                color: var(--primary);
+            }
+
+            &::after {
+                content: '"';
+                font-size: 1.5em;
+                color: var(--primary);
+            }
+        }
+
+        .cs-author {
+            font-size: (16/16rem);
+            line-height: 1.2em;
+            font-weight: 600;
+            color: #ffffff;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            display: block;
+            font-style: normal;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .cs-background {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: -1;
+        }
+
+        .cs-bg-picture {
+            width: 100%;
+            height: 100%;
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 0;
+
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                position: absolute;
+                top: 0;
+                left: 0;
+            }
+        }
+
+        .cs-overlay {
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 1;
+        }
+    }
+}
+
+/* Tablet - 768px */
+@media only screen and (min-width: 48rem) {
+    #large-quote {
+        padding: (120/16rem) 0;
+        min-height: (500/16rem);
+
+        .cs-quote {
+            font-size: (32/16rem);
+            margin: 0 0 (30/16rem) 0;
+        }
+
+        .cs-author {
+            font-size: (18/16rem);
+        }
+    }
+}
+
+/* Desktop - 1024px */
+@media only screen and (min-width: 64rem) {
+    #large-quote {
+        padding: (150/16rem) 0;
+        min-height: (600/16rem);
+
+        .cs-quote {
+            font-size: (40/16rem);
+            margin: 0 0 (40/16rem) 0;
+        }
+
+        .cs-author {
+            font-size: (20/16rem);
+        }
+    }
+}
+
+/*-- -------------------------- -->
+<---      Image Carousel        -->
+<--- -------------------------- -*/
+
+/* Mobile - 360px */
+@media only screen and (min-width: 0rem) {
+    #image-carousel {
+        padding: var(--sectionPadding);
+
+        .cs-container {
+            width: 100%;
+            max-width: (1280/16rem);
+            margin: auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: (48/16rem);
+        }
+
+        .cs-content {
+            text-align: center;
+            width: 100%;
+            max-width: (630/16rem);
+        }
+
+        .cs-topper {
+            text-align: center;
+            margin: auto;
+        }
+        
+        .cs-title {
+            text-align: center;
+            margin: auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .cs-divider {
+            width: 100%;
+            height: 1px;
+            background: #D2D8DF;
+            margin: 20px 0px;
+            opacity: 1;
+            display: block;
+        }
+        
+        .cs-text {
+            max-width: (954/16rem);
+            text-align: center;
+            padding: 0 10px;
+            order: 0;
+        }
+
+        .cs-carousel-wrapper {
+            width: 100%;
+            position: relative;
+        }
+
+        .cs-carousel {
+            width: 100%;
+            height: (300/16rem);
+            border-radius: (8/16rem);
+            overflow: hidden;
+            position: relative;
+        }
+
+        .cs-carousel-item {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+            z-index: 1;
+
+            &.active {
+                opacity: 1;
+                z-index: 2;
+            }
+
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                display: block;
+            }
+        }
+
+        .cs-carousel-btn {
+            width: (48/16rem);
+            height: (48/16rem);
+            background: rgba(255, 255, 255, 0.9);
+            border: none;
+            border-radius: 50%;
+            color: var(--headerColor);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 10;
+            transition: all 0.3s ease;
+
+            &:hover {
+                background: var(--primary);
+                color: #ffffff;
+                transform: translateY(-50%) scale(1.1);
+            }
+
+            &.cs-prev {
+                left: (16/16rem);
+            }
+
+            &.cs-next {
+                right: (16/16rem);
+            }
+        }
+
+        .cs-carousel-dots {
+            display: flex;
+            justify-content: center;
+            gap: (8/16rem);
+            margin-top: (24/16rem);
+        }
+
+        .cs-dot {
+            width: (12/16rem);
+            height: (12/16rem);
+            border: none;
+            border-radius: 50%;
+            background: #D2D8DF;
+            cursor: pointer;
+            transition: all 0.3s ease;
+
+            &.active,
+            &:hover {
+                background: var(--primary);
+                transform: scale(1.2);
+            }
+        }
+    }
+}
+
+/* Tablet - 768px */
+@media only screen and (min-width: 48rem) {
+    #image-carousel {
+        .cs-carousel {
+            height: (400/16rem);
+        }
+
+        .cs-carousel-btn {
+            width: (56/16rem);
+            height: (56/16rem);
+        }
+    }
+}
+
+/* Desktop - 1024px */
+@media only screen and (min-width: 64rem) {
+    #image-carousel {
+        .cs-carousel {
+            height: (600/16rem);
+        }
+
+        .cs-carousel-btn {
+            width: (64/16rem);
+            height: (64/16rem);
+
+            &.cs-prev {
+                left: (24/16rem);
+            }
+
+            &.cs-next {
+                right: (24/16rem);
+            }
+        }
+    }
+}
