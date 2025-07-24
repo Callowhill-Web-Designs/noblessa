@@ -531,6 +531,252 @@
 }
 
 /*-- -------------------------- -->
+<---          Awards            -->
+<--- -------------------------- -*/
+
+/* Mobile - 360px */
+@media only screen and (min-width: 0rem) {
+    #about-awards {
+        padding: var(--sectionPadding);
+        background: #f8f9fa;
+        overflow: hidden;
+
+        .cs-container {
+            width: 100%;
+            max-width: (1280/16rem);
+            margin: auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: (48/16rem);
+        }
+
+        .cs-content {
+            text-align: center;
+            width: 100%;
+            max-width: (630/16rem);
+        }
+
+        .cs-topper {
+            font-size: var(--topperFontSize);
+            line-height: 1.2em;
+            text-transform: uppercase;
+            text-align: inherit;
+            letter-spacing: .1em;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: (4/16rem);
+            display: block;
+        }
+
+        .cs-title {
+            font-size: var(--headerFontSize);
+            font-weight: 900;
+            line-height: 1.2em;
+            text-align: inherit;
+            max-width: (700/16rem);
+            margin: 0 0 (16/16rem) 0;
+            color: var(--headerColor);
+            position: relative;
+        }
+
+        .cs-text {
+            font-size: var(--bodyFontSize);
+            line-height: 1.5em;
+            text-align: inherit;
+            width: 100%;
+            max-width: (650/16rem);
+            margin: 0;
+            color: var(--bodyTextColor);
+        }
+
+        .cs-carousel-wrapper {
+            width: 100%;
+            overflow: hidden;
+            position: relative;
+            padding: (10/16rem) 0; // Add padding to accommodate hover effect
+            margin: (-10/16rem) 0; // Offset the padding to maintain spacing
+            
+            &::before,
+            &::after {
+                content: '';
+                position: absolute;
+                top: 0;
+                width: (40/16rem);
+                height: 100%;
+                z-index: 2;
+                pointer-events: none;
+            }
+            
+            &::before {
+                left: 0;
+                background: linear-gradient(to right, #f8f9fa, transparent);
+            }
+            
+            &::after {
+                right: 0;
+                background: linear-gradient(to left, #f8f9fa, transparent);
+            }
+        }
+
+        .cs-carousel {
+            display: flex;
+            gap: (30/16rem);
+            animation: scroll 30s linear infinite;
+            padding: (5/16rem) 0; // Additional padding for safe hover space
+            
+            &:hover {
+                animation-play-state: paused;
+            }
+        }
+
+        .cs-award-card {
+            flex: 0 0 (280/16rem);
+            background: white;
+            border-radius: (12/16rem);
+            padding: (32/16rem) (24/16rem);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            margin: (5/16rem) 0; // Margin to prevent clipping
+            
+            &:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+            }
+        }
+
+        .cs-award-image {
+            width: (80/16rem);
+            height: (80/16rem);
+            margin-bottom: (24/16rem);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: contain;
+            }
+        }
+
+        .cs-award-title {
+            font-size: (20/16rem);
+            line-height: 1.2em;
+            font-weight: 700;
+            margin: 0 0 (16/16rem) 0;
+            color: var(--headerColor);
+        }
+
+        .cs-award-text {
+            font-size: (14/16rem);
+            line-height: 1.5em;
+            margin: 0;
+            color: var(--bodyTextColor);
+        }
+
+        @keyframes scroll {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(calc(-280px * 7 - 30px * 7));
+            }
+        }
+    }
+}
+
+/* Tablet - 768px */
+@media only screen and (min-width: 48rem) {
+    #about-awards {
+        .cs-carousel-wrapper {
+            padding: (15/16rem) 0;
+            margin: (-15/16rem) 0;
+        }
+
+        .cs-carousel {
+            padding: (10/16rem) 0;
+        }
+
+        .cs-award-card {
+            flex: 0 0 (320/16rem);
+            padding: (40/16rem) (32/16rem);
+            margin: (10/16rem) 0;
+        }
+
+        .cs-award-title {
+            font-size: (22/16rem);
+        }
+
+        .cs-award-text {
+            font-size: (16/16rem);
+        }
+
+        @keyframes scroll {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(calc(-320px * 7 - 30px * 7));
+            }
+        }
+    }
+}
+
+/* Desktop - 1024px */
+@media only screen and (min-width: 64rem) {
+    #about-awards {
+        .cs-carousel-wrapper {
+            padding: (20/16rem) 0;
+            margin: (-20/16rem) 0;
+            
+            &::before,
+            &::after {
+                width: (60/16rem);
+            }
+        }
+
+        .cs-carousel {
+            padding: (15/16rem) 0;
+        }
+
+        .cs-award-card {
+            flex: 0 0 (350/16rem);
+            padding: (48/16rem) (36/16rem);
+            margin: (15/16rem) 0;
+        }
+
+        .cs-award-image {
+            width: (100/16rem);
+            height: (100/16rem);
+            margin-bottom: (32/16rem);
+        }
+
+        .cs-award-title {
+            font-size: (24/16rem);
+            margin-bottom: (20/16rem);
+        }
+
+        .cs-award-text {
+            font-size: (16/16rem);
+        }
+
+        @keyframes scroll {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(calc(-350px * 7 - 30px * 7));
+            }
+        }
+    }
+}
+
+/*-- -------------------------- -->
 <---      Global Presence       -->
 <--- -------------------------- -*/
 

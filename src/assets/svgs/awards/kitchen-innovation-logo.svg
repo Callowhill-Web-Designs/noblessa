@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100">
+  <circle cx="50" cy="50" r="48" fill="#059669" stroke="#6ee7b7" stroke-width="2"/>
+  <text x="50" y="20" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="6" font-weight="bold">KITCHEN</text>
+  <text x="50" y="30" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="6" font-weight="bold">INNOVATION</text>
+  <polygon points="50,35 55,45 65,45 57,52 60,62 50,57 40,62 43,52 35,45 45,45" fill="white"/>
+  <text x="50" y="75" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="6">2024</text>
+  <text x="50" y="85" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="6">Winner</text>
+</svg>

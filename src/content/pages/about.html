@@ -8,6 +8,7 @@ permalink: "/about/"
 
 {% block head %}
     <link rel="stylesheet" href="/assets/css/about.css">
+    <script src="/assets/js/about.js" defer></script>
 {% endblock %}
 
 {% block body %}
@@ -57,51 +58,147 @@ permalink: "/about/"
     </section>
 
     <!-- ============================================ -->
-    <!--               Our Values                     -->
+    <!--                Awards                        -->
     <!-- ============================================ -->
 
-    <section id="about-values">
+    <section id="about-awards">
         <div class="cs-container">
             <div class="cs-content">
-                <span class="cs-topper">Our Values</span>
-                <h2 class="cs-title">What Drives Us Forward</h2>
+                <span class="cs-topper">Awards & Recognition</span>
+                <h2 class="cs-title">Internationally Acclaimed Excellence</h2>
+                <p class="cs-text">
+                    Our commitment to exceptional craftsmanship and innovative design has earned us prestigious awards and certifications from leading industry organizations worldwide.
+                </p>
             </div>
-            <div class="cs-card-group">
-                <div class="cs-item">
-                    <div class="cs-icon-wrapper">
-                        <img class="cs-icon" src="/assets/svgs/up-right-arrow.svg" alt="Customize" width="40" height="40">
+            <div class="cs-carousel-wrapper">
+                <div class="cs-carousel" id="awards-carousel">
+                    <div class="cs-award-card">
+                        <div class="cs-award-image">
+                            <img src="/assets/svgs/awards/blue-angel-logo.svg" alt="Blue Angel Environmental Seal" width="80" height="80">
+                        </div>
+                        <h3 class="cs-award-title">Blue Angel Environmental Seal</h3>
+                        <p class="cs-award-text">
+                            The only company in the kitchen sector to receive this prestigious German environmental certification, recognizing our commitment to sustainable manufacturing practices.
+                        </p>
                     </div>
-                    <h3 class="cs-h3">Customize</h3>
-                    <p class="cs-item-text">
-                        Every noblessa kitchen is tailored to your unique vision, reflecting your personal style and functional needs.
-                    </p>
-                </div>
-                <div class="cs-item">
-                    <div class="cs-icon-wrapper">
-                        <img class="cs-icon" src="/assets/svgs/up-right-arrow.svg" alt="Trust" width="40" height="40">
+                    <div class="cs-award-card">
+                        <div class="cs-award-image">
+                            <img src="/assets/svgs/awards/design-award-logo.svg" alt="International Design Excellence Award" width="80" height="80">
+                        </div>
+                        <h3 class="cs-award-title">International Design Excellence Award</h3>
+                        <p class="cs-award-text">
+                            Honored for our innovative approach to kitchen design, combining aesthetic beauty with functional excellence in every product we create.
+                        </p>
                     </div>
-                    <h3 class="cs-h3">Trust</h3>
-                    <p class="cs-item-text">
-                        Built on decades of expertise and reliability, we deliver on our promises with unwavering commitment.
-                    </p>
-                </div>
-                <div class="cs-item">
-                    <div class="cs-icon-wrapper">
-                        <img class="cs-icon" src="/assets/svgs/up-right-arrow.svg" alt="Creative" width="40" height="40">
+                    <div class="cs-award-card">
+                        <div class="cs-award-image">
+                            <img src="/assets/svgs/awards/german-quality-logo.svg" alt="German Quality Certification" width="80" height="80">
+                        </div>
+                        <h3 class="cs-award-title">German Quality Certification</h3>
+                        <p class="cs-award-text">
+                            Certified for our adherence to the highest German manufacturing standards, ensuring precision engineering in every cabinet we produce.
+                        </p>
                     </div>
-                    <h3 class="cs-h3">Creative</h3>
-                    <p class="cs-item-text">
-                        Innovation drives our design process, creating kitchens that push the boundaries of beauty and functionality.
-                    </p>
-                </div>
-                <div class="cs-item">
-                    <div class="cs-icon-wrapper">
-                        <img class="cs-icon" src="/assets/svgs/up-right-arrow.svg" alt="German Excellence" width="40" height="40">
+                    <div class="cs-award-card">
+                        <div class="cs-award-image">
+                            <img src="/assets/svgs/awards/kitchen-innovation-logo.svg" alt="Kitchen Innovation Award 2024" width="80" height="80">
+                        </div>
+                        <h3 class="cs-award-title">Kitchen Innovation Award 2024</h3>
+                        <p class="cs-award-text">
+                            Recognition for our cutting-edge technology integration and smart storage solutions that revolutionize modern kitchen functionality.
+                        </p>
                     </div>
-                    <h3 class="cs-h3">German Excellence</h3>
-                    <p class="cs-item-text">
-                        Precision engineering and meticulous craftsmanship define every element of our German-made cabinetry.
-                    </p>
+                    <div class="cs-award-card">
+                        <div class="cs-award-image">
+                            <img src="/assets/svgs/awards/european-excellence-logo.svg" alt="European Excellence Award 2023" width="80" height="80">
+                        </div>
+                        <h3 class="cs-award-title">European Excellence Award 2023</h3>
+                        <p class="cs-award-text">
+                            Awarded for our outstanding contribution to European craftsmanship and our role in setting new standards for luxury kitchen design.
+                        </p>
+                    </div>
+                    <div class="cs-award-card">
+                        <div class="cs-award-image">
+                            <img src="/assets/svgs/awards/sustainable-design-logo.svg" alt="Sustainable Design Award" width="80" height="80">
+                        </div>
+                        <h3 class="cs-award-title">Sustainable Design Award</h3>
+                        <p class="cs-award-text">
+                            Recognized for our eco-friendly manufacturing processes and commitment to creating beautiful kitchens with minimal environmental impact.
+                        </p>
+                    </div>
+                    <div class="cs-award-card">
+                        <div class="cs-award-image">
+                            <img src="/assets/svgs/awards/furniture-excellence-logo.svg" alt="Premium Furniture Excellence Award" width="80" height="80">
+                        </div>
+                        <h3 class="cs-award-title">Premium Furniture Excellence Award</h3>
+                        <p class="cs-award-text">
+                            Honored for our exceptional furniture craftsmanship and innovative use of premium materials in creating timeless kitchen collections.
+                        </p>
+                    </div>
+                    <!-- Duplicate cards for seamless infinite scroll -->
+                    <div class="cs-award-card">
+                        <div class="cs-award-image">
+                            <img src="/assets/svgs/awards/blue-angel-logo.svg" alt="Blue Angel Environmental Seal" width="80" height="80">
+                        </div>
+                        <h3 class="cs-award-title">Blue Angel Environmental Seal</h3>
+                        <p class="cs-award-text">
+                            The only company in the kitchen sector to receive this prestigious German environmental certification, recognizing our commitment to sustainable manufacturing practices.
+                        </p>
+                    </div>
+                    <div class="cs-award-card">
+                        <div class="cs-award-image">
+                            <img src="/assets/svgs/awards/design-award-logo.svg" alt="International Design Excellence Award" width="80" height="80">
+                        </div>
+                        <h3 class="cs-award-title">International Design Excellence Award</h3>
+                        <p class="cs-award-text">
+                            Honored for our innovative approach to kitchen design, combining aesthetic beauty with functional excellence in every product we create.
+                        </p>
+                    </div>
+                    <div class="cs-award-card">
+                        <div class="cs-award-image">
+                            <img src="/assets/svgs/awards/german-quality-logo.svg" alt="German Quality Certification" width="80" height="80">
+                        </div>
+                        <h3 class="cs-award-title">German Quality Certification</h3>
+                        <p class="cs-award-text">
+                            Certified for our adherence to the highest German manufacturing standards, ensuring precision engineering in every cabinet we produce.
+                        </p>
+                    </div>
+                    <div class="cs-award-card">
+                        <div class="cs-award-image">
+                            <img src="/assets/svgs/awards/kitchen-innovation-logo.svg" alt="Kitchen Innovation Award 2024" width="80" height="80">
+                        </div>
+                        <h3 class="cs-award-title">Kitchen Innovation Award 2024</h3>
+                        <p class="cs-award-text">
+                            Recognition for our cutting-edge technology integration and smart storage solutions that revolutionize modern kitchen functionality.
+                        </p>
+                    </div>
+                    <div class="cs-award-card">
+                        <div class="cs-award-image">
+                            <img src="/assets/svgs/awards/european-excellence-logo.svg" alt="European Excellence Award 2023" width="80" height="80">
+                        </div>
+                        <h3 class="cs-award-title">European Excellence Award 2023</h3>
+                        <p class="cs-award-text">
+                            Awarded for our outstanding contribution to European craftsmanship and our role in setting new standards for luxury kitchen design.
+                        </p>
+                    </div>
+                    <div class="cs-award-card">
+                        <div class="cs-award-image">
+                            <img src="/assets/svgs/awards/sustainable-design-logo.svg" alt="Sustainable Design Award" width="80" height="80">
+                        </div>
+                        <h3 class="cs-award-title">Sustainable Design Award</h3>
+                        <p class="cs-award-text">
+                            Recognized for our eco-friendly manufacturing processes and commitment to creating beautiful kitchens with minimal environmental impact.
+                        </p>
+                    </div>
+                    <div class="cs-award-card">
+                        <div class="cs-award-image">
+                            <img src="/assets/svgs/awards/furniture-excellence-logo.svg" alt="Premium Furniture Excellence Award" width="80" height="80">
+                        </div>
+                        <h3 class="cs-award-title">Premium Furniture Excellence Award</h3>
+                        <p class="cs-award-text">
+                            Honored for our exceptional furniture craftsmanship and innovative use of premium materials in creating timeless kitchen collections.
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>

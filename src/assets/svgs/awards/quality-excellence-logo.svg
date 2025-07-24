@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" fill="none">
+  <circle cx="60" cy="60" r="58" fill="#8B4513" stroke="#654321" stroke-width="4"/>
+  <polygon points="60,25 70,45 90,45 75,60 85,80 60,70 35,80 45,60 30,45 50,45" fill="#FFD700"/>
+  <text x="60" y="100" text-anchor="middle" fill="#FFD700" font-family="Arial" font-size="9" font-weight="bold">QUALITY</text>
+  <text x="60" y="110" text-anchor="middle" fill="#FFD700" font-family="Arial" font-size="7">EXCELLENCE</text>
+</svg>
