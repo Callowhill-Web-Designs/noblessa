@@ -12,8 +12,10 @@ document.addEventListener('DOMContentLoaded', function() {
     const observer = new IntersectionObserver(function(entries, observer) {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                // Add animation class when element enters viewport
-                entry.target.classList.add('sl-animate');
+                // Add a small delay to prevent sudden animations on page load
+                setTimeout(() => {
+                    entry.target.classList.add('sl-animate');
+                }, 100);
                 
                 // Optional: Stop observing this element after animation triggers
                 // Uncomment the line below if you want animations to only happen once
@@ -34,15 +36,18 @@ document.addEventListener('DOMContentLoaded', function() {
         '.sl-fade-in-right'
     ];
 
-    animationClasses.forEach(className => {
-        const elements = document.querySelectorAll(className);
-        elements.forEach(element => {
-            // Only observe elements that don't already have the animate class
-            if (!element.classList.contains('sl-animate')) {
-                observer.observe(element);
-            }
+    // Add a slight delay before starting observations to prevent immediate animations
+    setTimeout(() => {
+        animationClasses.forEach(className => {
+            const elements = document.querySelectorAll(className);
+            elements.forEach(element => {
+                // Only observe elements that don't already have the animate class
+                if (!element.classList.contains('sl-animate')) {
+                    observer.observe(element);
+                }
+            });
         });
-    });
+    }, 150);
 
     // Function to manually trigger animations (useful for dynamically added content)
     window.initScrollAnimations = function() {
