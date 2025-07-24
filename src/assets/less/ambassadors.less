@@ -6,6 +6,446 @@
 // ─────────────────────────────────────────────────────────────────────────────
 
 /*-- -------------------------- -->
+<---    Ambassadors Carousel    -->
+<--- -------------------------- -*/
+
+/* Mobile - 360px */
+@media only screen and (min-width: 0rem) {
+    #ambassadors-carousel {
+        padding: 60px 10px;
+        background-color: #fafbfc;
+        
+        .cs-container {
+            width: 100%;
+            max-width: (1280/16rem);
+            margin: auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: (60/16rem); // Reduced from 64px to account for wrapper padding
+        }
+
+        .cs-content {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .cs-text-content {
+            /* set text align to center if content needs to be centered */
+            text-align: center;
+            width: 100%;
+            max-width: (640/16rem);
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            /* left aligns content, set to center to align content horizontally */
+            align-items: left;
+            z-index: 10;
+
+            .cs-topper {
+                text-align: center;
+                margin: auto;
+            }
+           
+            .cs-title {
+                text-align: center;
+                margin: auto;
+                position: relative;
+                z-index: 1;
+            }
+
+            .cs-divider {
+                width: 100%;
+                height: 1px;
+                background: #D2D8DF;
+                margin: 20px 0px;
+                opacity: 1;
+                display: block;
+            }
+            
+            .cs-text {
+                max-width: (954/16rem);
+                text-align: center;
+                padding: 0 10px;
+                order: 0;
+            }
+        }
+    }
+
+    .cs-carousel-wrapper {
+        width: 100%;
+        overflow: hidden;
+        position: relative;
+        padding: (12/16rem) 0; // Add padding to prevent cutoff on hover
+        transition: opacity 0.3s ease-in-out;
+    }
+
+    .cs-grid-wrapper {
+        width: 100%;
+        display: none; // Hidden by default
+        transition: opacity 0.3s ease-in-out;
+        
+        .cs-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: (24/16rem);
+            margin-bottom: (32/16rem);
+            
+            .cs-carousel-card {
+                // Override flex properties for grid layout
+                flex: none;
+                width: 100%;
+            }
+        }
+    }
+
+    .cs-carousel-track {
+        display: flex;
+        gap: (24/16rem);
+        will-change: transform;
+        transition: transform 0.1s ease-out;
+    }
+    
+    // Respect users' motion preferences
+    @media (prefers-reduced-motion: reduce) {
+        .cs-carousel-track {
+            will-change: auto;
+            transition: none;
+        }
+        
+        .cs-carousel-card {
+            &:hover {
+                transform: none;
+            }
+        }
+        
+        .cs-card-contact-item {
+            &:hover {
+                transform: none;
+            }
+        }
+    }
+
+    .cs-carousel-card {
+        flex: 0 0 (280/16rem);
+        background: #fff;
+        border-radius: (16/16rem);
+        overflow: hidden;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        transition: all 0.3s ease;
+        position: relative;
+        border: 1px solid #f1f5f9;
+
+        &:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.15), 0 10px 10px -5px rgba(0, 0, 0, 0.08);
+            border-color: var(--primary);
+        }
+    }
+
+    .cs-card-header {
+        background: linear-gradient(135deg, var(--primary) 0%, #2c2c2c 100%);
+        padding: (24/16rem);
+        color: #fff;
+        position: relative;
+        
+        &:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(197, 152, 82, 0.1) 0%, transparent 100%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+    }
+    
+    .cs-carousel-card:hover .cs-card-header:before {
+        opacity: 1;
+    }
+
+    .cs-card-title {
+        font-size: (18/16rem);
+        font-weight: 700;
+        margin: 0 0 (12/16rem) 0;
+        color: #fff;
+        font-family: var(--headerFont);
+        line-height: 1.3;
+        position: relative;
+        z-index: 1;
+    }
+
+    .cs-card-location {
+        display: flex;
+        align-items: center;
+        gap: (8/16rem);
+        color: rgba(255, 255, 255, 0.9);
+        font-size: (14/16rem);
+        font-weight: 500;
+        position: relative;
+        z-index: 1;
+        
+        svg {
+            color: var(--secondary);
+            flex-shrink: 0;
+            width: (16/16rem);
+            height: (16/16rem);
+        }
+    }
+
+    .cs-card-content {
+        padding: (24/16rem);
+        display: flex;
+        flex-direction: column;
+        gap: (20/16rem);
+        flex: 1;
+    }
+
+    .cs-card-contact {
+        display: flex;
+        flex-direction: column;
+        gap: (12/16rem);
+    }
+
+    .cs-card-contact-item {
+        display: flex;
+        align-items: center;
+        gap: (12/16rem);
+        color: var(--bodyTextColor);
+        text-decoration: none;
+        font-size: (14/16rem);
+        font-weight: 500;
+        padding: (8/16rem) (12/16rem);
+        border-radius: (8/16rem);
+        transition: all 0.3s ease;
+        background: #f8fafc;
+        border: 1px solid #e2e8f0;
+        
+        &:hover {
+            color: var(--primary);
+            background: #f1f5f9;
+            border-color: var(--primary);
+            transform: translateX(4px);
+        }
+        
+        svg {
+            color: var(--primary);
+            flex-shrink: 0;
+            width: (18/16rem);
+            height: (18/16rem);
+        }
+        
+        span {
+            flex: 1;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+    }
+
+    .cs-card-buttons {
+        display: flex;
+        gap: (8/16rem);
+        margin-top: auto;
+        
+        .cs-card-btn {
+            flex: 1;
+            padding: (10/16rem) (14/16rem);
+            font-size: (11/16rem);
+            font-weight: 600;
+            border-radius: (6/16rem);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            text-align: center;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            font-family: var(--bodyFont);
+            position: relative;
+            z-index: 1;
+            overflow: hidden;
+            line-height: 1;
+            min-height: (36/16rem);
+            
+            &.cs-button-outline {
+                background: transparent;
+                color: var(--primary);
+                border: 2px solid var(--primary);
+                
+                &:before {
+                    z-index: -1;
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    content: "";
+                    opacity: 1;
+                    display: block;
+                    background-color: var(--primary);
+                    height: 100%;
+                    width: 0;
+                    transition: width 0.3s ease;
+                }
+                
+                &:hover {
+                    color: #fff;
+                    
+                    &:before {
+                        width: 100%;
+                    }
+                }
+            }
+            
+            &.cs-button-solid {
+                background: var(--primary);
+                color: #fff;
+                border: 2px solid var(--primary);
+                
+                &:before {
+                    z-index: -1;
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    content: "";
+                    opacity: 1;
+                    display: block;
+                    background-color: var(--secondary);
+                    height: 100%;
+                    width: 0;
+                    transition: width 0.3s ease;
+                }
+                
+                &:hover {
+                    color: #fff;
+                    
+                    &:before {
+                        width: 100%;
+                    }
+                }
+            }
+        }
+    }
+}
+
+/* Tablet - 768px */
+@media only screen and (min-width: 48rem) {
+    #ambassadors-carousel {
+        .cs-carousel-wrapper {
+            padding: (16/16rem) 0; // Increase padding on larger screens
+        }
+        
+        .cs-grid-wrapper {
+            .cs-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: (32/16rem);
+            }
+        }
+        
+        .cs-carousel-card {
+            flex: 0 0 (300/16rem);
+        }
+        
+        .cs-card-contact {
+            gap: (14/16rem);
+        }
+        
+        .cs-card-contact-item {
+            padding: (10/16rem) (14/16rem);
+            font-size: (15/16rem);
+            
+            svg {
+                width: (20/16rem);
+                height: (20/16rem);
+            }
+        }
+        
+        .cs-card-buttons {
+            gap: (10/16rem);
+            
+            .cs-card-btn {
+                padding: (12/16rem) (16/16rem);
+                font-size: (12/16rem);
+                min-height: (40/16rem);
+            }
+        }
+    }
+}
+
+/* Desktop - 1024px */
+@media only screen and (min-width: 64rem) {
+    #ambassadors-carousel {
+        padding: 120px 0 60px 0;
+
+        .cs-carousel-wrapper {
+            padding: (20/16rem) 0; // Even more padding on desktop
+        }
+        
+        .cs-grid-wrapper {
+            .cs-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: (40/16rem);
+            }
+        }
+        
+        .cs-carousel-card {
+            flex: 0 0 (320/16rem);
+        }
+        
+        .cs-card-header {
+            padding: (28/16rem);
+        }
+        
+        .cs-card-title {
+            font-size: (20/16rem);
+            margin-bottom: (14/16rem);
+        }
+        
+        .cs-card-location {
+            font-size: (15/16rem);
+        }
+        
+        .cs-card-content {
+            padding: (28/16rem);
+            gap: (24/16rem);
+        }
+        
+        .cs-card-contact {
+            gap: (16/16rem);
+        }
+        
+        .cs-card-buttons {
+            gap: (12/16rem);
+            
+            .cs-card-btn {
+                padding: (14/16rem) (18/16rem);
+                font-size: (13/16rem);
+                min-height: (44/16rem);
+            }
+        }
+    }
+}
+
+/* Large Desktop - 1440px */
+@media only screen and (min-width: 90rem) {
+    .cs-carousel-card {
+        flex: 0 0 (350/16rem);
+    }
+    
+    .cs-grid-wrapper {
+        .cs-grid {
+            grid-template-columns: repeat(4, 1fr);
+        }
+    }
+}
+
+/*-- -------------------------- -->
 <---        Interactive Map     -->
 <--- -------------------------- -*/
 
@@ -247,508 +687,10 @@
 }
 
 /*-- -------------------------- -->
-<---     Ambassador Carousel    -->
+<---       Modal Styles         -->
 <--- -------------------------- -*/
 
 /* Mobile - 360px */
-@media only screen and (min-width: 0rem) {
-    #ambassador-carousel {
-        padding: 120px 0 60px 0;
-        background: #f8f9fa;
-
-        .cs-container {
-            width: 100%;
-            max-width: (1280/16rem);
-            margin: auto;
-            padding: 0 (16/16rem);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: (48/16rem);
-        }
-
-        .cs-content {
-            width: 100%;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-            gap: (16/16rem);
-        }
-
-        .cs-text-content {
-            /* set text align to center if content needs to be centered */
-            text-align: center;
-            width: 100%;
-            max-width: (640/16rem);
-            margin: 0 auto;
-            display: flex;
-            flex-direction: column;
-            /* left aligns content, set to center to align content horizontally */
-            align-items: left;
-            z-index: 10;
-
-            .cs-topper {
-                text-align: center;
-                margin: auto;
-            }
-           
-            .cs-title {
-                text-align: center;
-                margin: auto;
-                position: relative;
-                z-index: 1;
-            }
-
-            .cs-divider {
-                width: 100%;
-                height: 1px;
-                background: #D2D8DF;
-                margin: 20px 0px;
-                opacity: 1;
-                display: block;
-            }
-            
-            .cs-text {
-                max-width: (954/16rem);
-                text-align: center;
-                padding: 0 10px 16px 10px;
-                order: 0;
-            }
-        }
-
-        .cs-title {
-            font-size: var(--headerFontSize);
-            font-weight: 900;
-            line-height: 1.2em;
-            text-align: center;
-            max-width: (700/16rem);
-            margin: 0;
-            color: var(--headerColor);
-        }
-
-        .cs-text {
-            font-size: var(--bodyFontSize);
-            line-height: 1.5em;
-            text-align: center;
-            width: 100%;
-            max-width: (650/16rem);
-            margin: 0;
-            color: var(--bodyTextColor);
-        }
-
-        .cs-carousel-container {
-            width: 100%;
-            position: relative;
-            padding: (20/16rem) (60/16rem) (20/16rem) (60/16rem); // Add top/bottom padding for hover effects
-        }
-
-        .cs-carousel-wrapper {
-            width: 100%;
-            overflow: hidden;
-            border-radius: (8/16rem);
-            margin-bottom: (48/16rem); // Add space for dots
-            position: relative;
-            
-            // Add fade effect to left and right edges
-            &::before,
-            &::after {
-                content: '';
-                position: absolute;
-                top: 0;
-                bottom: 0;
-                width: (40/16rem);
-                z-index: 5;
-                pointer-events: none;
-            }
-            
-            &::before {
-                left: 0;
-                background: linear-gradient(to right, #f8f9fa 0%, rgba(248, 249, 250, 0.8) 50%, rgba(248, 249, 250, 0) 100%);
-            }
-            
-            &::after {
-                right: 0;
-                background: linear-gradient(to left, #f8f9fa 0%, rgba(248, 249, 250, 0.8) 50%, rgba(248, 249, 250, 0) 100%);
-            }
-        }
-
-        .cs-carousel-track {
-            display: flex;
-            gap: (20/16rem);
-            transition: transform 0.5s ease;
-            will-change: transform;
-        }
-
-        .cs-carousel-card {
-            flex: 0 0 calc(33.333% - (14/16rem));
-            background: #fff;
-            border-radius: (12/16rem);
-            padding: (16/16rem);
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            border: 1px solid #e5e7eb;
-            height: (320/16rem); // Fixed height for all cards
-            min-height: (320/16rem);
-            max-height: (320/16rem);
-            margin: (8/16rem) 0; // Add margin for hover transform space
-
-            &:hover {
-                transform: translateY(-8px); // Increased hover lift
-                box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.15), 0 8px 16px -4px rgba(0, 0, 0, 0.1);
-            }
-        }
-
-        .cs-card-content {
-            display: flex;
-            flex-direction: column;
-            gap: (16/16rem);
-            height: 100%;
-            justify-content: space-between;
-        }
-
-        .cs-card-header {
-            display: flex;
-            flex-direction: column;
-            gap: (16/16rem); // Increased gap from 6px to 16px
-            flex-shrink: 0; // Prevent shrinking
-            margin-bottom: (8/16rem); // Add extra space after header
-        }
-
-        .cs-card-title {
-            font-size: (16/16rem);
-            font-weight: 700;
-            line-height: 1.2em;
-            margin: 0;
-            color: var(--headerColor);
-            word-wrap: break-word;
-            overflow-wrap: break-word;
-        }
-
-        .cs-card-location {
-            display: flex;
-            align-items: flex-start;
-            gap: (6/16rem);
-            color: var(--bodyTextColor);
-            font-size: (12/16rem);
-            line-height: 1.4em;
-
-            svg {
-                color: var(--primary);
-                flex-shrink: 0;
-                width: (14/16rem);
-                height: (14/16rem);
-                margin-top: (2/16rem); // Align with first line of text
-            }
-
-            span {
-                word-wrap: break-word;
-                overflow-wrap: break-word;
-                hyphens: auto;
-            }
-        }
-
-        .cs-card-body {
-            display: flex;
-            flex-direction: column;
-            gap: (16/16rem);
-            flex: 1;
-            min-height: 0; // Allow proper flexbox shrinking
-        }
-
-        .cs-card-info {
-            display: flex;
-            flex-direction: column;
-            gap: (8/16rem);
-            flex: 1;
-            min-height: 0; // Allow proper flexbox shrinking
-        }
-
-        .cs-info-item {
-            display: flex;
-            align-items: flex-start;
-            gap: (6/16rem);
-            color: var(--bodyTextColor);
-            font-size: (12/16rem);
-            line-height: 1.4em;
-
-            svg {
-                color: var(--primary);
-                flex-shrink: 0;
-                width: (14/16rem);
-                height: (14/16rem);
-                margin-top: (2/16rem); // Align with first line of text
-            }
-
-            span {
-                word-wrap: break-word;
-                overflow-wrap: break-word;
-            }
-        }
-
-        .cs-card-buttons {
-            display: flex;
-            flex-direction: column;
-            gap: (6/16rem);
-            margin-top: auto;
-            flex-shrink: 0; // Prevent shrinking
-        }
-
-        .cs-card-btn {
-            padding: (8/16rem) (12/16rem);
-            border-radius: (6/16rem);
-            font-size: (12/16rem);
-            font-weight: 600;
-            text-decoration: none;
-            text-align: center;
-            transition: all 0.3s ease;
-            border: 2px solid transparent;
-
-            &.cs-btn-primary {
-                background: var(--primary);
-                color: #fff;
-
-                &:hover {
-                    background: var(--primaryDark);
-                    transform: translateY(-1px);
-                }
-            }
-
-            &.cs-btn-secondary {
-                background: transparent;
-                color: var(--primary);
-                border-color: var(--primary);
-
-                &:hover {
-                    background: var(--primary);
-                    color: #fff;
-                    transform: translateY(-1px);
-                }
-            }
-        }
-
-        .cs-carousel-controls {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            position: absolute;
-            top: 50%;
-            left: 0;
-            right: 0;
-            transform: translateY(-50%);
-            pointer-events: none;
-            z-index: 10;
-            padding: 0 (16/16rem);
-        }
-
-        .cs-carousel-btn {
-            width: (48/16rem);
-            height: (48/16rem);
-            border-radius: 50%;
-            background: #fff;
-            border: 2px solid #e5e7eb;
-            color: var(--primary);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            pointer-events: auto;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
-            position: relative;
-            z-index: 11;
-
-            &:hover {
-                background: var(--primary);
-                color: #fff;
-                border-color: var(--primary);
-                transform: scale(1.05);
-                box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
-            }
-
-            &.cs-prev {
-                left: 0;
-            }
-
-            &.cs-next {
-                right: 0;
-            }
-        }
-
-        .cs-carousel-dots {
-            display: flex;
-            justify-content: center;
-            gap: (12/16rem);
-            position: absolute;
-            bottom: (-32/16rem);
-            left: 50%;
-            transform: translateX(-50%);
-            z-index: 10;
-        }
-
-        .cs-carousel-dot {
-            width: (16/16rem);
-            height: (16/16rem);
-            border-radius: 50%;
-            background: #d1d5db;
-            border: 2px solid #fff;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-
-            &:hover {
-                background: var(--primary);
-                transform: scale(1.1);
-                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
-            }
-
-            &.active {
-                background: var(--primary);
-                transform: scale(1.2);
-                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            }
-        }
-    }
-}
-
-/* Tablet - 768px */
-@media only screen and (min-width: 48rem) {
-    #ambassador-carousel {
-        .cs-container {
-            padding: 0 (24/16rem);
-        }
-
-        .cs-text-content {
-            width: 100%;
-            display: flex;
-            flex-direction: column;
-            z-index: 10;
-            margin: auto; 
-
-            .cs-text {
-                text-align: center;
-                order: none;
-            }
-        }
-
-        .cs-carousel-container {
-            padding: (24/16rem) (80/16rem) (24/16rem) (80/16rem); // More padding for larger arrows and hover space
-        }
-
-        .cs-carousel-wrapper {
-            &::before,
-            &::after {
-                width: (50/16rem); // Wider fade on tablet
-            }
-        }
-
-        .cs-carousel-card {
-            flex: 0 0 calc(33.333% - (14/16rem));
-            padding: (20/16rem);
-            height: (380/16rem); // Slightly taller for tablet
-            min-height: (380/16rem);
-            max-height: (380/16rem);
-            margin: (12/16rem) 0; // More margin for hover space
-        }
-
-        .cs-card-buttons {
-            flex-direction: row;
-        }
-
-        .cs-card-btn {
-            flex: 1;
-            font-size: (13/16rem);
-            padding: (10/16rem) (12/16rem);
-        }
-
-        .cs-card-title {
-            font-size: (18/16rem);
-        }
-
-        .cs-card-location {
-            font-size: (13/16rem);
-        }
-
-        .cs-info-item {
-            font-size: (13/16rem);
-        }
-
-        .cs-carousel-btn {
-            width: (56/16rem);
-            height: (56/16rem);
-        }
-
-        .cs-carousel-dots {
-            bottom: (-40/16rem);
-        }
-
-        .cs-carousel-dot {
-            width: (18/16rem);
-            height: (18/16rem);
-        }
-    }
-}
-
-/* Desktop - 1024px */
-@media only screen and (min-width: 64rem) {
-    #ambassador-carousel {
-        .cs-container {
-            padding: 0 (32/16rem);
-        }
-
-        .cs-carousel-container {
-            padding: (32/16rem) (100/16rem) (32/16rem) (100/16rem); // Even more padding for desktop
-        }
-
-        .cs-carousel-wrapper {
-            &::before,
-            &::after {
-                width: (60/16rem); // Widest fade on desktop
-            }
-        }
-
-        .cs-carousel-card {
-            flex: 0 0 calc(33.333% - (14/16rem));
-            padding: (24/16rem);
-            height: (420/16rem); // Tallest for desktop with more padding
-            min-height: (420/16rem);
-            max-height: (420/16rem);
-            margin: (16/16rem) 0; // Maximum margin for hover space
-        }
-
-        .cs-card-title {
-            font-size: (22/16rem);
-        }
-
-        .cs-card-location {
-            font-size: (15/16rem);
-        }
-
-        .cs-info-item {
-            font-size: (15/16rem);
-        }
-
-        .cs-card-btn {
-            font-size: (15/16rem);
-        }
-
-        .cs-carousel-btn {
-            width: (64/16rem);
-            height: (64/16rem);
-        }
-
-        .cs-carousel-dots {
-            bottom: (-48/16rem);
-        }
-
-        .cs-carousel-dot {
-            width: (20/16rem);
-            height: (20/16rem);
-        }
-    }
-}
-
-/* Modal Styles */
 @media only screen and (min-width: 0rem) {
     .cs-modal {
         display: none;
