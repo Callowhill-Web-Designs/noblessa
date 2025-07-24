@@ -216,9 +216,6 @@ permalink: "/clients/template/"
             </div>
         </div>
     </section>
-
-    {% include 'sections/cta.html' %}
-
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const carousel = document.querySelector('.cs-carousel');
@@ -270,5 +267,7 @@ permalink: "/clients/template/"
             updateCarousel();
         });
     </script>
+
+    {% include 'sections/cta.html' %}
 
 {% endblock %}
