@@ -15,10 +15,6 @@ tags: "sitemap" # content/content.json will make sure that all pages in content/
     <script defer type="module" src="assets/js/hover.js"></script>
     <script defer src="assets/js/transformgallery.js"></script>
 
-    <!-- Move ionicons to head with defer -->
-    <script defer type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-    <script defer nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-
     <!-- If we're in production, defer the rest of the home page styles. In development, always load it. Otherwise the site will break when hot-reload is used. -->
     {% if kit.isProduction %}
         <link rel="preload" href="/assets/css/local.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
@@ -174,8 +170,16 @@ tags: "sitemap" # content/content.json will make sure that all pages in content/
                 </ul>
                 <!-- Gallery Navigation -->
                 <nav class='nav'>
-                    <ion-icon class='btn prev' name="arrow-back-outline"></ion-icon>
-                    <ion-icon class='btn next' name="arrow-forward-outline"></ion-icon>
+                    <button class='btn prev' aria-label="Previous image">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </button>
+                    <button class='btn next' aria-label="Next image">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </button>
                 </nav>
             </div>
         </div>
