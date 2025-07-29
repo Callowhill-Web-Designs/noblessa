@@ -1089,7 +1089,20 @@ html {
         /* clips the line from causing overflow issues for going off screen */
         overflow: hidden;
         position: relative;
-        background-color: rgba(0, 0, 0, .4);
+        background-color: #000;
+
+        &:before {
+            /* dark overlay for loading state */
+            content: "";
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.4);
+            position: absolute;
+            display: block;
+            top: 0;
+            left: 0;
+            z-index: 0;
+        }
 
         .cs-container {
             text-align: center;
@@ -1101,6 +1114,8 @@ html {
             justify-content: center;
             align-items: flex-start;
             flex-direction: column;
+            position: relative;
+            z-index: 1;
         }
 
         .cs-int-title {
@@ -1113,6 +1128,7 @@ html {
             color: var(--bodyTextColorWhite);
             position: relative;
             font-family: var(--headerFont);
+            text-shadow: 0px 0px 10px #000000;
         }
 
         .cs-text {
@@ -1121,6 +1137,7 @@ html {
             margin-bottom: clamp(3.75rem, 7vw, 7.5rem);
             max-width: (700/16rem);
             color: var(--bodyTextColorWhite);
+            text-shadow: 0px 0px 10px #000000;
         }
 
         .cs-breadcrumbs {
@@ -1237,7 +1254,248 @@ html {
             object-fit: cover;
             top: 0;
             left: 0;
+            z-index: -0.5;
+        }
+    }
+}
+
+/*-- -------------------------- -->
+<---     Banner Slideshow       -->
+<--- -------------------------- -*/
+
+/* Mobile - 360px */
+@media only screen and (min-width: 0rem) {
+    #banner-slideshow-2285{
+        padding: var(--sectionPadding);
+        /* 190px - 280px */
+        padding-top: 200px;
+        padding-bottom: (0/16rem);
+        /* clips the line from causing overflow issues for going off screen */
+        overflow: hidden;
+        position: relative;
+        background-color: #000;
+
+        &:before {
+            /* dark overlay for loading state */
+            content: "";
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.4);
+            position: absolute;
+            display: block;
+            top: 0;
+            left: 0;
+            z-index: 0;
+        }
+
+        .cs-text-wrapper {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            /* Increased padding for larger hero section */
+            padding: 0px 0px;
+            margin: 0px 0;
+        }
+
+        .cs-banner-slideshow {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: -0.5;
+            overflow: hidden;
+        }
+
+        .cs-slide {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 0;
+            transition: opacity 1.5s ease-in-out;
+
+            &.active {
+                opacity: 1;
+                
+                img {
+                    transition: transform 5s linear;
+                    transform: scale(1.08) translate(-1.5%, -1.5%);
+                }
+            }
+
+            &:not(.active) {
+                img {
+                    transition: transform 1.5s ease-out 1.5s; /* Delay matches opacity transition */
+                    transform: scale(1) translate(0, 0);
+                }
+            }
+
+            img {
+                width: 110%; /* Start slightly larger for zoom effect */
+                height: 110%;
+                object-fit: cover;
+                display: block;
+                position: absolute;
+                top: -5%; /* Center the oversized image */
+                left: -5%;
+                transform: scale(1) translate(0, 0); /* Initial state */
+            }
+        }
+
+        .cs-container {
+            text-align: center;
+            width: 100%;
+            max-width: (1280/16rem);
+            margin: auto;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            flex-direction: column;
+            position: relative;
+            z-index: 1;
+        }
+
+        .cs-int-title {
+            /* 39px - 61px */
+            font-size: 64px;
+            font-weight: 700;
+            line-height: 1.2em;
+            text-align: inherit;
+            margin: 0 0 (16/16rem);
+            color: var(--bodyTextColorWhite);
+            position: relative;
+            font-family: var(--headerFont);
+            text-shadow: 0px 0px 10px #000000;
+        }
+
+        .cs-text {
+            text-align: left;
+            /* 60px - 120px */
+            margin-bottom: clamp(3.75rem, 7vw, 7.5rem);
+            max-width: (700/16rem);
+            color: var(--bodyTextColorWhite);
+            text-shadow: 0px 0px 10px #000000;
+        }
+
+        .cs-breadcrumbs {
+            padding: clamp(1rem, 3vw, 1.5rem) 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+
+            &:before {
+                content: '';
+                width: 200vw;
+                height: 100%;
+                background-color: #fff;
+                opacity: .12;
+                display: block;
+                position: absolute;
+                top: 0;
+                left: 50%;
+                transform: translateX(-50%);
+                z-index: -1;
+            }
+
+            &:after {
+                content: '';
+                width: 200vw;
+                height: 100%;
+                backdrop-filter: blur(16px);
+                -webkit-backdrop-filter: blur(16px);
+                display: block;
+                position: absolute;
+                top: 0;
+                left: 50%;
+                transform: translateX(-50%);
+                z-index: -1;
+            }
+        }
+
+        .cs-link {
+            font-size: 24px;
+            font-family: var(--headerFont);
+            line-height: 1.2em;
+            text-decoration: none;
+            color: var(--bodyTextColorWhite);
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            &:last-of-type {
+                /* remove the chevron on the last list item */
+                &::after {
+                    display: none;
+                }
+            }
+
+            &:after {
+                /* chevron */
+                content: "";
+                width: (1/16rem);
+                height: (24/16rem);
+                margin: 0 (16/16rem);
+                background-color: #88898B;
+                position: relative;
+                display: block;
+            }
+
+            &.cs-active {
+                color: var(--secondary);
+            }
+        }
+
+        .cs-background {
+            width: 100%;
+            height: 100%;
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 0;
             z-index: -1;
+
+            &:before {
+                /* gradient overlay */
+                content: "";
+                width: 100%;
+                height: 100%;
+                background: #000;
+                opacity: 0.72;
+                position: absolute;
+                display: block;
+                top: 0;
+                left: 0;
+                z-index: 1;
+            }
+
+            img {
+                position: absolute;
+                top: 0;
+                left: 0;
+                height: 100%;
+                width: 100%;
+                /* Makes img tag act as a background image */
+                object-fit: cover;
+                z-index: -1;
+            }
+        }
+
+        .cs-video {
+            width: 100%;
+            height: 100%;
+            display: block;
+            position: absolute;
+            object-fit: cover;
+            top: 0;
+            left: 0;
+            z-index: -0.5;
         }
     }
 }

@@ -13,23 +13,70 @@ permalink: "/about/"
 
 {% block body %}
     <!-- ============================================ -->
-    <!--                   Banner                     -->
+    <!--              Banner Slideshow                -->
     <!-- ============================================ -->
 
-    <div id="banner-2285">
+    <div id="banner-slideshow-2285">
         <div class="cs-container">
-            <span class="cs-int-title sl-fade-in-right">About Us</span>
-            <p class="cs-text sl-fade-in-right">
-                Discover the world of noblessa, where we blend innovative design with German craftsmanship to create exceptional living spaces.
-            </p>
+            <div class="cs-text-wrapper">
+                <span class="cs-int-title sl-fade-in-right">About Us</span>
+                <p class="cs-text sl-fade-in-right">
+                    Discover the world of noblessa, where we blend innovative design with German craftsmanship to create exceptional living spaces.
+                </p>
+            </div>
             <div class="cs-breadcrumbs">
                 <a href="/" class="cs-link">home</a>
                 <a href="/about" class="cs-link cs-active">about</a>
             </div>
         </div>
-        <!--Background Video-->
-        <video src="/assets/videos/showrooms1080x1920.webm#t=30" class="cs-video" autoplay muted playsinline loop preload="auto"></video>
+        <!--Background Image Slideshow-->
+        <div class="cs-banner-slideshow">
+            <div class="cs-slide">
+                <img src="/assets/images/collections/tempo/tempo1.webp" alt="Noblessa Tempo Kitchen" loading="eager">
+            </div>
+            <div class="cs-slide">
+                <img src="/assets/images/collections/grace/grace1.webp" alt="Noblessa Grace Kitchen" loading="lazy">
+            </div>
+            <div class="cs-slide">
+                <img src="/assets/images/collections/divine/divine1.webp" alt="Noblessa Divine Kitchen" loading="lazy">
+            </div>
+            <div class="cs-slide">
+                <img src="/assets/images/bathrooms/bath2.webp" alt="Noblessa bathroom design" loading="lazy">
+            </div>
+        </div>
     </div>
+    <script>
+        // Banner Slideshow Script
+        document.addEventListener('DOMContentLoaded', function() {
+            const slides = document.querySelectorAll('.cs-slide');
+            let currentSlide = 0;
+            const slideInterval = 5000; // 5 seconds
+            
+            function showSlide(index) {
+                slides.forEach((slide, i) => {
+                    slide.classList.remove('active');
+                });
+                
+                // Use requestAnimationFrame to ensure the class removal is processed
+                requestAnimationFrame(() => {
+                    slides[index].classList.add('active');
+                });
+            }
+            
+            function nextSlide() {
+                currentSlide = (currentSlide + 1) % slides.length;
+                showSlide(currentSlide);
+            }
+            
+            // Auto-advance slides
+            setInterval(nextSlide, slideInterval);
+            
+            // Initialize with a slight delay to ensure Ken Burns effect triggers on first image
+            setTimeout(() => {
+                showSlide(currentSlide);
+            }, 100);
+        });
+    </script>
 
     <!-- ============================================ -->
     <!--                Our Story                     -->

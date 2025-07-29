@@ -8,16 +8,15 @@ permalink: "/clients/lazars/"
 
 {% block head %}
     <link rel="stylesheet" href="/assets/css/client.css">
-    <link rel="preload" as="video" href="../../assets/videos/showrooms1080x1920.webm"/>
 {% endblock %}
 
 {% block body %}
 
     <!-- ============================================ -->
-    <!--                   Banner                     -->
+    <!--              Banner Slideshow                -->
     <!-- ============================================ -->
 
-    <div id="banner-2285">
+    <div id="banner-slideshow-2285">
         <div class="cs-container">
             <div class="cs-text-wrapper">
                 <span class="cs-int-title sl-fade-in-down">The Lazar Project</span>
@@ -31,8 +30,21 @@ permalink: "/clients/lazars/"
                 <a href="/clients/lazars" class="cs-link cs-active">lazars</a>
             </div>
         </div>
-        <!--Background Video-->
-        <video src="/assets/videos/showrooms1080x1920.webm#t=10" class="cs-video" autoplay muted playsinline loop preload="auto"></video>
+        <!--Background Image Slideshow-->
+        <div class="cs-banner-slideshow">
+            <div class="cs-slide">
+                <img src="/assets/images/lazar/lazarhome1.webp" alt="Lazar kitchen design 1" loading="eager">
+            </div>
+            <div class="cs-slide">
+                <img src="/assets/images/lazar/lazarhome2.webp" alt="Lazar kitchen design 2" loading="lazy">
+            </div>
+            <div class="cs-slide">
+                <img src="/assets/images/lazar/lazarhome3.webp" alt="Lazar kitchen design 3" loading="lazy">
+            </div>
+            <div class="cs-slide">
+                <img src="/assets/images/lazar/lazarcarousel1.webp" alt="Lazar project detail 1" loading="lazy">
+            </div>
+        </div>
     </div>
 
     <!-- ============================================ -->
@@ -120,6 +132,35 @@ permalink: "/clients/lazars/"
         </div>
     </section>
     <script>
+        // Banner Slideshow Script
+        document.addEventListener('DOMContentLoaded', function() {
+            const slides = document.querySelectorAll('.cs-slide');
+            let currentSlide = 0;
+            const slideInterval = 5000; // 5 seconds
+            
+            function showSlide(index) {
+                slides.forEach((slide, i) => {
+                    if (i === index) {
+                        slide.classList.add('active');
+                    } else {
+                        slide.classList.remove('active');
+                    }
+                });
+            }
+            
+            function nextSlide() {
+                currentSlide = (currentSlide + 1) % slides.length;
+                showSlide(currentSlide);
+            }
+            
+            // Auto-advance slides
+            setInterval(nextSlide, slideInterval);
+            
+            // Initialize
+            showSlide(currentSlide);
+        });
+
+        // Image Carousel Script
         document.addEventListener('DOMContentLoaded', function() {
             const carousel = document.querySelector('.cs-carousel');
             const items = document.querySelectorAll('.cs-carousel-item');
