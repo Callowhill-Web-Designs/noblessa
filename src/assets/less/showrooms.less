@@ -6,36 +6,32 @@
 // ─────────────────────────────────────────────────────────────────────────────
 
 /*-- -------------------------- -->
-<---        Interactive Map     -->
+<---     Showrooms Gallery      -->
 <--- -------------------------- -*/
 
 /* Mobile - 360px */
 @media only screen and (min-width: 0rem) {
-    #map-section {
+    #showrooms-gallery {
         padding: 60px 10px;
-
-        .cs-header-container {
+        
+        .cs-container {
             width: 100%;
             max-width: (1280/16rem);
             margin: auto;
             display: flex;
             flex-direction: column;
             align-items: center;
-            text-align: center;
-            gap: clamp(3rem, 6vw, 4rem);
-            margin-bottom: 60px;
+            gap: (60/16rem);
         }
 
         .cs-text-content {
-            /* set text align to center if content needs to be centered */
             text-align: center;
             width: 100%;
             max-width: (640/16rem);
             margin: 0 auto;
             display: flex;
             flex-direction: column;
-            /* left aligns content, set to center to align content horizontally */
-            align-items: left;
+            align-items: center;
             z-index: 10;
 
             .cs-topper {
@@ -65,7 +61,277 @@
                 padding: 0 10px;
                 order: 0;
             }
+
+            .cs-button-nodeco {
+                margin-top: 20px;
+            }
         }
+    }
+
+    .cs-gallery-wrapper {
+        width: 100%;
+        position: relative;
+        
+        .cs-gallery-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: (32/16rem);
+        }
+    }
+
+    .cs-showroom-card {
+        background: #fff;
+        border-radius: (16/16rem);
+        overflow: hidden;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        transition: all 0.3s ease;
+        position: relative;
+        border: 1px solid #f1f5f9;
+        display: flex;
+        flex-direction: column;
+
+        &:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.15), 0 10px 10px -5px rgba(0, 0, 0, 0.08);
+            border-color: var(--primary);
+            
+            .cs-card-image img {
+                transform: scale(1.05);
+            }
+        }
+    }
+
+    .cs-card-header {
+        background: linear-gradient(135deg, var(--primary) 0%, #2c2c2c 100%);
+        padding: (24/16rem);
+        color: #fff;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        
+        &:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(197, 152, 82, 0.1) 0%, transparent 100%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+    }
+    
+    .cs-showroom-card:hover .cs-card-header:before {
+        opacity: 1;
+    }
+
+    .cs-card-title {
+        font-size: (28/16rem);
+        font-weight: 700;
+        margin: 0 0 (12/16rem) 0;
+        color: #fff;
+        font-family: var(--headerFont);
+        line-height: 1.3;
+        position: relative;
+        z-index: 1;
+    }
+
+    .cs-card-location {
+        display: flex;
+        align-items: flex-start;
+        gap: (8/16rem);
+        color: rgba(255, 255, 255, 0.9);
+        font-size: (14/16rem);
+        font-weight: 500;
+        position: relative;
+        z-index: 1;
+        
+        svg {
+            color: var(--secondary);
+            flex-shrink: 0;
+            width: (16/16rem);
+            height: (16/16rem);
+            margin-top: (2/16rem);
+        }
+    }
+
+    .cs-card-body {
+        padding: (24/16rem);
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        gap: (24/16rem);
+    }
+
+    .cs-card-info {
+        display: flex;
+        flex-direction: column;
+        gap: (16/16rem);
+    }
+
+    .cs-info-item {
+        display: flex;
+        align-items: center;
+        gap: (12/16rem);
+        color: var(--bodyTextColor);
+        font-size: (14/16rem);
+        font-weight: 500;
+        
+        svg {
+            color: var(--secondary);
+            flex-shrink: 0;
+            width: (18/16rem);
+            height: (18/16rem);
+        }
+        
+        span {
+            line-height: 1.4;
+        }
+    }
+
+    .cs-card-contact {
+        display: flex;
+        flex-direction: column;
+        gap: (12/16rem);
+        padding: (16/16rem);
+        background: #f8fafc;
+        border-radius: (8/16rem);
+        border: 1px solid #e2e8f0;
+    }
+
+    .cs-card-contact-item {
+        display: flex;
+        flex-direction: column;
+        gap: (4/16rem);
+        
+        .cs-contact-label {
+            font-size: (12/16rem);
+            font-weight: 600;
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        
+        .cs-contact-value {
+            font-size: (14/16rem);
+            color: var(--bodyTextColor);
+            text-decoration: none;
+            transition: color 0.3s ease;
+            
+            &:hover {
+                color: var(--secondary);
+            }
+        }
+    }
+
+    .cs-card-actions {
+        display: flex;
+        gap: (12/16rem);
+        margin-top: auto;
+    }
+
+    .cs-action-btn {
+        flex: 1;
+        padding: (12/16rem) (16/16rem);
+        border-radius: (8/16rem);
+        font-size: (14/16rem);
+        font-weight: 600;
+        text-decoration: none;
+        text-align: center;
+        transition: all 0.3s ease;
+        border: 2px solid transparent;
+        
+        &.cs-primary {
+            background: var(--primary);
+            color: #fff;
+            
+            &:hover {
+                background: #333;
+                transform: translateY(-2px);
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            }
+        }
+        
+        &.cs-secondary {
+            background: transparent;
+            color: var(--primary);
+            border-color: var(--primary);
+            
+            &:hover {
+                background: var(--primary);
+                color: #fff;
+                transform: translateY(-2px);
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            }
+        }
+    }
+
+    .cs-card-image {
+        height: (200/16rem);
+        overflow: hidden;
+        
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            transition: transform 0.3s ease;
+        }
+    }
+}
+
+/* Tablet - 768px */
+@media only screen and (min-width: 48rem) {
+    #showrooms-gallery {
+        padding: 80px 20px;
+        
+        .cs-gallery-grid {
+            grid-template-columns: repeat(2, 1fr);
+            gap: (32/16rem);
+        }
+        
+        .cs-showroom-card {
+            .cs-card-actions {
+                flex-direction: row;
+            }
+            
+            .cs-card-contact {
+                .cs-card-contact-item {
+                    flex-direction: row;
+                    align-items: center;
+                    gap: (8/16rem);
+                    
+                    .cs-contact-label {
+                        min-width: (60/16rem);
+                    }
+                }
+            }
+        }
+    }
+}
+
+/* Desktop - 1024px */
+@media only screen and (min-width: 64rem) {
+    #showrooms-gallery {
+        padding: 120px 20px;
+        
+        .cs-gallery-grid {
+            grid-template-columns: repeat(3, 1fr);
+            gap: (40/16rem);
+        }
+    }
+}
+
+/*-- -------------------------- -->
+<---        Interactive Map     -->
+<--- -------------------------- -*/
+
+/* Mobile - 360px */
+@media only screen and (min-width: 0rem) {
+    #map-section {
+        padding: 120px 0 120px 0;
 
         .cs-container {
             width: 100%;
@@ -74,7 +340,7 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 30px;
+            gap: clamp(3rem, 6vw, 4rem);
         }
 
         .cs-content {
@@ -83,8 +349,7 @@
             flex-direction: column;
             align-items: center;
             text-align: center;
-            gap: (24/16rem);
-            height: 100%;
+            gap: (16/16rem);
         }
 
         .cs-title {
@@ -93,7 +358,7 @@
             line-height: 1.2em;
             text-align: center;
             max-width: (700/16rem);
-            margin: 0;
+            margin: 0 0 (16/16rem) 0;
             color: var(--headerColor);
             position: relative;
         }
@@ -102,123 +367,10 @@
             font-size: var(--bodyFontSize);
             line-height: 1.5em;
             text-align: center;
-            text-decoration: none;
             width: 100%;
             max-width: (650/16rem);
-            margin: 0 0 (16/16rem) 0;
-            color: var(--bodyTextColor);
-        }
-
-        // Showroom cards within map section
-        .cs-card-group {
-            width: 100%;
-            max-width: (1000/16rem);
-            padding: 0;
             margin: 0;
-            display: flex;
-            flex-direction: column;
-            gap: (12/16rem);
-            flex: 1;
-            min-height: 0; // Important for flex children
-        }
-
-        .cs-item {
-            list-style: none;
-            width: 100%;
-            flex: 1;
-            min-height: (120/16rem);
-            padding: (16/16rem);
-            border-radius: (8/16rem);
-            position: relative;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            align-items: center;
-            overflow: hidden;
-            box-sizing: border-box;
-            transition: transform 0.3s ease;
-
-            &:hover {
-                transform: translateY(-2px);
-                
-                .cs-item-background {
-                    transform: scale(1.05);
-                }
-            }
-
-            .cs-content {
-                width: 100%;
-                height: 100%;
-                display: flex;
-                flex-direction: column;
-                justify-content: space-between;
-                align-items: center;
-                mix-blend-mode: difference;
-                filter: drop-shadow(0px 0px 4px white);
-                text-decoration: none;
-                z-index: 2;
-                gap: (8/16rem);
-            }
-
-            .cs-title {
-                color: #fff;
-                text-transform: lowercase;
-                text-align: center;
-                font-size: (40/16rem);
-                letter-spacing: .05rem;
-                font-weight: 700;
-                margin: 0;
-                text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.8);
-            }
-
-            .cs-li-link {
-                font-size: (18/16rem);
-                line-height: 1.4em;
-                color: var(--bodyTextColorWhite);
-                text-decoration: none;
-                text-align: center;
-                transition: color 0.3s;
-                text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.8);
-
-                &:hover {
-                    text-decoration: underline;
-                    color: var(--linkHoverColor);
-                }
-            }
-        }
-
-        .cs-item-background {
-            width: 100%;
-            height: 100%;
-            display: block;
-            position: absolute;
-            top: 0;
-            left: 0;
-            z-index: 1;
-            transition: transform 0.3s ease;
-
-            &:before {
-                content: "";
-                position: absolute;
-                display: block;
-                height: 100%;
-                width: 100%;
-                background: linear-gradient(rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.2) 50%, rgba(0, 0, 0, 0.7) 100%);
-                top: 0;
-                left: 0;
-                z-index: 2;
-            }
-
-            img {
-                position: absolute;
-                top: 0;
-                left: 0;
-                height: 100%;
-                width: 100%;
-                object-fit: cover;
-                object-position: center 35%;
-                z-index: 1;
-            }
+            color: var(--bodyTextColor);
         }
     }
 
@@ -377,110 +529,34 @@
     .popup-buttons {
         flex-wrap: nowrap;
     }
-
-    #map-section {
-        .cs-text-content {
-            width: 100%;
-            display: flex;
-            flex-direction: column;
-            z-index: 10;
-            margin: auto; 
-
-            .cs-text {
-                text-align: center;
-                padding: 0px 0px;
-                order: none;
-            }
-        }
-
-        .cs-content {
-            max-height: none; // Allow natural height on tablet
-        }
-
-        .cs-card-group {
-            flex-direction: row;
-            gap: (16/16rem);
-            flex: 0 0 auto; // Don't stretch on tablet
-        }
-
-        .cs-item {
-            flex: 1;
-            min-height: (140/16rem);
-            max-height: (160/16rem); // Limit height on tablet
-
-            .cs-title {
-                font-size: (32/16rem);
-            }
-
-            .cs-li-link {
-                font-size: (16/16rem);
-            }
-        }
-    }
 }
 
 /* Desktop - 1024px */
 @media only screen and (min-width: 64rem) {
-    padding: 120px 0;
     .cs-map-container {
-        height: (800/16rem);
+        height: (600/16rem);
     }
 
     #map-section {
-        padding: 120px 10px;
-
-        .cs-header-container{
-            margin-bottom: 120px;
-
-            .cs-title,
-            .cs-text {
-                text-align: center;
-                flex-shrink: 0; // Prevent shrinking
-            }
-        }
-
         .cs-container {
             flex-direction: row;
             align-items: flex-start;
             gap: (64/16rem);
-            min-height: (600/16rem); // Match map height
         }
 
         .cs-content {
-            flex: 0 0 (500/16rem);
+            flex: 0 0 (400/16rem);
             text-align: left;
             align-items: flex-start;
-            height: (600/16rem); // Match map height
-            max-height: (600/16rem);
+        }
+        
+        .cs-button-nodeco {
+            align-self: flex-start;
         }
 
         .cs-title,
         .cs-text {
             text-align: left;
-            flex-shrink: 0; // Prevent shrinking
-        }
-
-        .cs-card-group {
-            flex-direction: column;
-            gap: 30px;
-            flex: 1;
-            min-height: 0;
-            max-height: 100%;
-            overflow: hidden;
-        }
-
-        .cs-item {
-            flex: 1;
-            min-height: 0; // Allow flex to work properly
-            max-height: calc((100% - 24px) / 3); // Divide remaining space by 3 cards minus gaps
-
-            .cs-title {
-                font-size: (48/16rem);
-            }
-
-            .cs-li-link {
-                font-size: (15/16rem);
-            }
         }
     }
 
