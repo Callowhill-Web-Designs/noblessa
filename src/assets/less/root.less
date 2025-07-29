@@ -1285,7 +1285,7 @@ html {
             display: block;
             top: 0;
             left: 0;
-            z-index: 0;
+            z-index: 1;
         }
 
         .cs-text-wrapper {
@@ -1450,52 +1450,6 @@ html {
             &.cs-active {
                 color: var(--secondary);
             }
-        }
-
-        .cs-background {
-            width: 100%;
-            height: 100%;
-            display: block;
-            position: absolute;
-            top: 0;
-            left: 0;
-            z-index: -1;
-
-            &:before {
-                /* gradient overlay */
-                content: "";
-                width: 100%;
-                height: 100%;
-                background: #000;
-                opacity: 0.72;
-                position: absolute;
-                display: block;
-                top: 0;
-                left: 0;
-                z-index: 1;
-            }
-
-            img {
-                position: absolute;
-                top: 0;
-                left: 0;
-                height: 100%;
-                width: 100%;
-                /* Makes img tag act as a background image */
-                object-fit: cover;
-                z-index: -1;
-            }
-        }
-
-        .cs-video {
-            width: 100%;
-            height: 100%;
-            display: block;
-            position: absolute;
-            object-fit: cover;
-            top: 0;
-            left: 0;
-            z-index: -0.5;
         }
     }
 }
