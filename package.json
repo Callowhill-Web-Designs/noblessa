@@ -30,8 +30,10 @@
         "@11ty/eleventy-navigation": "^0.3.5",
         "@codestitchofficial/eleventy-plugin-minify": "^1.1.3",
         "@codestitchofficial/eleventy-plugin-sharp-images": "^2.1.1",
+        "@netlify/functions": "^4.2.2",
         "@quasibit/eleventy-plugin-sitemap": "^2.2.0",
         "@shoelace-style/shoelace": "^2.20.1",
+        "@types/express": "^5.0.3",
         "autoprefixer": "^10.4.21",
         "codestitch-sharp-image-automation": "^0.3.0",
         "cross-env": "^7.0.3",
@@ -50,6 +52,7 @@
         "passport": "^0.7.0",
         "passport-auth0": "^1.4.4",
         "postcss": "^8.5.5",
+        "serverless-http": "^3.2.0",
         "three.js": "^0.77.0"
     }
 }

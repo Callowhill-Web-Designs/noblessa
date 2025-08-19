@@ -8,7 +8,10 @@
 let currentUser = null;
 
 // API Configuration - adjust the base URL based on environment
-const API_BASE_URL = (window.location.port === '8082' || window.location.port === '8080') ? 'http://localhost:3000' : '';
+const isNetlify = window.location.hostname.endsWith('netlify.app') || window.location.hostname === 'localhost';
+const API_BASE_URL = (window.location.port === '8082' || window.location.port === '8080')
+    ? 'http://localhost:3000'
+    : (isNetlify ? '/.netlify/functions/auth' : '');
 
 // Add debug function to help troubleshoot session issues
 window.showDebugInfo = async function() {
