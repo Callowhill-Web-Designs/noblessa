@@ -1629,7 +1629,7 @@ html {
 /* Mobile - 360px */
 @media only screen and (min-width: 0rem) {
     #cs-footer-1390 {
-        padding: (60/16rem) (16/16rem) (40/16rem);
+        padding: (30/16rem) (16/16rem);
         background-color: #1a1a1a;
         position: relative;
 
@@ -1644,8 +1644,8 @@ html {
         /* Top Row: Logo only */
         .cs-top {
             width: 100%;
-            margin-bottom: (24/16rem);
-            padding: (16/16rem) 0 (20/16rem) 0;
+            margin-bottom: (20/16rem);
+            padding: 0 0 (20/16rem) 0;
             border-bottom: 1px solid #2a2a2a;
             display: flex;
             justify-content: center;
@@ -1653,13 +1653,13 @@ html {
         }
 
         .cs-logo {
-            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            font-size: 48px;
             font-family: var(--headerFont);
             text-decoration: none;
             color: #fafbfc;
             font-weight: 400;
             margin: 0;
-            padding: (4/16rem) (8/16rem);
+            padding: 0;
             transition: color 0.3s ease;
 
             &:hover {
@@ -1701,7 +1701,7 @@ html {
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: (32/16rem);
+            gap: (16/16rem);
         }
 
         .cs-contact {
@@ -1795,7 +1795,7 @@ html {
         }
 
         .cs-copyright {
-            font-size: (14/16rem);
+            font-size: (12/16rem);
             color: #bababa;
             line-height: 1.5em;
             margin: 0;
@@ -1807,6 +1807,7 @@ html {
             line-height: 1.5em;
 
             .cs-developer-link {
+                font-size: (12/16rem);
                 color: var(--secondary);
                 text-decoration: none;
                 transition: color 0.3s;
@@ -1822,17 +1823,13 @@ html {
 /* Tablet - 768px */
 @media only screen and (min-width: 48rem) {
     #cs-footer-1390 {
-        padding: (80/16rem) (24/16rem) (50/16rem);
+        padding: (30/16rem) (24/16rem);
 
         /* Top Row: Logo centered */
         .cs-top {
             justify-content: center;
             margin-bottom: (32/16rem);
-            padding: (24/16rem) 0 (28/16rem) 0;
-        }
-
-        .cs-logo {
-            padding: (6/16rem) (12/16rem);
+            padding: 0 0 (28/16rem) 0;
         }
 
         /* Middle Row: Contact left, Follow Us right */
@@ -1883,7 +1880,7 @@ html {
 /* Small Desktop - 1024px */
 @media only screen and (min-width: 64rem) {
     #cs-footer-1390 {
-        padding: (100/16rem) (40/16rem) (60/16rem);
+        padding: (40/16rem) (40/16rem);
 
         .cs-container {
             max-width: (1200/16rem);
@@ -1891,11 +1888,7 @@ html {
 
         .cs-top {
             margin-bottom: (40/16rem);
-            padding: (32/16rem) 0 (36/16rem) 0;
-        }
-
-        .cs-logo {
-            padding: (8/16rem) (16/16rem);
+            padding: 0 0 (20/16rem) 0;
         }
 
         .cs-middle {
