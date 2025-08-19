@@ -4,66 +4,77 @@
 // card animations, resource filtering, and quick actions
 // ─────────────────────────────────────────────────────────────────────────────
 
-// Authentication crede// Expose logout function globally for potential logout button
-window.partnerLogout = logout;
+// Authentication state
+let currentUser = null;
+
+// API Configuration - adjust the base URL based on environment
+const API_BASE_URL = (window.location.port === '8082' || window.location.port === '8080') ? 'http://localhost:3000' : '';
 
 // Add debug function to help troubleshoot session issues
-window.showDebugInfo = function() {
-    const sessionData = localStorage.getItem(SESSION_KEY);
-    const now = Date.now();
-    
-    if (sessionData) {
-        try {
-            const session = JSON.parse(sessionData);
-            const info = {
-                'Session Key': SESSION_KEY,
-                'Username': session.username,
-                'Created': new Date(session.timestamp).toLocaleString(),
-                'Expires': new Date(session.expires).toLocaleString(),
-                'Current Time': new Date(now).toLocaleString(),
-                'Time Until Expiry': Math.round((session.expires - now) / (1000 * 60)) + ' minutes',
-                'Is Valid': now < session.expires ? 'YES' : 'NO'
-            };
-            
-            let debugText = 'SESSION DEBUG INFO:\n\n';
-            for (const [key, value] of Object.entries(info)) {
-                debugText += `${key}: ${value}\n`;
-            }
-            
-            alert(debugText);
-        } catch (error) {
-            alert('Error parsing session data: ' + error.message);
+window.showDebugInfo = async function() {
+    try {
+        const response = await fetch(`${API_BASE_URL}/api/auth/session`);
+        const sessionData = await response.json();
+        
+        let debugText = 'SERVER SESSION DEBUG INFO:\n\n';
+        debugText += `API Base URL: ${API_BASE_URL}\n`;
+        debugText += `Current Port: ${window.location.port}\n`;
+        debugText += `Authenticated: ${sessionData.authenticated ? 'YES' : 'NO'}\n`;
+        
+        if (sessionData.authenticated && sessionData.user) {
+            debugText += `Username: ${sessionData.user.username}\n`;
+            debugText += `Role: ${sessionData.user.role}\n`;
+            debugText += `Permissions: ${sessionData.user.permissions.join(', ')}\n`;
         }
-    } else {
-        alert('No session data found in localStorage');
+        
+        debugText += `Response Status: ${response.status}\n`;
+        debugText += `Server Time: ${new Date().toLocaleString()}\n`;
+        
+        alert(debugText);
+    } catch (error) {
+        alert('Error checking session: ' + error.message + '\n\nMake sure the authentication server is running on port 3000');
     }
 };
 
-// Authentication credentials (in production, this should be handled server-side)
-const VALID_CREDENTIALS = {
-    'ambassador': 'noblessa2024',
-    'partner': 'luxury2024',
-    'admin': 'admin2024'
-};
-
-// Session management
-const SESSION_KEY = 'noblessa_auth_session';
-const SESSION_DURATION = 24 * 60 * 60 * 1000; // 24 hours
-
-document.addEventListener('DOMContentLoaded', function() {
+// API helper functions
+async function apiCall(endpoint, options = {}) {
+    const defaultOptions = {
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        credentials: 'include' // Include cookies for session
+    };
     
+    const fullUrl = `${API_BASE_URL}${endpoint}`;
+    const response = await fetch(fullUrl, { ...defaultOptions, ...options });
+    
+    // Check if we got HTML instead of JSON (common error when API server is not running)
+    const contentType = response.headers.get('content-type');
+    if (contentType && contentType.includes('text/html')) {
+        throw new Error('Authentication server not available. Please ensure the server is running on port 3000.');
+    }
+    
+    const data = await response.json();
+    
+    if (!response.ok) {
+        throw new Error(data.message || 'API request failed');
+    }
+    
+    return data;
+}
+document.addEventListener('DOMContentLoaded', function() {
     // Initialize authentication
     initializeAuth();
 });
 
-function initializeAuth() {
+async function initializeAuth() {
     const authOverlay = document.getElementById('auth-overlay');
     const mainContent = document.getElementById('main-content');
     const loginForm = document.getElementById('login-form');
     const authError = document.getElementById('auth-error');
 
     // Check if user is already authenticated
-    if (isAuthenticated()) {
+    if (await isAuthenticated()) {
         hideAuthOverlay();
         showMainContent();
         initializeMainFeatures();
@@ -74,15 +85,20 @@ function initializeAuth() {
     authOverlay.style.display = 'flex';
 
     // Handle login form submission
-    loginForm.addEventListener('submit', function(e) {
+    loginForm.addEventListener('submit', async function(e) {
         e.preventDefault();
         
         const username = document.getElementById('username').value.trim();
         const password = document.getElementById('password').value;
         
-        if (validateCredentials(username, password)) {
-            // Store authentication session
-            storeAuthSession(username);
+        // Disable form during login
+        const submitButton = this.querySelector('button[type="submit"]');
+        const originalText = submitButton.textContent;
+        submitButton.disabled = true;
+        submitButton.textContent = 'Authenticating...';
+        
+        try {
+            await validateCredentials(username, password);
             
             // Hide auth overlay and show main content
             hideAuthOverlay();
@@ -94,10 +110,11 @@ function initializeAuth() {
             // Clear form
             loginForm.reset();
             authError.style.display = 'none';
-        } else {
+            
+        } catch (error) {
             // Show error message
             authError.style.display = 'block';
-            authError.textContent = 'Invalid credentials. Please try again.';
+            authError.textContent = error.message || 'Authentication failed. Please try again.';
             
             // Clear password field
             document.getElementById('password').value = '';
@@ -108,6 +125,11 @@ function initializeAuth() {
             setTimeout(() => {
                 authContainer.style.animation = 'authShake 0.5s ease-out';
             }, 10);
+            
+        } finally {
+            // Re-enable form
+            submitButton.disabled = false;
+            submitButton.textContent = originalText;
         }
     });
 
@@ -119,57 +141,69 @@ function initializeAuth() {
     });
 }
 
-function validateCredentials(username, password) {
-    return VALID_CREDENTIALS[username.toLowerCase()] === password;
-}
-
-function storeAuthSession(username) {
-    const sessionData = {
-        username: username,
-        timestamp: Date.now(),
-        expires: Date.now() + SESSION_DURATION
-    };
-    
-    console.log('Storing session:', {
-        username: sessionData.username,
-        expires: new Date(sessionData.expires).toLocaleString(),
-        duration: SESSION_DURATION / (1000 * 60 * 60) + ' hours'
-    });
-    
-    localStorage.setItem(SESSION_KEY, JSON.stringify(sessionData));
-}
-
-function isAuthenticated() {
-    const sessionData = localStorage.getItem(SESSION_KEY);
-    
-    if (!sessionData) {
-        console.log('No session data found');
-        return false;
-    }
-    
+async function validateCredentials(username, password) {
     try {
-        const session = JSON.parse(sessionData);
-        const now = Date.now();
-        const isValid = now < session.expires;
-        
-        console.log('Session check:', {
-            now: new Date(now).toLocaleString(),
-            expires: new Date(session.expires).toLocaleString(),
-            username: session.username,
-            isValid: isValid
+        const data = await apiCall('/api/auth/login', {
+            method: 'POST',
+            body: JSON.stringify({ username, password })
         });
         
-        if (!isValid) {
-            console.log('Session expired, removing');
-            localStorage.removeItem(SESSION_KEY);
+        if (data.success) {
+            currentUser = data.user;
+            return true;
+        } else {
+            throw new Error(data.message || 'Invalid credentials');
+        }
+    } catch (error) {
+        // Provide specific error messages based on the type of error
+        if (error.message.includes('Failed to fetch')) {
+            throw new Error('Cannot connect to authentication server. Please ensure the server is running on port 3000.');
+        } else if (error.message.includes('not available')) {
+            throw new Error('Authentication server is not available. Please start the server with: node server.js');
+        } else {
+            throw error;
+        }
+    }
+}
+
+async function isAuthenticated() {
+    try {
+        const data = await apiCall('/api/auth/session');
+        if (data.success && data.authenticated) {
+            currentUser = data.user;
+            return true;
+        }
+        return false;
+    } catch (error) {
+        console.log('Session check failed:', error.message);
+        
+        // Show helpful error message if server is not running
+        if (error.message.includes('Failed to fetch') || error.message.includes('not available')) {
+            showServerError();
         }
         
-        return isValid;
-    } catch (error) {
-        console.log('Error parsing session data:', error);
-        // Clear invalid session data
-        localStorage.removeItem(SESSION_KEY);
         return false;
+    }
+}
+
+function showServerError() {
+    const authError = document.getElementById('auth-error');
+    if (authError) {
+        authError.style.display = 'block';
+        authError.innerHTML = `
+            <strong>Server Connection Error</strong><br>
+            The authentication server is not running.<br><br>
+            <strong>To fix this:</strong><br>
+            1. Open a terminal and run: <code>node server.js</code><br>
+            2. Or use the startup script: <code>start-servers.ps1</code><br><br>
+            <em>The auth server should be running on port 3000</em>
+        `;
+        authError.style.fontSize = '12px';
+        authError.style.textAlign = 'left';
+        authError.style.padding = '16px';
+        authError.style.backgroundColor = '#fff3cd';
+        authError.style.borderColor = '#ffeaa7';
+        authError.style.color = '#856404';
     }
 }
 
@@ -192,9 +226,19 @@ function showMainContent() {
     mainContent.classList.add('cs-authenticated');
 }
 
-function logout() {
-    localStorage.removeItem(SESSION_KEY);
-    location.reload();
+async function logout() {
+    try {
+        await apiCall('/api/auth/logout', {
+            method: 'POST'
+        });
+        
+        currentUser = null;
+        location.reload();
+    } catch (error) {
+        console.error('Logout failed:', error.message);
+        // Force reload anyway to clear client state
+        location.reload();
+    }
 }
 
 function initializeMainFeatures() {
