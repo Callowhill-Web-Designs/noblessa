@@ -1,0 +1,906 @@
+// ─────────────────────────────────────────────────────────────────────────────
+// AMBASSADOR HUB PAGE STYLES
+// Ambassador Hub page styles for the ambassador program information,
+// dashboard cards, authentication, and quick actions sections
+// ─────────────────────────────────────────────────────────────────────────────
+
+/*-- -------------------------- -->
+<---       Authentication       -->
+<--- -------------------------- -*/
+
+/* Mobile - 360px */
+@media only screen and (min-width: 0rem) {
+    .cs-auth-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(135deg, var(--primary), var(--secondary));
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 9999;
+        padding: (20/16rem);
+
+        &.cs-hidden {
+            display: none;
+        }
+    }
+
+    .cs-auth-container {
+        background-color: #ffffff;
+        border-radius: (16/16rem);
+        padding: (32/16rem) (24/16rem);
+        width: 100%;
+        max-width: (400/16rem);
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+        animation: authSlideIn 0.5s ease-out;
+    }
+
+    .cs-auth-header {
+        text-align: center;
+        margin-bottom: (32/16rem);
+    }
+
+    .cs-auth-title {
+        font-size: (28/16rem);
+        font-weight: 900;
+        line-height: 1.2em;
+        color: var(--headerColor);
+        margin-bottom: (8/16rem);
+    }
+
+    .cs-auth-subtitle {
+        font-size: (14/16rem);
+        line-height: 1.5em;
+        color: var(--bodyTextColor);
+        margin: 0;
+    }
+
+    .cs-auth-form {
+        margin-bottom: (24/16rem);
+    }
+
+    .cs-form-group {
+        position: relative;
+        margin-bottom: (20/16rem);
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    .cs-label {
+        font-size: (14/16rem);
+        font-weight: 600;
+        color: var(--headerColor);
+        margin-bottom: (8/16rem);
+        display: block;
+    }
+
+    .cs-input {
+        width: 100%;
+        height: (48/16rem);
+        padding: (12/16rem) (16/16rem) (12/16rem) (48/16rem);
+        border: 2px solid #e5e7eb;
+        border-radius: (8/16rem);
+        font-size: (16/16rem);
+        font-family: var(--bodyFont);
+        color: var(--headerColor);
+        background-color: #ffffff;
+        transition: all 0.3s ease;
+        box-sizing: border-box;
+
+        &:focus {
+            outline: none;
+            border-color: var(--secondary);
+            box-shadow: 0 0 0 3px rgba(var(--secondaryRGB), 0.1);
+        }
+
+        &::placeholder {
+            color: #9ca3af;
+        }
+    }
+
+    .cs-input-icon {
+        position: absolute;
+        left: (16/16rem);
+        top: 50%;
+        transform: translateY(-50%);
+        color: #6b7280;
+        pointer-events: none;
+        margin-top: (20/16rem); // Account for label height
+    }
+
+    .cs-form-actions {
+        margin-top: (24/16rem);
+    }
+
+    .cs-auth-button {
+        width: 100%;
+        height: (48/16rem);
+        background: linear-gradient(135deg, var(--secondary), var(--secondaryLight));
+        border: none;
+        border-radius: (8/16rem);
+        font-size: (16/16rem);
+        font-weight: 600;
+        color: #ffffff;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        font-family: var(--bodyFont);
+
+        &:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(var(--secondaryRGB), 0.3);
+        }
+
+        &:active {
+            transform: translateY(0);
+        }
+
+        &:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+    }
+
+    .cs-auth-error {
+        background-color: #fef2f2;
+        border: 1px solid #fecaca;
+        color: #dc2626;
+        padding: (12/16rem) (16/16rem);
+        border-radius: (8/16rem);
+        font-size: (14/16rem);
+        margin-top: (16/16rem);
+        text-align: center;
+    }
+
+    .cs-auth-footer {
+        text-align: center;
+        padding-top: (24/16rem);
+        border-top: 1px solid #f3f4f6;
+    }
+
+    .cs-auth-help {
+        font-size: (12/16rem);
+        color: var(--bodyTextColor);
+        margin: 0;
+
+        a {
+            color: var(--secondary);
+            text-decoration: none;
+            font-weight: 600;
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+
+    .cs-main-content {
+        &.cs-authenticated {
+            display: block;
+            animation: contentFadeIn 0.5s ease-out;
+        }
+    }
+}
+
+/* Tablet - 768px */
+@media only screen and (min-width: 48rem) {
+    .cs-auth-container {
+        padding: (48/16rem) (40/16rem);
+        max-width: (480/16rem);
+    }
+
+    .cs-auth-title {
+        font-size: (32/16rem);
+    }
+
+    .cs-auth-subtitle {
+        font-size: (16/16rem);
+    }
+}
+
+/* Authentication Animations */
+@keyframes authSlideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-30px) scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes contentFadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes authShake {
+    0%, 100% { transform: translateX(0); }
+    10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+    20%, 40%, 60%, 80% { transform: translateX(5px); }
+}
+
+/*-- -------------------------- -->
+<---        Logout Button        -->
+<--- -------------------------- -*/
+
+/* Mobile - 360px */
+@media only screen and (min-width: 0rem) {
+    .cs-logout-btn {
+        background: rgba(255, 255, 255, 0.1);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        color: #ffffff;
+        padding: (8/16rem) (12/16rem);
+        border-radius: (6/16rem);
+        font-size: (12/16rem);
+        font-weight: 500;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: (6/16rem);
+        margin-left: auto;
+        transition: all 0.3s ease;
+        font-family: var(--bodyFont);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+
+        &:hover {
+            background: rgba(255, 255, 255, 0.2);
+            border-color: rgba(255, 255, 255, 0.3);
+            transform: translateY(-1px);
+        }
+
+        &:active {
+            transform: translateY(0);
+        }
+
+        svg {
+            width: (14/16rem);
+            height: (14/16rem);
+        }
+    }
+
+    #banner-2285 .cs-breadcrumbs {
+        display: flex;
+        align-items: center;
+        gap: (16/16rem);
+        width: 100%;
+    }
+}
+
+/* Tablet - 768px */
+@media only screen and (min-width: 48rem) {
+    .cs-logout-btn {
+        font-size: (14/16rem);
+        padding: (10/16rem) (16/16rem);
+        gap: (8/16rem);
+
+        svg {
+            width: (16/16rem);
+            height: (16/16rem);
+        }
+    }
+}
+
+/*-- -------------------------- -->
+<---     About the Program      -->
+<--- -------------------------- -*/
+
+/* Mobile - 360px */
+@media only screen and (min-width: 0rem) {
+    #about-program-1890 {
+        padding: var(--sectionPadding);
+        background-color: #fafbfc;
+        position: relative;
+
+        .cs-container {
+            width: 100%;
+            max-width: (1280/16rem);
+            margin: auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: (48/16rem);
+        }
+
+        .cs-content {
+            text-align: center;
+            width: 100%;
+            max-width: (630/16rem);
+        }
+
+        .cs-topper {
+            font-size: var(--topperFontSize);
+            line-height: 1.2em;
+            text-transform: uppercase;
+            text-align: inherit;
+            letter-spacing: .1em;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: (4/16rem);
+            display: block;
+        }
+
+        .cs-title {
+            font-size: var(--headerFontSize);
+            font-weight: 900;
+            line-height: 1.2em;
+            text-align: inherit;
+            max-width: (700/16rem);
+            margin: 0 0 (16/16rem) 0;
+            color: var(--headerColor);
+            position: relative;
+        }
+
+        .cs-text {
+            font-size: var(--bodyFontSize);
+            line-height: 1.5em;
+            text-align: inherit;
+            width: 100%;
+            max-width: (650/16rem);
+            margin: 0 0 (16/16rem) 0;
+            color: var(--bodyTextColor);
+
+            &:last-of-type {
+                margin-bottom: 0;
+            }
+        }
+
+        .cs-benefits {
+            width: 100%;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: (32/16rem);
+        }
+
+        .cs-benefit {
+            text-align: center;
+            background-color: #ffffff;
+            border-radius: (12/16rem);
+            padding: (32/16rem) (24/16rem);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+            &:hover {
+                transform: translateY(-4px);
+                box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+            }
+        }
+
+        .cs-icon-wrapper {
+            width: (64/16rem);
+            height: (64/16rem);
+            background: linear-gradient(135deg, var(--secondary), var(--secondaryLight));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto (16/16rem) auto;
+        }
+
+        .cs-icon {
+            width: (32/16rem);
+            height: (32/16rem);
+            color: #ffffff;
+        }
+
+        .cs-benefit-title {
+            font-size: (20/16rem);
+            font-weight: 700;
+            line-height: 1.2em;
+            color: var(--headerColor);
+            margin-bottom: (8/16rem);
+        }
+
+        .cs-benefit-text {
+            font-size: (14/16rem);
+            line-height: 1.5em;
+            color: var(--bodyTextColor);
+            margin: 0;
+        }
+    }
+}
+
+/* Tablet - 768px */
+@media only screen and (min-width: 48rem) {
+    #about-program-1890 {
+        .cs-benefits {
+            grid-template-columns: repeat(2, 1fr);
+            gap: (32/16rem);
+        }
+    }
+}
+
+/* Desktop - 1024px */
+@media only screen and (min-width: 64rem) {
+    #about-program-1890 {
+        .cs-benefits {
+            grid-template-columns: repeat(4, 1fr);
+            gap: (32/16rem);
+        }
+
+        .cs-benefit {
+            padding: (40/16rem) (32/16rem);
+        }
+    }
+}
+
+/*-- -------------------------- -->
+<---       Hub Dashboard        -->
+<--- -------------------------- -*/
+
+/* Mobile - 360px */
+@media only screen and (min-width: 0rem) {
+    #hub-dashboard-1891 {
+        padding: var(--sectionPadding);
+        position: relative;
+
+        .cs-container {
+            width: 100%;
+            max-width: (1280/16rem);
+            margin: auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: (48/16rem);
+        }
+
+        .cs-content {
+            text-align: center;
+            width: 100%;
+            max-width: (630/16rem);
+        }
+
+        .cs-topper {
+            font-size: var(--topperFontSize);
+            line-height: 1.2em;
+            text-transform: uppercase;
+            text-align: inherit;
+            letter-spacing: .1em;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: (4/16rem);
+            display: block;
+        }
+
+        .cs-title {
+            font-size: var(--headerFontSize);
+            font-weight: 900;
+            line-height: 1.2em;
+            text-align: inherit;
+            max-width: (700/16rem);
+            margin: 0 0 (16/16rem) 0;
+            color: var(--headerColor);
+            position: relative;
+        }
+
+        .cs-text {
+            font-size: var(--bodyFontSize);
+            line-height: 1.5em;
+            text-align: inherit;
+            width: 100%;
+            max-width: (650/16rem);
+            margin: 0;
+            color: var(--bodyTextColor);
+        }
+
+        .cs-card-group {
+            width: 100%;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: (32/16rem);
+        }
+
+        .cs-card {
+            background-color: #ffffff;
+            border-radius: (16/16rem);
+            border: 1px solid #e5e7eb;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+            &:hover {
+                transform: translateY(-4px);
+                box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1);
+            }
+        }
+
+        .cs-card-header {
+            padding: (24/16rem) (24/16rem) (16/16rem) (24/16rem);
+            border-bottom: 1px solid #f3f4f6;
+            display: flex;
+            align-items: center;
+            gap: (16/16rem);
+        }
+
+        .cs-card-icon {
+            width: (48/16rem);
+            height: (48/16rem);
+            background: linear-gradient(135deg, var(--secondary), var(--secondaryLight));
+            border-radius: (8/16rem);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+
+            svg {
+                color: #ffffff;
+            }
+        }
+
+        .cs-card-title {
+            font-size: (20/16rem);
+            font-weight: 700;
+            line-height: 1.2em;
+            color: var(--headerColor);
+            margin: 0;
+        }
+
+        .cs-card-body {
+            padding: (24/16rem);
+        }
+
+        .cs-card-text {
+            font-size: (14/16rem);
+            line-height: 1.5em;
+            color: var(--bodyTextColor);
+            margin-bottom: (20/16rem);
+        }
+
+        .cs-updates-list,
+        .cs-resource-categories,
+        .cs-support-options {
+            margin-bottom: (20/16rem);
+        }
+
+        .cs-update-item,
+        .cs-resource-category,
+        .cs-support-option {
+            padding: (12/16rem) 0;
+            border-bottom: 1px solid #f3f4f6;
+            display: flex;
+            flex-direction: column;
+            gap: (4/16rem);
+
+            &:last-child {
+                border-bottom: none;
+                padding-bottom: 0;
+            }
+
+            &:first-child {
+                padding-top: 0;
+            }
+        }
+
+        .cs-update-date {
+            font-size: (12/16rem);
+            font-weight: 500;
+            color: var(--secondary);
+        }
+
+        .cs-update-title {
+            font-size: (14/16rem);
+            font-weight: 600;
+            color: var(--headerColor);
+        }
+
+        .cs-resource-category {
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .cs-category-name {
+            font-size: (14/16rem);
+            font-weight: 500;
+            color: var(--headerColor);
+        }
+
+        .cs-category-count {
+            font-size: (12/16rem);
+            color: var(--bodyTextColor);
+            background-color: #f3f4f6;
+            padding: (4/16rem) (8/16rem);
+            border-radius: (12/16rem);
+        }
+
+        .cs-support-type {
+            font-size: (14/16rem);
+            font-weight: 600;
+            color: var(--headerColor);
+        }
+
+        .cs-support-contact {
+            font-size: (14/16rem);
+            color: var(--bodyTextColor);
+        }
+
+        .cs-support-phone {
+            font-size: (12/16rem);
+            color: var(--secondary);
+            font-weight: 500;
+        }
+
+        .cs-card-link {
+            font-size: (14/16rem);
+            font-weight: 600;
+            color: var(--secondary);
+            text-decoration: none;
+            transition: color 0.3s ease;
+
+            &:hover {
+                color: var(--linkHoverColor);
+            }
+        }
+    }
+}
+
+/* Tablet - 768px */
+@media only screen and (min-width: 48rem) {
+    #hub-dashboard-1891 {
+        .cs-card-group {
+            grid-template-columns: repeat(2, 1fr);
+            gap: (32/16rem);
+        }
+
+        .cs-card:last-child {
+            grid-column: 1 / -1;
+            max-width: (400/16rem);
+            margin: 0 auto;
+        }
+    }
+}
+
+/* Desktop - 1024px */
+@media only screen and (min-width: 64rem) {
+    #hub-dashboard-1891 {
+        .cs-card-group {
+            grid-template-columns: repeat(3, 1fr);
+        }
+
+        .cs-card:last-child {
+            grid-column: auto;
+            max-width: none;
+            margin: 0;
+        }
+    }
+}
+
+/*-- -------------------------- -->
+<---       Quick Actions        -->
+<--- -------------------------- -*/
+
+/* Mobile - 360px */
+@media only screen and (min-width: 0rem) {
+    #quick-actions-1892 {
+        padding: var(--sectionPadding);
+        background-color: #fafbfc;
+        position: relative;
+
+        .cs-container {
+            width: 100%;
+            max-width: (1280/16rem);
+            margin: auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: (48/16rem);
+        }
+
+        .cs-content {
+            text-align: center;
+            width: 100%;
+            max-width: (630/16rem);
+        }
+
+        .cs-title {
+            font-size: var(--headerFontSize);
+            font-weight: 900;
+            line-height: 1.2em;
+            text-align: inherit;
+            max-width: (700/16rem);
+            margin: 0 0 (16/16rem) 0;
+            color: var(--headerColor);
+            position: relative;
+        }
+
+        .cs-text {
+            font-size: var(--bodyFontSize);
+            line-height: 1.5em;
+            text-align: inherit;
+            width: 100%;
+            max-width: (650/16rem);
+            margin: 0;
+            color: var(--bodyTextColor);
+        }
+
+        .cs-actions-grid {
+            width: 100%;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: (16/16rem);
+        }
+
+        .cs-action-card {
+            background-color: #ffffff;
+            border-radius: (12/16rem);
+            padding: (24/16rem) (16/16rem);
+            text-align: center;
+            text-decoration: none;
+            border: 1px solid #e5e7eb;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: (12/16rem);
+
+            &:hover {
+                transform: translateY(-4px);
+                box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+                border-color: var(--secondary);
+
+                .cs-action-icon {
+                    background: linear-gradient(135deg, var(--secondary), var(--secondaryLight));
+
+                    svg {
+                        color: #ffffff;
+                    }
+                }
+            }
+        }
+
+        .cs-action-icon {
+            width: (48/16rem);
+            height: (48/16rem);
+            background-color: #f3f4f6;
+            border-radius: (8/16rem);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+
+            svg {
+                color: var(--bodyTextColor);
+                transition: color 0.3s ease;
+            }
+        }
+
+        .cs-action-title {
+            font-size: (16/16rem);
+            font-weight: 700;
+            line-height: 1.2em;
+            color: var(--headerColor);
+            margin: 0;
+        }
+
+        .cs-action-text {
+            font-size: (12/16rem);
+            line-height: 1.4em;
+            color: var(--bodyTextColor);
+            margin: 0;
+        }
+    }
+}
+
+/* Tablet - 768px */
+@media only screen and (min-width: 48rem) {
+    #quick-actions-1892 {
+        .cs-actions-grid {
+            grid-template-columns: repeat(3, 1fr);
+            gap: (24/16rem);
+        }
+
+        .cs-action-card {
+            padding: (32/16rem) (24/16rem);
+            gap: (16/16rem);
+        }
+
+        .cs-action-icon {
+            width: (56/16rem);
+            height: (56/16rem);
+        }
+
+        .cs-action-title {
+            font-size: (18/16rem);
+        }
+
+        .cs-action-text {
+            font-size: (14/16rem);
+        }
+    }
+}
+
+/* Desktop - 1024px */
+@media only screen and (min-width: 64rem) {
+    #quick-actions-1892 {
+        .cs-actions-grid {
+            grid-template-columns: repeat(6, 1fr);
+            gap: (24/16rem);
+        }
+
+        .cs-action-card {
+            padding: (32/16rem) (20/16rem);
+        }
+    }
+}
+
+/* Large Desktop - 1300px */
+@media only screen and (min-width: 81.25rem) {
+    #quick-actions-1892 {
+        .cs-actions-grid {
+            max-width: (1200/16rem);
+            margin: 0 auto;
+        }
+    }
+}
+
+/*-- -------------------------- -->
+<---      Animation Classes      -->
+<--- -------------------------- -*/
+
+/* CSS animations for enhanced interactivity */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.cs-animated {
+    animation: fadeInUp 0.6s ease-out forwards;
+}
+
+.cs-slide-in {
+    animation: slideInRight 0.6s ease-out forwards;
+}
+
+/*-- -------------------------- -->
+<---    Notification Styles     -->
+<--- -------------------------- -*/
+
+.cs-notification {
+    font-family: var(--bodyFont);
+    font-weight: 500;
+    font-size: (14/16rem);
+    border-radius: (8/16rem);
+    
+    &--success {
+        background-color: #10b981;
+    }
+    
+    &--error {
+        background-color: #ef4444;
+    }
+    
+    &--warning {
+        background-color: #f59e0b;
+    }
+    
+    &--info {
+        background-color: var(--secondary);
+    }
+}

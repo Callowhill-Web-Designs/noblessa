@@ -1,0 +1,368 @@
+---
+title: "Partner Resources | Noblessa USA"
+description: "Meta description for the page"
+permalink: "/partner-resources/"
+eleventyNavigation:
+    key: Partner Resources
+    order: 6200
+    parent: Partners
+---
+
+{% extends "layouts/base.html" %}
+
+{% block head %}
+    <link rel="stylesheet" href="/assets/css/partner-resources.css">
+    <link rel="preload" type="video" href="../../assets/videos/showrooms1080x1920.webm"/>
+    <script defer src="/assets/js/partner-resources.js"></script>
+{% endblock %}
+
+{% block body %}
+
+    <!-- ============================================ -->
+    <!--               Authentication                 -->
+    <!-- ============================================ -->
+
+    <div id="auth-overlay" class="cs-auth-overlay">
+        <div class="cs-auth-container">
+            <div class="cs-auth-header">
+                <h2 class="cs-auth-title">Partner Access</h2>
+                <p class="cs-auth-subtitle">Please enter your credentials to access the partner resources</p>
+            </div>
+            <form id="login-form" class="cs-auth-form">
+                <div class="cs-form-group">
+                    <label for="username" class="cs-label">Username</label>
+                    <input type="text" id="username" name="username" class="cs-input" required>
+                    <div class="cs-input-icon">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M20 21V19C20 16.7909 18.2091 15 16 15H8C5.79086 15 4 16.7909 4 19V21M16 7C16 9.20914 14.2091 11 12 11C9.79086 11 8 9.20914 8 7C8 4.79086 9.79086 3 12 3C14.2091 3 16 4.79086 16 7Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                </div>
+                <div class="cs-form-group">
+                    <label for="password" class="cs-label">Password</label>
+                    <input type="password" id="password" name="password" class="cs-input" required>
+                    <div class="cs-input-icon">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="3" y="11" width="18" height="11" rx="2" ry="2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <circle cx="12" cy="16" r="1" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M7 11V7C7 5.67392 7.52678 4.40215 8.46447 3.46447C9.40215 2.52678 10.6739 2 12 2C13.3261 2 14.5979 2.52678 15.5355 3.46447C16.4732 4.40215 17 5.67392 17 7V11" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                </div>
+                <div class="cs-form-actions">
+                    <button type="submit" class="cs-auth-button">Access Resources</button>
+                </div>
+                <div id="auth-error" class="cs-auth-error" style="display: none;">
+                    Invalid credentials. Please try again.
+                </div>
+            </form>
+            <div class="cs-auth-footer">
+                <p class="cs-auth-help">Need access? Contact your account manager or <a href="/contact">get in touch</a>.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content (hidden by default) -->
+    <div id="main-content" class="cs-main-content" style="display: none;">
+
+    <!-- ============================================ -->
+    <!--                   Banner                     -->
+    <!-- ============================================ -->
+
+    <div id="banner-2285">
+        <div class="cs-container">
+            
+            <span class="cs-int-title sl-fade-in-right">Noblessa Ambassador Hub</span>
+            <p class="cs-text sl-fade-in-right">
+                This hub is your resource for everything you need to promote and share the Noblessa brand. From marketing materials to product information, we have you covered.
+            </p>
+            <div class="cs-breadcrumbs">
+                <a href="/" class="cs-link">home</a>
+                <a href="/ambassador-hub" class="cs-link cs-active">ambassador hub</a>
+                <button onclick="partnerLogout()" class="cs-logout-btn" title="Logout">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M9 21H5C4.46957 21 3.96086 20.7893 3.58579 20.4142C3.21071 20.0391 3 19.5304 3 19V5C3 4.46957 3.21071 3.96086 3.58579 3.58579C3.96086 3.21071 4.46957 3 5 3H9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <polyline points="16,17 21,12 16,7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <line x1="21" y1="12" x2="9" y2="12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    Logout
+                </button>
+                <button onclick="showDebugInfo()" class="cs-debug-btn" title="Debug Info" style="background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); color: white; padding: 8px 12px; border-radius: 6px; font-size: 12px; margin-left: 8px; cursor: pointer;">Debug</button>
+            </div>
+        </div>
+        <!--Background Video-->
+        <video src="/assets/videos/youngers1080x1920.webm" class="cs-video" autoplay muted playsinline loop preload="auto"></video>
+    </div>
+
+    <!-- ============================================ -->
+    <!--              About the Program              -->
+    <!-- ============================================ -->
+
+    <!-- <section id="about-program-1890">
+        <div class="cs-container">
+            <div class="cs-content">
+                <span class="cs-topper">Ambassador Program</span>
+                <h2 class="cs-title">Join Our Elite Network of Brand Ambassadors</h2>
+                <p class="cs-text">
+                    The Noblessa Ambassador Program is designed for industry professionals who are passionate about luxury design and exceptional craftsmanship. As a Noblessa Ambassador, you'll gain exclusive access to our latest collections, marketing materials, training resources, and dedicated support to help you grow your business.
+                </p>
+                <p class="cs-text">
+                    Our ambassadors represent the finest in custom cabinetry and luxury home solutions. We provide the tools, support, and partnership you need to deliver extraordinary results for your clients while building a successful business relationship with Noblessa.
+                </p>
+            </div>
+            <div class="cs-benefits">
+                <div class="cs-benefit">
+                    <div class="cs-icon-wrapper">
+                        <svg class="cs-icon" width="48" height="48" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 2L15.09 8.26L22 9L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9L8.91 8.26L12 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <h3 class="cs-benefit-title">Exclusive Access</h3>
+                    <p class="cs-benefit-text">First access to new collections, limited editions, and exclusive designs before they're available to the general market.</p>
+                </div>
+                <div class="cs-benefit">
+                    <div class="cs-icon-wrapper">
+                        <svg class="cs-icon" width="48" height="48" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M16 21V5A2 2 0 0 0 14 3H10A2 2 0 0 0 8 5V21L12 18L16 21Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <h3 class="cs-benefit-title">Marketing Support</h3>
+                    <p class="cs-benefit-text">Comprehensive marketing materials, high-quality images, product catalogs, and co-branded promotional content.</p>
+                </div>
+                <div class="cs-benefit">
+                    <div class="cs-icon-wrapper">
+                        <svg class="cs-icon" width="48" height="48" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M17 21V13H7V21M7 3V13M17 3V7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <h3 class="cs-benefit-title">Training & Education</h3>
+                    <p class="cs-benefit-text">Regular training sessions, product workshops, and educational resources to keep you informed about our latest innovations.</p>
+                </div>
+                <div class="cs-benefit">
+                    <div class="cs-icon-wrapper">
+                        <svg class="cs-icon" width="48" height="48" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M20 21V19C20 16.7909 18.2091 15 16 15H8C5.79086 15 4 16.7909 4 19V21M16 7C16 9.20914 14.2091 11 12 11C9.79086 11 8 9.20914 8 7C8 4.79086 9.79086 3 12 3C14.2091 3 16 4.79086 16 7Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <h3 class="cs-benefit-title">Dedicated Support</h3>
+                    <p class="cs-benefit-text">Personal account management, technical support, and priority customer service for all your business needs.</p>
+                </div>
+            </div>
+        </div>
+    </section> -->
+
+    <!-- ============================================ -->
+    <!--              Hub Dashboard                   -->
+    <!-- ============================================ -->
+
+    <section id="hub-dashboard-1891">
+        <div class="cs-container">
+            <div class="cs-content">
+                <span class="cs-topper">Ambassador Dashboard</span>
+                <h2 class="cs-title">Your Ambassador Resources</h2>
+                <p class="cs-text">
+                    Access everything you need to succeed as a Noblessa Ambassador. From the latest product updates to marketing resources and support channels.
+                </p>
+            </div>
+            <div class="cs-card-group">
+                <div class="cs-card">
+                    <div class="cs-card-header">
+                        <div class="cs-card-icon">
+                            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M6 2L3 6V20C3 21.1046 3.89543 22 5 22H19C20.1046 22 21 21.1046 21 20V6L18 2H6Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <polyline points="3,6 21,6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M16 10C16 12.2091 14.2091 14 12 14C9.79086 14 8 12.2091 8 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        <h3 class="cs-card-title">Latest Updates</h3>
+                    </div>
+                    <div class="cs-card-body">
+                        <p class="cs-card-text">
+                            Stay informed with the latest product releases, collection updates, pricing changes, and company announcements.
+                        </p>
+                        <div class="cs-updates-list">
+                            <div class="cs-update-item">
+                                <span class="cs-update-date">Dec 15, 2024</span>
+                                <span class="cs-update-title">New European Collection Launch</span>
+                            </div>
+                            <div class="cs-update-item">
+                                <span class="cs-update-date">Dec 10, 2024</span>
+                                <span class="cs-update-title">Holiday Promotion Materials Available</span>
+                            </div>
+                            <div class="cs-update-item">
+                                <span class="cs-update-date">Dec 5, 2024</span>
+                                <span class="cs-update-title">Q1 2025 Training Schedule Released</span>
+                            </div>
+                        </div>
+                        <a href="#updates" class="cs-card-link">View All Updates</a>
+                    </div>
+                </div>
+
+                <div class="cs-card">
+                    <div class="cs-card-header">
+                        <div class="cs-card-icon">
+                            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M14 2H6C4.89543 2 4 2.89543 4 4V20C4 21.1046 4.89543 22 6 22H18C19.1046 22 20 21.1046 20 20V8L14 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <polyline points="14,2 14,8 20,8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <line x1="16" y1="13" x2="8" y2="13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <line x1="16" y1="17" x2="8" y2="17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <polyline points="10,9 9,9 8,9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        <h3 class="cs-card-title">Resources</h3>
+                    </div>
+                    <div class="cs-card-body">
+                        <p class="cs-card-text">
+                            Access marketing materials, product catalogs, technical specifications, installation guides, and training materials.
+                        </p>
+                        <div class="cs-resource-categories">
+                            <div class="cs-resource-category">
+                                <span class="cs-category-name">Marketing Materials</span>
+                                <span class="cs-category-count">24 files</span>
+                            </div>
+                            <div class="cs-resource-category">
+                                <span class="cs-category-name">Product Catalogs</span>
+                                <span class="cs-category-count">12 files</span>
+                            </div>
+                            <div class="cs-resource-category">
+                                <span class="cs-category-name">Technical Specs</span>
+                                <span class="cs-category-count">36 files</span>
+                            </div>
+                            <div class="cs-resource-category">
+                                <span class="cs-category-name">Training Videos</span>
+                                <span class="cs-category-count">8 videos</span>
+                            </div>
+                        </div>
+                        <a href="#resources" class="cs-card-link">Browse Resources</a>
+                    </div>
+                </div>
+
+                <div class="cs-card">
+                    <div class="cs-card-header">
+                        <div class="cs-card-icon">
+                            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M21 11.5C21.0034 12.8199 20.6951 14.1219 20.1 15.3C19.3944 16.7118 18.3098 17.8992 16.9674 18.7293C15.6251 19.5594 14.0782 19.9994 12.5 20C11.1801 20.0035 9.87812 19.6951 8.7 19.1L3 21L4.9 15.3C4.30493 14.1219 3.99656 12.8199 4 11.5C4.00061 9.92179 4.44061 8.37488 5.27072 7.03258C6.10083 5.69028 7.28825 4.6056 8.7 3.90003C9.87812 3.30496 11.1801 2.99659 12.5 3.00003H13C15.0843 3.11502 17.053 3.99479 18.5291 5.47089C20.0052 6.94699 20.885 8.91568 21 11V11.5Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        <h3 class="cs-card-title">Support</h3>
+                    </div>
+                    <div class="cs-card-body">
+                        <p class="cs-card-text">
+                            Get help when you need it. Contact your dedicated account manager, access technical support, or browse our FAQ section.
+                        </p>
+                        <div class="cs-support-options">
+                            <div class="cs-support-option">
+                                <span class="cs-support-type">Account Manager</span>
+                                <span class="cs-support-contact">John Smith</span>
+                                <span class="cs-support-phone">(555) 123-4567</span>
+                            </div>
+                            <div class="cs-support-option">
+                                <span class="cs-support-type">Technical Support</span>
+                                <span class="cs-support-contact">Available 24/7</span>
+                                <span class="cs-support-phone">(555) 987-6543</span>
+                            </div>
+                        </div>
+                        <a href="#support" class="cs-card-link">Get Support</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!--              Quick Actions                   -->
+    <!-- ============================================ -->
+
+    <!-- <section id="quick-actions-1892">
+        <div class="cs-container">
+            <div class="cs-content">
+                <h2 class="cs-title">Quick Actions</h2>
+                <p class="cs-text">
+                    Streamline your workflow with these frequently used tools and resources.
+                </p>
+            </div>
+            <div class="cs-actions-grid">
+                <a href="#order" class="cs-action-card">
+                    <div class="cs-action-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="9" cy="21" r="1" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <circle cx="20" cy="21" r="1" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M1 1H5L7.68 14.39C7.77144 14.8504 8.02191 15.264 8.38755 15.5583C8.75318 15.8526 9.2107 16.009 9.68 16H19.4C19.8693 16.009 20.3268 15.8526 20.6925 15.5583C21.0581 15.264 21.3086 14.8504 21.4 14.39L23 6H6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <h3 class="cs-action-title">Place Order</h3>
+                    <p class="cs-action-text">Start a new custom order</p>
+                </a>
+
+                <a href="#samples" class="cs-action-card">
+                    <div class="cs-action-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="3" y="3" width="18" height="18" rx="2" ry="2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <circle cx="8.5" cy="8.5" r="1.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <polyline points="21,15 16,10 5,21" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <h3 class="cs-action-title">Request Samples</h3>
+                    <p class="cs-action-text">Order material samples</p>
+                </a>
+
+                <a href="#pricing" class="cs-action-card">
+                    <div class="cs-action-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <line x1="12" y1="1" x2="12" y2="23" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M17 5H9.5C8.57174 5 7.6815 5.36875 7.02513 6.02513C6.36875 6.6815 6 7.57174 6 8.5C6 9.42826 6.36875 10.3185 7.02513 10.9749C7.6815 11.6313 8.57174 12 9.5 12H14.5C15.4283 12 16.3185 12.3687 16.9749 13.0251C17.6313 13.6815 18 14.5717 18 15.5C18 16.4283 17.6313 17.3185 16.9749 17.9749C16.3185 18.6313 15.4283 19 14.5 19H6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <h3 class="cs-action-title">Get Pricing</h3>
+                    <p class="cs-action-text">Access current pricing</p>
+                </a>
+
+                <a href="#calculator" class="cs-action-card">
+                    <div class="cs-action-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="4" y="2" width="16" height="20" rx="2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <line x1="8" y1="6" x2="16" y2="6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <line x1="8" y1="10" x2="8" y2="10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <line x1="12" y1="10" x2="12" y2="10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <line x1="16" y1="10" x2="16" y2="10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <line x1="8" y1="14" x2="8" y2="14" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <line x1="12" y1="14" x2="12" y2="14" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <line x1="16" y1="14" x2="16" y2="14" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <line x1="8" y1="18" x2="16" y2="18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <h3 class="cs-action-title">Cost Calculator</h3>
+                    <p class="cs-action-text">Estimate project costs</p>
+                </a>
+
+                <a href="#training" class="cs-action-card">
+                    <div class="cs-action-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M22 10V6C22 5.46957 21.7893 4.96086 21.4142 4.58579C21.0391 4.21071 20.5304 4 20 4H4C3.46957 4 2.96086 4.21071 2.58579 4.58579C2.21071 4.96086 2 5.46957 2 6V10C2 10.5304 2.21071 11.0391 2.58579 11.4142C2.96086 11.7893 3.46957 12 4 12H20C20.5304 12 21.0391 11.7893 21.4142 11.4142C21.7893 11.0391 22 10.5304 22 10Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M22 19V15C22 14.4696 21.7893 13.9609 21.4142 13.5858C21.0391 13.2107 20.5304 13 20 13H4C3.46957 13 2.96086 13.2107 2.58579 13.5858C2.21071 13.9609 2 14.4696 2 15V19C2 19.5304 2.21071 20.0391 2.58579 20.4142C2.96086 20.7893 3.46957 21 4 21H20C20.5304 21 21.0391 20.7893 21.4142 20.4142C21.7893 20.0391 22 19.5304 22 19Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <line x1="6" y1="8" x2="6" y2="8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <line x1="6" y1="17" x2="6" y2="17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <h3 class="cs-action-title">Training Portal</h3>
+                    <p class="cs-action-text">Access training materials</p>
+                </a>
+
+                <a href="#contact" class="cs-action-card">
+                    <div class="cs-action-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M22 16.92V19C22 19.5304 21.7893 20.0391 21.4142 20.4142C21.0391 20.7893 20.5304 21 20 21H4C3.46957 21 2.96086 20.7893 2.58579 20.4142C2.21071 20.0391 2 19.5304 2 19V5C2 4.46957 2.21071 3.96086 2.58579 3.58579C2.96086 3.21071 3.46957 3 4 3H6.09" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M16 5L22 11L16 17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <line x1="6" y1="11" x2="22" y2="11" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <h3 class="cs-action-title">Contact Team</h3>
+                    <p class="cs-action-text">Reach your support team</p>
+                </a>
+            </div>
+        </div>
+    </section> -->
+
+    </div> <!-- End main-content -->
+
+{% endblock %}
