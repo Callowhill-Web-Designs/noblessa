@@ -72,6 +72,38 @@ async function initializeAuth() {
     const mainContent = document.getElementById('main-content');
     const loginForm = document.getElementById('login-form');
     const authError = document.getElementById('auth-error');
+        // Add view password button to password input
+        const passwordInput = document.getElementById('password');
+        const inputWrapper = passwordInput.closest('.cs-input-wrapper');
+        if (inputWrapper && !inputWrapper.querySelector('.cs-password-toggle')) {
+            const toggleBtn = document.createElement('button');
+            toggleBtn.type = 'button';
+            toggleBtn.className = 'cs-password-toggle';
+            toggleBtn.setAttribute('aria-label', 'Show password');
+            toggleBtn.innerHTML = `<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10 4C5.45455 4 2.18182 7.27273 1 10C2.18182 12.7273 5.45455 16 10 16C14.5455 16 17.8182 12.7273 19 10C17.8182 7.27273 14.5455 4 10 4Z" stroke="#6b7280" stroke-width="2"/><circle cx="10" cy="10" r="3" stroke="#6b7280" stroke-width="2"/></svg>`;
+            toggleBtn.style.position = 'absolute';
+            toggleBtn.style.right = '12px';
+            toggleBtn.style.background = 'none';
+            toggleBtn.style.border = 'none';
+            toggleBtn.style.cursor = 'pointer';
+            toggleBtn.style.padding = '0';
+            toggleBtn.style.display = 'flex';
+            toggleBtn.style.alignItems = 'center';
+            toggleBtn.style.justifyContent = 'center';
+            toggleBtn.style.height = '100%';
+            toggleBtn.style.zIndex = '2';
+            inputWrapper.appendChild(toggleBtn);
+
+            let passwordVisible = false;
+            toggleBtn.addEventListener('click', function() {
+                passwordVisible = !passwordVisible;
+                passwordInput.type = passwordVisible ? 'text' : 'password';
+                toggleBtn.setAttribute('aria-label', passwordVisible ? 'Hide password' : 'Show password');
+                toggleBtn.innerHTML = passwordVisible
+                    ? `<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2 2L18 18" stroke="#6b7280" stroke-width="2"/><path d="M10 4C5.45455 4 2.18182 7.27273 1 10C2.18182 12.7273 5.45455 16 10 16C14.5455 16 17.8182 12.7273 19 10C17.8182 7.27273 14.5455 4 10 4Z" stroke="#6b7280" stroke-width="2"/><circle cx="10" cy="10" r="3" stroke="#6b7280" stroke-width="2"/></svg>`
+                    : `<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10 4C5.45455 4 2.18182 7.27273 1 10C2.18182 12.7273 5.45455 16 10 16C14.5455 16 17.8182 12.7273 19 10C17.8182 7.27273 14.5455 4 10 4Z" stroke="#6b7280" stroke-width="2"/><circle cx="10" cy="10" r="3" stroke="#6b7280" stroke-width="2"/></svg>`;
+            });
+        }
 
     // Check if user is already authenticated
     if (await isAuthenticated()) {
