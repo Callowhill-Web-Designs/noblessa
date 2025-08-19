@@ -79,6 +79,12 @@
         display: block;
     }
 
+    .cs-input-wrapper {
+        position: relative;
+        display: flex;
+        align-items: center;
+    }
+
     .cs-input {
         width: 100%;
         height: (48/16rem);
@@ -106,11 +112,11 @@
     .cs-input-icon {
         position: absolute;
         left: (16/16rem);
-        top: 50%;
-        transform: translateY(-50%);
         color: #6b7280;
         pointer-events: none;
-        margin-top: (20/16rem); // Account for label height
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 
     .cs-form-actions {
