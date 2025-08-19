@@ -15,6 +15,7 @@ module.exports = {
     socials: {
         facebook: "https://www.facebook.com/",
         instagram: "https://www.instagram.com/",
+        linkedin: "https://www.linkedin.com/company/",
     },
     //! Make sure you include the file protocol (e.g. https://) and that NO TRAILING SLASH is included
     domain: "https://noblessa.netlify.app",

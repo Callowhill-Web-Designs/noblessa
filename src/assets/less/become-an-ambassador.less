@@ -1,0 +1,142 @@
+/*-- -------------------------- -->
+<---     About the Program      -->
+<--- -------------------------- -*/
+
+/* Mobile - 360px */
+@media only screen and (min-width: 0rem) {
+    #about-program-1890 {
+        padding: var(--sectionPadding);
+        background-color: #fafbfc;
+        position: relative;
+
+        .cs-container {
+            width: 100%;
+            max-width: (1280/16rem);
+            margin: auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: (48/16rem);
+        }
+
+        .cs-content {
+            text-align: center;
+            width: 100%;
+            max-width: (630/16rem);
+        }
+
+        .cs-topper {
+            font-size: var(--topperFontSize);
+            line-height: 1.2em;
+            text-transform: uppercase;
+            text-align: inherit;
+            letter-spacing: .1em;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: (4/16rem);
+            display: block;
+        }
+
+        .cs-title {
+            font-size: var(--headerFontSize);
+            font-weight: 900;
+            line-height: 1.2em;
+            text-align: inherit;
+            max-width: (700/16rem);
+            margin: 0 0 (16/16rem) 0;
+            color: var(--headerColor);
+            position: relative;
+        }
+
+        .cs-text {
+            font-size: var(--bodyFontSize);
+            line-height: 1.5em;
+            text-align: inherit;
+            width: 100%;
+            max-width: (650/16rem);
+            margin: 0 0 (16/16rem) 0;
+            color: var(--bodyTextColor);
+
+            &:last-of-type {
+                margin-bottom: 0;
+            }
+        }
+
+        .cs-benefits {
+            width: 100%;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: (32/16rem);
+        }
+
+        .cs-benefit {
+            text-align: center;
+            background-color: #ffffff;
+            border-radius: (12/16rem);
+            padding: (32/16rem) (24/16rem);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+            &:hover {
+                transform: translateY(-4px);
+                box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+            }
+        }
+
+        .cs-icon-wrapper {
+            width: (64/16rem);
+            height: (64/16rem);
+            background: linear-gradient(135deg, var(--secondary), var(--secondaryLight));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto (16/16rem) auto;
+        }
+
+        .cs-icon {
+            width: (32/16rem);
+            height: (32/16rem);
+            color: #ffffff;
+        }
+
+        .cs-benefit-title {
+            font-size: (20/16rem);
+            font-weight: 700;
+            line-height: 1.2em;
+            color: var(--headerColor);
+            margin-bottom: (8/16rem);
+        }
+
+        .cs-benefit-text {
+            font-size: (14/16rem);
+            line-height: 1.5em;
+            color: var(--bodyTextColor);
+            margin: 0;
+        }
+    }
+}
+
+/* Tablet - 768px */
+@media only screen and (min-width: 48rem) {
+    #about-program-1890 {
+        .cs-benefits {
+            grid-template-columns: repeat(2, 1fr);
+            gap: (32/16rem);
+        }
+    }
+}
+
+/* Desktop - 1024px */
+@media only screen and (min-width: 64rem) {
+    #about-program-1890 {
+        .cs-benefits {
+            grid-template-columns: repeat(4, 1fr);
+            gap: (32/16rem);
+        }
+
+        .cs-benefit {
+            padding: (40/16rem) (32/16rem);
+        }
+    }
+}
