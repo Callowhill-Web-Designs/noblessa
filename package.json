@@ -1,18 +1,14 @@
 {
-    "name": "Intermediate-Website-Kit-LESS",
+    "name": "Callowhill-Template",
     "version": "2.0.0",
     "description": "The official CodeStitch Intermediate kit, featuring 11ty, Decap CMS and LESS - all set up for you! Perfect for websites of all sizes.",
     "main": "index.js",
     "scripts": {
         "watch:cms": "npx decap-server",
         "watch:eleventy": "cross-env ELEVENTY_ENV=DEV eleventy --serve",
-        "watch:server": "node server.js",
         "build:eleventy": "cross-env ELEVENTY_ENV=PROD eleventy",
         "start": "run-p watch:*",
-        "start:dev": "run-p watch:eleventy watch:server",
-        "build": "run-s build:*",
-        "test:auth": "node test-auth-api.js",
-        "server": "node server.js"
+        "build": "run-s build:*"
     },
     "repository": {
         "type": "git",
@@ -21,10 +17,6 @@
     "keywords": [],
     "author": "",
     "license": "ISC",
-    "bugs": {
-        "url": "https://github.com/CodeStitchOfficial/Intermediate-Website-Kit-LESS/issues"
-    },
-    "homepage": "https://github.com/CodeStitchOfficial/Intermediate-Website-Kit-LESS#readme",
     "dependencies": {
         "@11ty/eleventy": "^3.1.1",
         "@11ty/eleventy-navigation": "^0.3.5",
