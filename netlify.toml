@@ -5,17 +5,38 @@
 [[plugins]]
   # Installs the Lighthouse Build Plugin for all deploy contexts
   package = "@netlify/plugin-lighthouse"
-  [[redirects]]
-    from = "/api/auth/*"
-    to = "/.netlify/functions/auth/api/auth/:splat"
-    status = 200
 
 [[plugins]]
-package = "netlify-plugin-cache"
-
+  package = "netlify-plugin-cache"
   [plugins.inputs]
   paths = [
     "public/assets/images", # Processed images - adjust to match your outputDir
     ".cache" # Remote Assets
   ]
+
+## Auth and protected route rewrites
+[[redirects]]
+  from = "/api/auth/*"
+  to = "/.netlify/functions/auth/api/auth/:splat"
+  status = 200
+
+[[redirects]]
+  from = "/partner-resources"
+  to = "/.netlify/functions/secure/partner-resources"
+  status = 200
+
+[[redirects]]
+  from = "/partner-directory"
+  to = "/.netlify/functions/secure/partner-directory"
+  status = 200
+
+[[redirects]]
+  from = "/partner-resources/"
+  to = "/.netlify/functions/secure/partner-resources"
+  status = 200
+
+[[redirects]]
+  from = "/partner-directory/"
+  to = "/.netlify/functions/secure/partner-directory"
+  status = 200
   

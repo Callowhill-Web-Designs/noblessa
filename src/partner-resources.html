@@ -1,0 +1,18 @@
+---
+layout: layouts/base.html
+permalink: /partner-resources/
+metaTitle: Partner Resources
+metaDesc: Exclusive resources for authorized partners.
+---
+<section class="section container padding-block-xl">
+  <div class="flow">
+    <h1>Partner Resources</h1>
+    <p>Welcome, {{ user.displayName or 'Partner' }}.</p>
+    <ul>
+      <li><a href="#">Brand guidelines (PDF)</a></li>
+      <li><a href="#">Marketing assets</a></li>
+      <li><a href="#">Product training</a></li>
+    </ul>
+    <p class="margin-block-start-md"><a class="btn" href="/api/auth/logout">Log out</a></p>
+  </div>
+</section>
