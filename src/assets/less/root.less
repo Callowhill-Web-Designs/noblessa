@@ -729,6 +729,53 @@ html {
             align-items: center;
         }
 
+        .cs-user-info {
+            display: flex;
+            align-items: center;
+            gap: (16/16rem);
+            margin-left: (16/16rem);
+            z-index: 10;
+
+            span {
+                color: #fff;
+                font-weight: 500;
+                font-size: (14/16rem);
+                filter: drop-shadow(0px 0px 3px black);
+            }
+
+            .cs-button-solid {
+                font-size: (14/16rem);
+                font-weight: 700;
+                line-height: (40/16rem);
+                text-decoration: none;
+                min-width: (100/16rem);
+                margin: 0;
+                padding: 0 (16/16rem);
+                color: #fff;
+                background-color: var(--primary);
+                border: none;
+                border-radius: (4/16rem);
+                cursor: pointer;
+                transition: background-color 0.3s, transform 0.3s;
+
+                &:hover {
+                    background-color: var(--primaryLight);
+                    transform: translateY(-2px);
+                }
+            }
+
+            #logout-btn {
+                background-color: transparent;
+                color: #fff;
+                border: 1px solid #fff;
+
+                &:hover {
+                    background-color: #fff;
+                    color: var(--primary);
+                }
+            }
+        }
+
         .cs-logo {
             width: auto;
             font-size: 48px;

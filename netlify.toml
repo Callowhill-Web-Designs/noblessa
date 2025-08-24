@@ -1,14 +1,19 @@
 [build]
   publish = "public/"
   command = "npm run build"
+  functions = "netlify/functions"
+
+[dev]
+  functions = "netlify/functions"
+
+[[redirects]]
+  from = "/api/auth/*"
+  to = "/.netlify/functions/auth-:splat"
+  status = 200
 
 [[plugins]]
   # Installs the Lighthouse Build Plugin for all deploy contexts
   package = "@netlify/plugin-lighthouse"
-  [[redirects]]
-    from = "/api/auth/*"
-    to = "/.netlify/functions/auth/api/auth/:splat"
-    status = 200
 
 [[plugins]]
 package = "netlify-plugin-cache"

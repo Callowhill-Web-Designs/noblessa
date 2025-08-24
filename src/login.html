@@ -1,0 +1,38 @@
+---
+title: "Login"
+description: "Login to access your partner resources"
+permalink: "/login/"
+eleventyExcludeFromCollections: true
+layout: "layouts/base.html"
+---
+
+{% block head %}
+<link rel="stylesheet" href="/assets/css/login.css">
+{% endblock %}
+
+{% block body %}
+<section id="login-section" class="login-section">
+    <div class="cs-container">
+        <div class="cs-content">
+            <h1 class="cs-title">Partner Login</h1>
+            <p class="cs-text">
+                Access your exclusive partner resources and directory.
+            </p>
+            
+            <div class="cs-form-group">
+                <button id="login-btn" class="cs-button-solid">
+                    Login with Auth0
+                </button>
+            </div>
+            
+            <div id="loading" class="cs-loading" style="display: none;">
+                <p>Logging you in...</p>
+            </div>
+            
+            <div id="error" class="cs-error" style="display: none;">
+                <p class="cs-error-text"></p>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

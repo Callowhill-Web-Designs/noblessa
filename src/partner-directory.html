@@ -1,0 +1,184 @@
+---
+title: "Partner Directory"
+description: "Connect with other Noblessa partners in your area"
+permalink: "/partner-directory/"
+eleventyExcludeFromCollections: true
+layout: "layouts/base.html"
+---
+
+{% block head %}
+<link rel="stylesheet" href="/assets/css/login.css">
+<script>
+    function searchPartners() {
+        const location = document.getElementById('search-location').value;
+        const type = document.getElementById('search-type').value;
+        
+        // In a real implementation, this would make an API call
+        console.log('Searching for partners:', { location, type });
+        
+        // For demo purposes, just show an alert
+        alert(`Searching for ${type || 'all'} partners near ${location || 'everywhere'}`);
+    }
+</script>
+{% endblock %}
+
+{% block body %}
+<!-- Login Prompt (shown to non-authenticated users) -->
+<div class="login-prompt">
+    <div class="cs-container">
+        <p class="cs-text">You must be logged in to access the partner directory.</p>
+        <a href="/login/" class="cs-button-solid">Login</a>
+    </div>
+</div>
+
+<!-- Protected Content (shown to authenticated users) -->
+<div class="protected-content">
+    <!-- Hero Section -->
+    <section id="hero" class="hero">
+        <div class="cs-container">
+            <div class="cs-content">
+                <h1 class="cs-title">Partner Directory</h1>
+                <p class="cs-text">
+                    Connect with other Noblessa partners in your area. Find collaboration opportunities and expand your network.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Search Section -->
+    <section id="search" class="search">
+        <div class="cs-container">
+            <div class="cs-content">
+                <h2 class="cs-title">Find Partners</h2>
+                <div class="cs-form">
+                    <div class="cs-form-group">
+                        <input type="text" id="search-location" placeholder="Enter city, state, or zip code">
+                        <select id="search-type">
+                            <option value="">All Partner Types</option>
+                            <option value="dealer">Authorized Dealer</option>
+                            <option value="installer">Certified Installer</option>
+                            <option value="designer">Design Partner</option>
+                            <option value="contractor">Contractor</option>
+                        </select>
+                        <button type="button" class="cs-button-solid" onclick="searchPartners()">Search</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Partners List Section -->
+    <section id="partners-list" class="partners-list">
+        <div class="cs-container">
+            <div class="cs-content">
+                <h2 class="cs-title">Partner Results</h2>
+                
+                <div class="cs-card-group" id="partners-results">
+                    <!-- Sample Partner Cards -->
+                    <div class="cs-partner-card">
+                        <div class="cs-card-header">
+                            <h3 class="cs-h3">Elite Kitchen Designs</h3>
+                            <span class="cs-badge dealer">Authorized Dealer</span>
+                        </div>
+                        <div class="cs-card-content">
+                            <p class="cs-location">📍 New York, NY</p>
+                            <p class="cs-description">
+                                Specializing in luxury kitchen and bathroom designs with over 15 years of experience.
+                            </p>
+                            <div class="cs-contact-info">
+                                <p>📞 (555) 123-4567</p>
+                                <p>✉️ info@elitekitchens.com</p>
+                                <p>🌐 www.elitekitchens.com</p>
+                            </div>
+                        </div>
+                        <div class="cs-card-footer">
+                            <button class="cs-button-secondary">Contact Partner</button>
+                            <button class="cs-button-secondary">View Profile</button>
+                        </div>
+                    </div>
+
+                    <div class="cs-partner-card">
+                        <div class="cs-card-header">
+                            <h3 class="cs-h3">Precision Installations</h3>
+                            <span class="cs-badge installer">Certified Installer</span>
+                        </div>
+                        <div class="cs-card-content">
+                            <p class="cs-location">📍 Los Angeles, CA</p>
+                            <p class="cs-description">
+                                Professional installation services for commercial and residential projects.
+                            </p>
+                            <div class="cs-contact-info">
+                                <p>📞 (555) 987-6543</p>
+                                <p>✉️ contact@precisioninstalls.com</p>
+                                <p>🌐 www.precisioninstalls.com</p>
+                            </div>
+                        </div>
+                        <div class="cs-card-footer">
+                            <button class="cs-button-secondary">Contact Partner</button>
+                            <button class="cs-button-secondary">View Profile</button>
+                        </div>
+                    </div>
+
+                    <div class="cs-partner-card">
+                        <div class="cs-card-header">
+                            <h3 class="cs-h3">Modern Space Contractors</h3>
+                            <span class="cs-badge contractor">Contractor</span>
+                        </div>
+                        <div class="cs-card-content">
+                            <p class="cs-location">📍 Chicago, IL</p>
+                            <p class="cs-description">
+                                Full-service general contracting with expertise in modern home renovations.
+                            </p>
+                            <div class="cs-contact-info">
+                                <p>📞 (555) 456-7890</p>
+                                <p>✉️ hello@modernspace.com</p>
+                                <p>🌐 www.modernspace.com</p>
+                            </div>
+                        </div>
+                        <div class="cs-card-footer">
+                            <button class="cs-button-secondary">Contact Partner</button>
+                            <button class="cs-button-secondary">View Profile</button>
+                        </div>
+                    </div>
+
+                    <div class="cs-partner-card">
+                        <div class="cs-card-header">
+                            <h3 class="cs-h3">Creative Interiors Studio</h3>
+                            <span class="cs-badge designer">Design Partner</span>
+                        </div>
+                        <div class="cs-card-content">
+                            <p class="cs-location">📍 Miami, FL</p>
+                            <p class="cs-description">
+                                Award-winning interior design firm specializing in luxury residential spaces.
+                            </p>
+                            <div class="cs-contact-info">
+                                <p>📞 (555) 321-9876</p>
+                                <p>✉️ design@creativeinteriors.com</p>
+                                <p>🌐 www.creativeinteriors.com</p>
+                            </div>
+                        </div>
+                        <div class="cs-card-footer">
+                            <button class="cs-button-secondary">Contact Partner</button>
+                            <button class="cs-button-secondary">View Profile</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Actions Section -->
+    <section id="quick-actions" class="quick-actions">
+        <div class="cs-container">
+            <div class="cs-content">
+                <h2 class="cs-title">Partner Resources</h2>
+                <div class="cs-link-group">
+                    <a href="/partner-resources/" class="cs-button-solid">Back to Resources</a>
+                    <a href="#" class="cs-button-solid secondary">Become a Partner</a>
+                    <a href="/contact/" class="cs-button-solid secondary">Need Help?</a>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+{% endblock %}
