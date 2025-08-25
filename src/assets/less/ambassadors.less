@@ -187,6 +187,7 @@
         color: rgba(255, 255, 255, 0.9);
         font-size: (14/16rem);
         font-weight: 500;
+        font-style: italic;
         position: relative;
         z-index: 1;
         margin-bottom: (8/16rem);
@@ -206,6 +207,7 @@
         color: rgba(255, 255, 255, 0.9);
         font-size: (14/16rem);
         font-weight: 500;
+        font-style: italic;
         position: relative;
         z-index: 1;
         
@@ -712,6 +714,14 @@
 
 /* Mobile - 360px */
 @media only screen and (min-width: 0rem) {
+    // Prevent background scroll when modal is open
+    body.modal-open {
+        overflow: hidden;
+        position: fixed;
+        width: 100%;
+        height: 100%;
+    }
+
     .cs-modal {
         display: none;
         position: fixed;
@@ -730,9 +740,10 @@
         margin: (20/16rem) auto;
         padding: 0;
         border-radius: (12/16rem);
+        overflow: hidden;
         width: 90%;
         max-width: (600/16rem);
-        max-height: 90vh;
+        max-height: 95vh;
         overflow-y: auto;
         box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
         position: relative;
@@ -752,54 +763,121 @@
     }
 
     .cs-modal-header {
+        background: var(--blackShineGradient);
         position: relative;
-        padding: (20/16rem);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: (20/16rem) (16/16rem);
+        color: #fff;
+        border-radius: (12/16rem) (12/16rem) 0 0;
+        overflow: hidden;
+        
+        &:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(197, 152, 82, 0.15) 0%, transparent 70%);
+            z-index: 1;
+        }
+        
+        &:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent 0%, rgba(197, 152, 82, 0.3) 20%, rgba(197, 152, 82, 0.8) 50%, rgba(197, 152, 82, 0.3) 80%, transparent 100%);
+            z-index: 2;
+        }
     }
 
     .cs-modal-close {
-        color: #6b7280;
-        float: right;
-        font-size: (28/16rem);
+        color: rgba(255, 255, 255, 0.9);
+        font-size: (20/16rem);
         font-weight: bold;
-        position: absolute;
-        top: (15/16rem);
-        right: (20/16rem);
         cursor: pointer;
         transition: all 0.3s ease;
-        width: (32/16rem);
-        height: (32/16rem);
+        width: (36/16rem);
+        height: (36/16rem);
         display: flex;
         align-items: center;
         justify-content: center;
         border-radius: 50%;
+        flex-shrink: 0;
+        position: relative;
+        z-index: 3;
+        background: rgba(0, 0, 0, 0.2);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        backdrop-filter: blur(10px);
 
         &:hover,
         &:focus {
-            color: var(--primary);
-            background: #f3f4f6;
+            color: #fff;
+            background: rgba(197, 152, 82, 0.8);
+            border-color: var(--secondary);
+            transform: scale(1.1);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
         }
     }
 
     .cs-modal-body {
-        padding: (40/16rem);
+        padding: (24/16rem) (16/16rem);
     }
 
     .cs-modal-ambassador-info {
         display: flex;
-        gap: (20/16rem);
-        margin-bottom: (32/16rem);
-        padding-bottom: (24/16rem);
-        border-bottom: 1px solid #e5e7eb;
+        gap: (16/16rem);
+        flex: 1;
+        margin: 0;
+        padding: 0;
+        border: none;
+        position: relative;
+        z-index: 2;
+        align-items: center;
     }
 
     .cs-modal-image {
         flex-shrink: 0;
+        position: relative;
 
         img {
-            width: (80/16rem);
-            height: (80/16rem);
+            width: (70/16rem);
+            height: (70/16rem);
             border-radius: 50%;
             object-fit: cover;
+            border: 3px solid rgba(255, 255, 255, 0.3);
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        }
+        
+        &:after {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--secondary) 0%, transparent 50%, var(--secondary) 100%);
+            z-index: -1;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        &:hover {
+            &:after {
+                opacity: 1;
+            }
+            
+            img {
+                border-color: rgba(255, 255, 255, 0.6);
+                transform: scale(1.05);
+            }
         }
     }
 
@@ -807,14 +885,18 @@
         flex: 1;
         display: flex;
         flex-direction: column;
-        gap: (12/16rem);
+        gap: (10/16rem);
+        position: relative;
+        z-index: 2;
     }
 
     .cs-modal-title {
-        font-size: (24/16rem);
+        font-size: (20/16rem);
         font-weight: 700;
-        margin: 0;
-        color: var(--headerColor);
+        margin: 0 0 (6/16rem) 0;
+        color: #fff;
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        line-height: 1.2;
     }
 
     .cs-modal-location,
@@ -822,16 +904,34 @@
         display: flex;
         align-items: flex-start;
         gap: (8/16rem);
-        color: var(--bodyTextColor);
-        font-size: (14/16rem);
+        color: rgba(255, 255, 255, 0.95);
+        font-size: (12/16rem);
         line-height: 1.4em;
+        font-weight: 500;
+        text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+        transition: all 0.3s ease;
 
         svg {
-            color: var(--primary);
+            color: var(--secondary);
             flex-shrink: 0;
-            width: (16/16rem);
-            height: (16/16rem);
-            margin-top: (2/16rem);
+            width: (14/16rem);
+            height: (14/16rem);
+            margin-top: (1/16rem);
+            filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.2));
+        }
+        
+        span {
+            flex: 1;
+        }
+        
+        &:hover {
+            color: #fff;
+            transform: translateX(2px);
+            
+            svg {
+                color: rgba(197, 152, 82, 1);
+                transform: scale(1.1);
+            }
         }
     }
 
@@ -843,7 +943,8 @@
 
     .cs-form-row {
         display: flex;
-        gap: (16/16rem);
+        flex-direction: column;
+        gap: (20/16rem);
     }
 
     .cs-form-group {
@@ -897,22 +998,52 @@
         max-width: (700/16rem);
     }
 
+    .cs-modal-body {
+        padding: (40/16rem) (40/16rem);
+    }
+    
+    .cs-modal-header {
+        padding: (40/16rem);
+    }
+
     .cs-modal-ambassador-info {
-        gap: (24/16rem);
+        gap: (32/16rem);
     }
 
     .cs-modal-image {
         img {
-            width: (100/16rem);
-            height: (100/16rem);
+            width: (110/16rem);
+            height: (110/16rem);
         }
+    }
+    
+    .cs-modal-title {
+        font-size: (28/16rem);
+        margin: 0 0 (12/16rem) 0;
+    }
+    
+    .cs-modal-location,
+    .cs-modal-contact {
+        font-size: (15/16rem);
+        gap: (12/16rem);
+        
+        svg {
+            width: (20/16rem);
+            height: (20/16rem);
+        }
+    }
+    
+    .cs-modal-close {
+        width: (44/16rem);
+        height: (44/16rem);
+        font-size: (26/16rem);
     }
 
     .cs-form-row {
-        .cs-form-group:first-child {
-            flex: 2;
-        }
-        .cs-form-group:last-child {
+        flex-direction: row;
+        gap: (16/16rem);
+        
+        .cs-form-group {
             flex: 1;
         }
     }

@@ -102,7 +102,7 @@
     }
 
     .cs-card-header {
-        background: linear-gradient(135deg, var(--primary) 0%, #2c2c2c 100%);
+        background: var(--blackShineGradient);
         padding: (24/16rem);
         color: #fff;
         position: relative;
@@ -130,6 +130,7 @@
     .cs-card-title {
         font-size: (28/16rem);
         font-weight: 700;
+        letter-spacing: 1px;
         margin: 0 0 (12/16rem) 0;
         color: #fff;
         font-family: var(--headerFont);
@@ -145,6 +146,7 @@
         color: rgba(255, 255, 255, 0.9);
         font-size: (14/16rem);
         font-weight: 500;
+        font-style: italic;
         position: relative;
         z-index: 1;
         
@@ -242,13 +244,15 @@
         text-align: center;
         transition: all 0.3s ease;
         border: 2px solid transparent;
+        cursor: pointer;
+        font-family: var(--bodyFont);
         
         &.cs-primary {
             background: var(--primary);
             color: #fff;
             
             &:hover {
-                background: #333;
+                background: var(--secondary);
                 transform: translateY(-2px);
                 box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
             }
@@ -332,6 +336,7 @@
 @media only screen and (min-width: 0rem) {
     #map-section {
         padding: 120px 0 120px 0;
+        background-color: var(--sectionDark);
 
         .cs-container {
             width: 100%;
@@ -562,5 +567,271 @@
 
     .cs-map-container {
         flex: 1;
+    }
+}
+
+/*-- -------------------------- -->
+<---        Contact Modal       -->
+<--- -------------------------- -*/
+
+/* Mobile - 360px */
+@media only screen and (min-width: 0rem) {
+    // Prevent background scroll when modal is open
+    body.modal-open {
+        overflow: hidden;
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+    }
+
+    .modal-overlay {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background: rgba(0, 0, 0, 0.8);
+        z-index: 99999;
+        align-items: center;
+        justify-content: center;
+        padding: (16/16rem);
+        backdrop-filter: blur(4px);
+        overflow-y: auto;
+    }
+
+    .modal-container {
+        background: #fff;
+        border-radius: (12/16rem);
+        max-width: (480/16rem);
+        width: 100%;
+        max-height: 90vh;
+        overflow-y: auto;
+        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        animation: modalSlideIn 0.3s ease-out;
+        position: relative;
+        z-index: 100000;
+        margin: auto;
+        // Ensure modal doesn't get cut off by navigation
+        transform: translateZ(0);
+        -webkit-transform: translateZ(0);
+    }
+
+    .modal-close {
+        position: absolute;
+        top: (12/16rem);
+        right: (12/16rem);
+        background: rgba(0, 0, 0, 0.7);
+        border: none;
+        font-size: (18/16rem);
+        cursor: pointer;
+        color: rgba(255, 255, 255, 0.9);
+        transition: all 0.3s ease;
+        padding: 0;
+        width: (32/16rem);
+        height: (32/16rem);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        z-index: 100001;
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+
+        &:hover {
+            background: rgba(197, 152, 82, 0.9);
+            color: #fff;
+            transform: scale(1.1);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        }
+    }
+
+    .modal-image-header {
+        width: 100%;
+        height: (180/16rem);
+        overflow: hidden;
+        position: relative;
+    }
+
+    .modal-header-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+        display: block;
+    }
+
+    @keyframes modalSlideIn {
+        from {
+            opacity: 0;
+            transform: translateY(-20px) scale(0.95);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+    }
+
+    .modal-header {
+        padding: (12/16rem) (16/16rem);
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        color: #fff;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: 10;
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        background: transparent;
+        pointer-events: auto;
+    }
+
+    .modal-title {
+        font-size: (20/16rem);
+        font-weight: 700;
+        letter-spacing: 1px;
+        margin: 0;
+        color: #fff;
+        font-family: var(--headerFont);
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+        line-height: 1.2;
+    }
+
+    .modal-body {
+        padding: (24/16rem) (16/16rem) (32/16rem) (16/16rem);
+    }
+
+    .contact-form {
+        display: flex;
+        flex-direction: column;
+        gap: (16/16rem);
+    }
+
+    .form-group {
+        display: flex;
+        flex-direction: column;
+        gap: (6/16rem);
+
+        label {
+            font-size: (13/16rem);
+            font-weight: 600;
+            color: var(--headerColor);
+        }
+
+        input,
+        textarea {
+            padding: (10/16rem) (14/16rem);
+            border: 2px solid #d1d5db;
+            border-radius: (6/16rem);
+            font-size: (14/16rem);
+            font-family: var(--bodyFont);
+            transition: all 0.3s ease;
+            background: #fff;
+
+            &:focus {
+                outline: none;
+                border-color: var(--primary);
+                box-shadow: 0 0 0 3px rgba(197, 152, 82, 0.1);
+            }
+
+            &::placeholder {
+                color: #9ca3af;
+            }
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: (80/16rem);
+        }
+    }
+
+    .form-row {
+        display: flex;
+        flex-direction: column;
+        gap: (16/16rem);
+        
+        .form-group {
+            flex: 1;
+        }
+    }
+
+    .form-actions {
+        display: flex;
+        justify-content: center;
+        margin-top: (4/16rem);
+    }
+}
+
+/* Tablet - 768px */
+@media only screen and (min-width: 48rem) {
+    .modal-overlay {
+        padding: (24/16rem);
+    }
+
+    .modal-container {
+        max-width: (600/16rem);
+        border-radius: (16/16rem);
+    }
+
+    .modal-close {
+        top: (16/16rem);
+        right: (16/16rem);
+        width: (36/16rem);
+        height: (36/16rem);
+        font-size: (20/16rem);
+    }
+
+    .modal-image-header {
+        height: (240/16rem);
+    }
+
+    .modal-header {
+        padding: (16/16rem);
+    }
+
+    .modal-title {
+        font-size: (24/16rem);
+    }
+
+    .modal-body {
+        padding: (40/16rem) (32/16rem);
+    }
+
+    .contact-form {
+        gap: (24/16rem);
+    }
+
+    .form-group {
+        gap: (10/16rem);
+
+        label {
+            font-size: (15/16rem);
+        }
+
+        input,
+        textarea {
+            padding: (14/16rem) (18/16rem);
+            font-size: (15/16rem);
+            border-radius: (8/16rem);
+        }
+
+        textarea {
+            min-height: (100/16rem);
+        }
+    }
+
+    .form-row {
+        flex-direction: row;
+        gap: (20/16rem);
+    }
+
+    .form-actions {
+        margin-top: (8/16rem);
     }
 }

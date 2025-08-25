@@ -100,9 +100,6 @@ eleventyNavigation:
     <div id="ambassador-modal" class="cs-modal">
         <div class="cs-modal-content">
             <div class="cs-modal-header">
-                <span class="cs-modal-close" id="modal-close">&times;</span>
-            </div>
-            <div class="cs-modal-body">
                 <div class="cs-modal-ambassador-info">
                     <div class="cs-modal-image">
                         <img id="modal-ambassador-image" src="/assets/images/default-ambassador.jpg" alt="Ambassador" loading="lazy">
@@ -131,24 +128,29 @@ eleventyNavigation:
                         </div>
                     </div>
                 </div>
+                <span class="cs-modal-close" id="modal-close">&times;</span>
+            </div>
+            <div class="cs-modal-body">
                 <form id="ambassador-contact-form" class="cs-modal-form">
-                    <div class="cs-form-group">
-                        <label for="full-name" class="cs-form-label">Full Name *</label>
-                        <input type="text" id="full-name" name="fullName" class="cs-form-input" required>
-                    </div>
                     <div class="cs-form-row">
+                        <div class="cs-form-group">
+                            <label for="full-name" class="cs-form-label">Full Name *</label>
+                            <input type="text" id="full-name" name="fullName" class="cs-form-input" required>
+                        </div>
                         <div class="cs-form-group">
                             <label for="email" class="cs-form-label">Email *</label>
                             <input type="email" id="email" name="email" class="cs-form-input" required>
                         </div>
+                    </div>
+                    <div class="cs-form-row">
                         <div class="cs-form-group">
                             <label for="phone" class="cs-form-label">Phone *</label>
                             <input type="tel" id="phone" name="phone" class="cs-form-input">
                         </div>
-                    </div>
-                    <div class="cs-form-group">
-                        <label for="zipcode" class="cs-form-label">Zipcode *</label>
-                        <input type="text" id="zipcode" name="zipcode" class="cs-form-input" required>
+                        <div class="cs-form-group">
+                            <label for="zipcode" class="cs-form-label">Zipcode *</label>
+                            <input type="text" id="zipcode" name="zipcode" class="cs-form-input" required>
+                        </div>
                     </div>
                     <div class="cs-form-group">
                         <label for="message" class="cs-form-label">Message</label>
@@ -396,13 +398,13 @@ eleventyNavigation:
             document.getElementById('ambassador-name-input').value = ambassador.name;
             
             modal.style.display = 'block';
-            document.body.style.overflow = 'hidden';
+            document.body.classList.add('modal-open');
         }
 
         // Close modal function
         function closeModal() {
             modal.style.display = 'none';
-            document.body.style.overflow = 'auto';
+            document.body.classList.remove('modal-open');
             contactForm.reset();
         }
 
