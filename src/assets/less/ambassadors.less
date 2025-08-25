@@ -42,7 +42,7 @@
             flex-direction: column;
             /* left aligns content, set to center to align content horizontally */
             align-items: left;
-            z-index: 10;
+            z-index: 1;
 
             .cs-topper {
                 text-align: center;
@@ -714,18 +714,12 @@
 
 /* Mobile - 360px */
 @media only screen and (min-width: 0rem) {
-    // Prevent background scroll when modal is open
-    body.modal-open {
-        overflow: hidden;
-        position: fixed;
-        width: 100%;
-        height: 100%;
-    }
+    // Prevent background scroll when modal is open - handled in JavaScript
 
     .cs-modal {
         display: none;
         position: fixed;
-        z-index: 10999; // Increased from 1000 to 9999
+        z-index: 20000; // Increased to be above navigation elements (10000)
         left: 0;
         top: 0;
         width: 100%;
@@ -748,7 +742,7 @@
         box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
         position: relative;
         animation: modalSlideIn 0.3s ease-out;
-        z-index: 11000; // Added z-index to modal content as well
+        z-index: 20001; // Higher than modal backdrop to ensure proper layering
     }
 
     @keyframes modalSlideIn {

@@ -385,9 +385,19 @@ eleventyNavigation:
         const modal = document.getElementById('ambassador-modal');
         const modalClose = document.getElementById('modal-close');
         const contactForm = document.getElementById('ambassador-contact-form');
+        let scrollPosition = 0;
 
         // Open modal function
         function openModal(ambassador) {
+            // Store current scroll position
+            scrollPosition = window.pageYOffset || document.documentElement.scrollTop;
+            
+            // Prevent background scroll and maintain position
+            document.body.style.position = 'fixed';
+            document.body.style.top = `-${scrollPosition}px`;
+            document.body.style.width = '100%';
+            document.body.classList.add('modal-open');
+            
             document.getElementById('modal-ambassador-name').textContent = ambassador.name;
             document.getElementById('modal-ambassador-address').textContent = ambassador.address;
             document.getElementById('modal-ambassador-phone').textContent = ambassador.phone;
@@ -398,13 +408,21 @@ eleventyNavigation:
             document.getElementById('ambassador-name-input').value = ambassador.name;
             
             modal.style.display = 'block';
-            document.body.classList.add('modal-open');
         }
 
         // Close modal function
         function closeModal() {
             modal.style.display = 'none';
+            
+            // Restore body styles and scroll position
             document.body.classList.remove('modal-open');
+            document.body.style.position = '';
+            document.body.style.top = '';
+            document.body.style.width = '';
+            
+            // Restore scroll position
+            window.scrollTo(0, scrollPosition);
+            
             contactForm.reset();
         }
 
