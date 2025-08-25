@@ -146,7 +146,7 @@
     }
 
     .cs-card-header {
-        background: linear-gradient(135deg, var(--primary) 0%, #2c2c2c 100%);
+        background: var(--blackShineGradient);
         padding: (24/16rem);
         color: #fff;
         position: relative;
@@ -171,12 +171,32 @@
     .cs-card-title {
         font-size: (18/16rem);
         font-weight: 700;
+        letter-spacing: 2px;
         margin: 0 0 (12/16rem) 0;
         color: #fff;
         font-family: var(--headerFont);
         line-height: 1.3;
         position: relative;
         z-index: 1;
+    }
+
+    .cs-card-organization {
+        display: flex;
+        align-items: center;
+        gap: (8/16rem);
+        color: rgba(255, 255, 255, 0.9);
+        font-size: (14/16rem);
+        font-weight: 500;
+        position: relative;
+        z-index: 1;
+        margin-bottom: (8/16rem);
+        
+        svg {
+            color: var(--secondary);
+            flex-shrink: 0;
+            width: (16/16rem);
+            height: (16/16rem);
+        }
     }
 
     .cs-card-location {
@@ -277,7 +297,7 @@
             &.cs-button-outline {
                 background: transparent;
                 color: var(--primary);
-                border: 2px solid var(--primary);
+                border: 1px solid var(--primary);
                 
                 &:before {
                     z-index: -1;
@@ -305,7 +325,7 @@
             &.cs-button-solid {
                 background: var(--primary);
                 color: #fff;
-                border: 2px solid var(--primary);
+                border: none;
                 
                 &:before {
                     z-index: -1;
@@ -402,7 +422,7 @@
         }
         
         .cs-card-title {
-            font-size: (24/16rem);
+            font-size: (28/16rem);
             margin-bottom: (14/16rem);
         }
         
@@ -452,6 +472,7 @@
 @media only screen and (min-width: 0rem) {
     #map-section {
         padding: 120px 0 120px 0;
+        background-color: var(--sectionDark);
 
         .cs-container {
             width: 100%;
