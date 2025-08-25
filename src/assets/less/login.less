@@ -6,10 +6,38 @@
 @media only screen and (min-width: 0rem) {
     #login-section {
         padding: var(--sectionPadding);
-        background-color: #f7f7f7;
+        background-image: linear-gradient(135deg, var(--primary) 40%, #2c2c2c 100%);
         min-height: 100vh;
         display: flex;
         align-items: center;
+        position: relative;
+        overflow: hidden;
+        
+        .cs-background-pattern {
+            opacity: .1;
+            position: absolute;
+            top: -25px;
+            left: -25px;
+            width: 120vw;
+            height: 120vh;
+            z-index: 0;
+            --s: 50px; /* control the size*/
+            --c1: #d9b77d;
+            --c2: #f5bd56;
+            --c3: #bf9a5b;
+
+            --_g: 0 120deg,#0000 0;
+            background:
+            conic-gradient(             at calc(250%/3) calc(100%/3),var(--c3) var(--_g)),
+            conic-gradient(from -120deg at calc( 50%/3) calc(100%/3),var(--c2) var(--_g)),
+            conic-gradient(from  120deg at calc(100%/3) calc(250%/3),var(--c1) var(--_g)),
+            conic-gradient(from  120deg at calc(200%/3) calc(250%/3),var(--c1) var(--_g)),
+            conic-gradient(from -180deg at calc(100%/3) 50%,var(--c2)  60deg,var(--c1) var(--_g)),
+            conic-gradient(from   60deg at calc(200%/3) 50%,var(--c1)  60deg,var(--c3) var(--_g)),
+            conic-gradient(from  -60deg at 50% calc(100%/3),var(--c1) 120deg,var(--c2) 0 240deg,var(--c3) 0);
+            background-size: calc(var(--s)*sqrt(3)) var(--s);
+            animation: movePattern 20s ease-in-out infinite;
+        }
         
         .cs-container {
             width: 100%;
@@ -20,6 +48,8 @@
             align-items: center;
             flex-direction: column;
             gap: (48/16rem);
+            position: relative;
+            z-index: 1;
         }
 
         .cs-content {
@@ -41,7 +71,7 @@
             line-height: 1.2em;
             text-align: center;
             max-width: 100%;
-            margin: 0 0 (16/16rem) 0;
+            margin: 0 0 (0/16rem) 0;
             color: var(--headerColor);
         }
 
@@ -64,17 +94,20 @@
         }
 
         .cs-button-solid {
-            font-size: (16/16rem);
+            font-size: (24/16rem);
             font-weight: 700;
+            font-family: var(--headerFont);
+            letter-spacing: (2/16rem);
             line-height: (50/16rem);
+            text-transform: none;
             text-decoration: none;
             width: auto;
             min-width: (200/16rem);
             margin: 0;
             padding: 0 (48/16rem);
             color: #fff;
-            background-color: var(--primary);
-            border: none;
+            background-color: var(--secondary);
+            border: 1px solid var(--secondary);
             border-radius: (4/16rem);
             display: inline-block;
             position: relative;
@@ -132,11 +165,21 @@
     }
 }
 
+/* Keyframe animation for moving background pattern */
+@keyframes movePattern {
+    0%, 100% {
+        transform: translate(-25px, -25px);
+    }
+    50% {
+        transform: translate(25px, 25px);
+    }
+}
+
 /* Tablet - 768px */
 @media only screen and (min-width: 48rem) {
     #login-section {
         .cs-container {
-            max-width: (1280/16rem);
+            max-width: (580/16rem);
         }
 
         .cs-content {
@@ -239,7 +282,7 @@
 
         .cs-container {
             width: 100%;
-            max-width: (1280/16rem);
+            max-width: (580/16rem);
             margin: auto;
         }
 

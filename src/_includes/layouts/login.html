@@ -1,0 +1,62 @@
+<!-- Login page layout with header but no footer -->
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <!-- Standard meta tags -->
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="{{ description }}">
+        <link rel="canonical" href="{{ client.domain }}{{ page.url }}">
+        <meta name="generator" content="{{ eleventy.generator }}">
+
+        <!--Social Media Display-->
+        <meta property="og:title" content="{{ title }}"/>
+        <meta property="og:description" content="{{ description }}"/>
+        <meta property="og:type" content="website"/>
+        <meta property="og:url" content="{{ client.domain }}{{ page.url }}"/>
+        <!-- <meta property="og:image" content="{{ image or "/assets/images/logo-small.png" }}"/>
+        <meta property="og:image:secure_url" content="{{ image or "/assets/images/logo-small.png" }}"/> -->
+
+        <!--Favicons-->
+        <!-- https://realfavicongenerator.net/ -->
+        <!-- <link rel="icon" type="image/png" href="/assets/favicons/favicon-96x96.png" sizes="96x96"/>
+        <link rel="icon" type="image/svg+xml" href="/assets/favicons/favicon.svg"/>
+        <link rel="shortcut icon" href="/assets/favicons/favicon.ico"/>
+        <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicons/apple-touch-icon.png"/>
+        <meta name="apple-mobile-web-app-title" content="noblessa-USA"/>
+        <link rel="manifest" href="/assets/favicons/site.webmanifest"/> -->
+
+        <!-- Preloads -->
+        <!-- <link rel="preload" as="image" href="/assets/svgs/logo-black.svg"> -->
+        <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/Simplifica/SIMPLIFICA-Typeface.woff2" crossorigin>
+        <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/Open Sans/open-sans-v43-latin_symbols-500.woff2" crossorigin>
+
+        <!-- Sitewide Stylesheets and Scripts -->
+        <link rel="stylesheet" href="/assets/css/root.css">
+        <script defer src="/assets/js/nav.js"></script>
+        <script defer src="/assets/js/scroll-animations.js"></script>
+        <script defer src="/assets/js/auth.js"></script>
+
+        <!-- TEMPORARY FONTS REMOVE BEFORE DEPLOY -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Lexend:wght@100..900&display=swap" rel="stylesheet">
+        
+        {% block head %}{% endblock %}
+
+        <title>{{ title }}</title>
+    </head>
+    <body>
+        <!--Screen reader skip main nav-->
+        <a class="skip" aria-label="skip to main content" href="#main">Click To Skip To Main Content</a>
+
+        {% include "sections/header.html" %}
+        <main id="main">
+            {% block body %}{% endblock %}
+        </main>
+        <!-- Footer intentionally omitted for login page -->
+
+    </body>
+</html>
