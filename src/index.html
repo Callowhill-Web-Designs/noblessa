@@ -17,6 +17,7 @@ eleventyNavigation:
     <!-- Defer non-critical scripts and use async where possible -->
     <script defer type="module" src="assets/js/hover.js"></script>
     <script defer src="assets/js/transformgallery.js"></script>
+    <script defer src="assets/js/collections-gallery.js"></script>
 
     <!-- If we're in production, defer the rest of the home page styles. In development, always load it. Otherwise the site will break when hot-reload is used. -->
     {% if kit.isProduction %}
@@ -74,116 +75,37 @@ eleventyNavigation:
                     </a>
                 </div>
             </div>
-            <!-- Gallery -->
-            <div class='cs-transform-gallery'>
-                <ul class='cs-slider'>
-                    <li class='cs-slider-item' style="background-image: url('assets/images/collections/sentido/sentidoolive.webp')">
-                        <div class='cs-slider-content'>
-                            <h2 class='cs-title'>tempo</h2>
-                            <p class='cs-text'> With glossy black cabinetry and warm wood countertops, this collection is designed to keep urban kitchens modern and fresh. </p>
-                            <button class="cs-button-nodeco-white">
-                                <span class="cs-hover-underline-white"> Explore noblessa </span>
-                                <img src="./assets/svgs/horizontal-arrow.svg" alt="arrow" width="30" height="10">
-                            </button>
-                        </div>
-                    </li>
-                    <!-- First Slide -->
-                    <li class='cs-slider-item' style="background-image: url('assets/images/collections/sentido/sentidoblacknoir.webp')">
-                        <div class='cs-slider-content'>
-                            <h2 class='cs-title'>Grace</h2>
-                            <p class='cs-text'> Exuding subtle sophistication, whether you prefer warm dark wood or a deep comforting gray for your countertops, this collection lends itself to a dignified and elegant style. </p>
-                            <button class="cs-button-nodeco-white">
-                                <span class="cs-hover-underline-white"> Explore noblessa </span>
-                                <img src="./assets/svgs/horizontal-arrow.svg" alt="arrow" width="30" height="10">
-                            </button>
-                        </div>
-                    </li>
-                    <li class='cs-slider-item' style="background-image: url('assets/images/collections/serenity/serenityivory.webp')">
-                        <div class='cs-slider-content'>
-                            <h2 class='cs-title'>spirit</h2>
-                            <p class='cs-text'>The sleek beauty of slate paired with the natural warmth of wood, the sleek elegance of this collection creates a dynamic look for any urban kitchen.</p>
-                            <button class="cs-button-nodeco-white">
-                                <span class="cs-hover-underline-white"> Explore noblessa </span>
-                                <img src="./assets/svgs/horizontal-arrow.svg" alt="arrow" width="30" height="10">
-                            </button>
-                        </div>
-                    </li>
-                    <li class='cs-slider-item' style="background-image: url('assets/images/livingrooms/whitelivingroom.webp')">
-                        <div class='cs-slider-content'>
-                            <h2 class='cs-title'>sentido</h2>
-                            <p class='cs-text'> Transform your kitchen with a fresh, chic color scheme with this collection's premium and vibrant design elements. </p>
-                            <button class="cs-button-nodeco-white">
-                                <span class="cs-hover-underline-white"> Explore noblessa </span>
-                                <img src="./assets/svgs/horizontal-arrow.svg" alt="arrow" width="30" height="10">
-                            </button>
-                        </div>
-                    </li>
-                    <li class='cs-slider-item' style="background-image: url('assets/images/bathrooms/bath1.webp')">
-                        <div class='cs-slider-content'>
-                            <h2 class='cs-title'>Grace</h2>
-                            <p class='cs-text'> With its bold, vibrant colors and a streamlined silhouette, this collection provides a touch of elegance to the kitchen. </p>
-                            <button class="cs-button-nodeco-white">
-                                <span class="cs-hover-underline-white"> Explore noblessa </span>
-                                <img src="./assets/svgs/horizontal-arrow.svg" alt="arrow" width="30" height="10">
-                            </button>
-                        </div>
-                    </li>
-                    <li class='cs-slider-item' style="background-image: url('assets/images/collections/surf/surf1.webp')">
-                        <div class='cs-slider-content'>
-                            <h2 class='cs-title'>chance</h2>
-                            <p class='cs-text'>
-                            The perfect combination of warm natural wood with the sleek elegance of metal. Whether you're outdoorsy or a homebody, you’ll feel right at home in this collection.
-                            </p>
-                            <button class="cs-button-nodeco-white">
-                                <span class="cs-hover-underline-white"> Explore noblessa </span>
-                                <img src="./assets/svgs/horizontal-arrow.svg" alt="arrow" width="30" height="10">
-                            </button>
-                        </div>
-                    </li>
-                    <li class='cs-slider-item' style="background-image: url('assets/images/collections/serenity/serenityalpinewhite3.webp')">
-                        <div class='cs-slider-content'>
-                            <h2 class='cs-title'>divine</h2>
-                            <p class='cs-text'> With its bold, vibrant colors and a streamlined silhouette, this collection provides a touch of elegance to the kitchen.</p>
-                            <button class="cs-button-nodeco-white">
-                                <span class="cs-hover-underline-white"> Explore noblessa </span>
-                                <img src="./assets/svgs/horizontal-arrow.svg" alt="arrow" width="30" height="10">
-                            </button>
-                        </div>
-                    </li>
-                    <li class='cs-slider-item' style="background-image: url('assets/images/collections/sentido/sentidosky.webp')">
-                        <div class='cs-slider-content'>
-                            <h2 class='cs-title'>Grace</h2>
-                            <p class='cs-text'> With its bold, vibrant colors and a streamlined silhouette, this collection provides a touch of elegance to the kitchen. </p>
-                            <button class="cs-button-nodeco-white">
-                                <span class="cs-hover-underline-white"> Explore noblessa </span>
-                                <img src="./assets/svgs/horizontal-arrow.svg" alt="arrow" width="30" height="10">
-                            </button>
-                        </div>
-                    </li>
-                    <li class='cs-slider-item' style="background-image: url('assets/images/bathrooms/bath2.webp')">
-                        <div class='cs-slider-content'>
-                            <h2 class='cs-title'>Grace</h2>
-                            <p class='cs-text'> With its bold, vibrant colors and a streamlined silhouette, this collection provides a touch of elegance to the kitchen. </p>
-                            <button class="cs-button-nodeco-white">
-                                <span class="cs-hover-underline-white"> Explore noblessa </span>
-                                <img src="./assets/svgs/horizontal-arrow.svg" alt="arrow" width="30" height="10">
-                            </button>
-                        </div>
-                    </li>
-                </ul>
-                <!-- Gallery Navigation -->
-                <nav class='nav'>
-                    <button class='btn prev' aria-label="Previous image">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                    </button>
-                    <button class='btn next' aria-label="Next image">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                    </button>
-                </nav>
+        </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!--            Collections Gallery               -->
+    <!-- ============================================ -->
+
+    <section id="collections-gallery">
+        <div class="cg-container">
+            <div class="cg-slider">
+                <div class="cg-slide active" data-bg="assets/images/collections/sentido/sentidoblacknoir.webp"></div>
+                <div class="cg-slide" data-bg="assets/images/collections/serenity/serenityivory.webp"></div>
+                <div class="cg-slide" data-bg="assets/images/livingrooms/whitelivingroom.webp"></div>
+                <div class="cg-slide" data-bg="assets/images/bathrooms/bath1.webp"></div>
+                <div class="cg-slide" data-bg="assets/images/collections/surf/surf1.webp"></div>
+                <div class="cg-slide" data-bg="assets/images/collections/serenity/serenityalpinewhite3.webp"></div>
+                <div class="cg-slide" data-bg="assets/images/collections/sentido/sentidosky.webp"></div>
+                <div class="cg-slide" data-bg="assets/images/bathrooms/bath2.webp"></div>
+                <div class="cg-slide" data-bg="assets/images/collections/sentido/sentidoolive.webp"></div>
+            </div>
+            <div class="cg-navigation">
+                <button class="cg-prev" aria-label="Previous slide">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
+                <button class="cg-next" aria-label="Next slide">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
             </div>
         </div>
     </section>

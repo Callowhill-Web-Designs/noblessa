@@ -5,6 +5,8 @@
 // rest of the home page styles go in here.
 // ─────────────────────────────────────────────────────────────────────────────
 
+@import "collections-gallery.less";
+
 /*-- -------------------------- -->
 <---     Transform Gallery      -->
 <--- -------------------------- -*/
@@ -79,151 +81,6 @@
             align-self: center;
             justify-self: center;
         }
-
-        /* Transform Gallery Styling */
-        .cs-transform-gallery {
-            position: relative;
-            width: 100%;
-            height: 90vh;
-            }
-
-        .cs-slider-item {
-            width: 200px;
-            height: 0px;
-            list-style-type: none;
-            position: absolute;
-            top: 78%;
-            transform: translateY(-50%);
-            z-index: 1;
-            background-position: center;
-            background-size: cover;
-            border-radius: 5px;
-            box-shadow: 0 20px 30px rgba(0,0,0,0.3);
-            transition: transform 0.1s, left 0.75s, top 0.75s, width 0.75s, height 0.75s;
-
-            &:nth-child(1), &:nth-child(2) {
-                left: 0;
-                top: 0;
-                width: 100%;
-                height: 100%;
-
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-
-
-                transform: none;
-                border-radius: 0;
-                box-shadow: none;
-                opacity: 1;
-            }
-
-            &:nth-child(3) { left: 5%; }
-            &:nth-child(4) { left: calc(5% + 220px); }
-            &:nth-child(5) { left: calc(5% + 440px); }
-            &:nth-child(6) { left: calc(5% + 660px); }
-            &:nth-child(7) { left: calc(5% + 880px); }
-            &:nth-child(8) { left: calc(5% + 1100px); }
-            &:nth-child(9) { left: calc(5% + 1320px); opacity: 0; }
-        }
-
-        .cs-slider-content {
-            /* width: min(30vw,400px); */
-            width: 100%;
-            max-width: 400px;
-            margin: auto;
-            top: 18%;
-            left: none;
-            /* Hidden for now */
-            display: none;
-            flex-direction: column;
-            text-align: center;
-            justify-items: center;
-            align-items: center;
-
-            padding: 30px;
-            background-color: rgba(0,0,0,0.4);
-            border-radius: 5px;
-            position: absolute;
-            /* top: 50%; */
-            /* left: 10%; */
-            transform: translateY(-50%);
-            text-shadow: 0px 0px 10px rgba(0,0,0,1);
-            opacity: 0;
-
-            & .cs-title {
-                display: none;
-                color: #fff;
-                text-transform: lowercase;
-                font-size: 64px;
-                letter-spacing: .1rem;
-                font-weight: 600;
-                /* margin-bottom: 20px; */
-            }
-
-            & .cs-text {
-                display: none;
-                color: #fff;
-                text-shadow: 0px 0px 6px rgba(0,0,0,1);
-            }
-        }
-
-        .cs-slider-item:nth-of-type(2) .cs-slider-content {
-            /* Hidden for now */
-            display: none;
-            animation: show 0.75s ease-in-out 0.3s forwards;
-        }
-
-        @keyframes show {
-            0% {
-                filter: blur(5px);
-                transform: translateY(calc(-50% + 75px));
-            }
-            100% {
-                opacity: 1;
-                filter: blur(0);
-            }
-        }
-
-        .nav {
-            position: absolute;
-            bottom: 2rem;
-            left: 50%;
-            transform: translateX(-50%);
-            z-index: 5;
-            user-select: none;
-
-            & .btn {
-                background-color: rgba(0,0,0,0.4);
-                color: rgb(255, 255, 255);
-                border: 1px solid rgba(0, 0, 0, 0.2);
-                margin: 0 0.25rem;
-                padding: 0.75rem;
-                border-radius: 50%;
-                cursor: pointer;
-                display: inline-flex;
-                align-items: center;
-                justify-content: center;
-                width: 48px;
-                height: 48px;
-                transition: background-color 0.3s ease;
-
-                & svg {
-                    width: 24px;
-                    height: 24px;
-                    pointer-events: none;
-                }
-
-                &:hover {
-                    background-color: rgba(0,0,0,0.1);
-                }
-
-                &:focus {
-                    outline: 2px solid rgba(255, 255, 255, 0.5);
-                    outline-offset: 2px;
-                }
-            }
-        }
     }
 }
 
@@ -235,31 +92,6 @@
         /* Transform Gallery Styling */
         .cs-section-header {
             padding-bottom: 120px;
-        }
-
-        .cs-transform-gallery {
-
-            .cs-slider-item {
-                width: 320px;
-                height: 0px;
-
-                &:nth-child(1), &:nth-child(2) {
-                    left: 0;
-                    top: 0;
-                    width: 100%;
-                    height: 100%;
-                    transform: none;
-                    opacity: 1;
-                }
-
-                &:nth-child(3) { left: 5%; }
-                &:nth-child(4) { left: calc(5% + 380px); }
-                &:nth-child(5) { left: calc(5% + 760px); }
-                &:nth-child(6) { left: calc(5% + 1100px); }
-                &:nth-child(7) { left: calc(5% + 1480px); }
-                &:nth-child(8) { left: calc(5% + 1860px); }
-                &:nth-child(9) { left: calc(5% + 2240px); opacity: 0; }
-            }
         }
     }
 }
@@ -316,50 +148,141 @@
             max-width: none;
             padding: 0px;
         }
+    }
+}                        
 
-        /* Transform Gallery Styling */
-        .cs-transform-gallery {
-            height: 80vh;
+/*-- -------------------------- -->
+<---    Collections Gallery     -->
+<--- -------------------------- -*/
 
-            .cs-slider-item {
-                width: 240px;
-                height: 0px;
-                top: 20%;
+/* Mobile - 360px */
+@media only screen and (min-width: 0rem) {
+    #collections-gallery {
+        width: 100%;
+        height: 90vh;
+        position: relative;
+        overflow: hidden;
+        background-color: #1a1a1a;
+        margin: 0;
+        padding: 0;
 
-                &:nth-child(1), &:nth-child(2) {
-                    left: 0;
-                    top: 0;
-                    width: 100%;
-                    height: 100%;
-                    display: block;
-                    transform: none;
-                    opacity: 1;
-                }
+        .cg-container {
+            width: 100%;
+            height: 100%;
+            position: relative;
+        }
 
-                &:nth-child(3) { left: 60%; }
-                &:nth-child(4) { left: calc(60% + 260px); }
-                &:nth-child(5) { left: calc(60% + 520px); }
-                &:nth-child(6) { left: calc(60% + 780px); }
-                &:nth-child(7) { left: calc(60% + 1040px); }
-                &:nth-child(8) { left: calc(60% + 1300px); }
-                &:nth-child(9) { left: calc(60% + 1560px); opacity: 0; };
+        .cg-slider {
+            width: 100%;
+            height: 100%;
+            position: relative;
+        }
+
+        .cg-slide {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            opacity: 0;
+            z-index: 1;
+            transition: opacity 0.5s ease-in-out;
+
+            &.active {
+                opacity: 1;
+                z-index: 3;
             }
-            
-            .cs-slider-content {
-                width: min(30vw,400px);
-                max-width: none;
-                margin: none;
-                top: 72%;
-                left: none;
-                right: 10%;
-                text-align: left;
-                justify-items: flex-start;
-                align-items: flex-start;
-                background-color: rgba(0,0,0,0);
+
+            &.prev {
+                opacity: 0;
+                z-index: 2;
+            }
+
+            &.next {
+                opacity: 0;
+                z-index: 1;
+            }
+        }
+
+        .cg-navigation {
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 1rem;
+            z-index: 10;
+        }
+
+        .cg-prev, .cg-next {
+            background-color: rgba(0, 0, 0, 0.4);
+            color: rgb(255, 255, 255);
+            border: 1px solid rgba(0, 0, 0, 0.2);
+            margin: 0 0.25rem;
+            padding: 0.75rem;
+            border-radius: 50%;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 48px;
+            height: 48px;
+            transition: background-color 0.3s ease;
+
+            &:hover {
+                background-color: rgba(0, 0, 0, 0.1);
+            }
+
+            &:focus {
+                outline: 2px solid rgba(255, 255, 255, 0.5);
+                outline-offset: 2px;
+            }
+
+            svg {
+                width: 24px;
+                height: 24px;
+                pointer-events: none;
             }
         }
     }
-}                        
+}
+
+/* Tablet - 768px */
+@media only screen and (min-width: 48rem) {
+    #collections-gallery {
+        .cg-navigation {
+            bottom: 3rem;
+        }
+
+        .cg-prev, .cg-next {
+            width: 48px;
+            height: 48px;
+        }
+    }
+}
+
+/* Desktop - 1024px */
+@media only screen and (min-width: 64rem) {
+    #collections-gallery {
+        height: 80vh;
+
+        .cg-navigation {
+            bottom: 4rem;
+        }
+
+        .cg-prev, .cg-next {
+            width: 48px;
+            height: 48px;
+
+            &:hover {
+                background-color: rgba(0, 0, 0, 0.1);
+            }
+        }
+    }
+}
 
 /*-- -------------------------- -->
 <---        Our Clients         -->
