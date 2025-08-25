@@ -1,6 +1,13 @@
-<svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="919" height="812"><svg width="919" height="812" viewBox="0 0 919 812" fill="none" xmlns="http://www.w3.org/2000/svg">
-<rect x="0.00012207" width="919" height="812" rx="32" fill="white"></rect>
-<path d="M801.38 32C710.417 32 573.371 198.163 573.371 198.163L459.433 336.676L402.398 406L430.849 440.595L316.911 579.109L208.583 447.541C188.548 423.231 188.548 388.769 208.583 364.459L422.968 103.995C446.877 75.01 425.639 32 387.304 32H117.487C70.3355 32 32.0001 69.2664 32.0001 115.081V696.919C32.0001 742.867 72.7398 780 117.487 780C208.45 780 345.496 613.837 345.496 613.837L459.433 475.324L516.469 406L488.018 371.405L601.956 232.891L710.283 364.459C730.319 388.769 730.319 423.231 710.283 447.541L496.032 708.005C472.123 736.99 493.361 780 531.696 780H801.513C848.665 780 887 742.734 887 696.919V115.081C887 69.1329 846.26 32 801.513 32H801.38Z" fill="#09293E"></path>
-</svg><style>@media (prefers-color-scheme: light) { :root { filter: none; } }
-@media (prefers-color-scheme: dark) { :root { filter: none; } }
-</style></svg>
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="1000" height="1000"><g clip-path="url(#SvgjsClipPath1110)"><rect width="1000" height="1000" fill="#000000"></rect><g transform="matrix(9,0,0,9,50,50)"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="100" height="100"><svg width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect x="1" y="1" width="98" height="98" rx="49" fill="black"></rect>
+<rect x="1" y="1" width="98" height="98" rx="49" fill="url(#paint0_linear_295_2)" fill-opacity="0.6"></rect>
+<rect x="1" y="1" width="98" height="98" rx="49" stroke="#C59852" stroke-width="2"></rect>
+<path d="M50 19C52.3682 19 54.5672 19.4565 56.597 20.3695C58.7114 21.1995 60.5299 22.3614 62.0522 23.8554C63.5746 25.3494 64.7587 27.1339 65.6045 29.2088C66.5348 31.2008 67 33.3588 67 35.6827V50.249V81H62.8134V50.249V35.6827C62.8134 33.9398 62.4751 32.3213 61.7985 30.8273C61.1219 29.2503 60.1915 27.9224 59.0075 26.8434C57.908 25.6814 56.5547 24.7684 54.9478 24.1044C53.4254 23.4404 51.7761 23.1084 50 23.1084C48.2239 23.1084 46.5323 23.4404 44.9254 24.1044C43.403 24.7684 42.0498 25.6814 40.8657 26.8434C39.7662 27.9224 38.8781 29.2503 38.2015 30.8273C37.5249 32.3213 37.1866 33.9398 37.1866 35.6827V50.249V81H33V50.249V35.6827V19.6225H37.1866V24.7269C38.7935 22.9009 40.6965 21.49 42.8955 20.494C45.0945 19.498 47.4627 19 50 19Z" fill="white"></path>
+<defs>
+<linearGradient id="paint0_linear_295_2" x1="85" y1="85" x2="15" y2="15" gradientUnits="userSpaceOnUse">
+<stop></stop>
+<stop offset="0.5" stop-color="#2A2A2A"></stop>
+<stop offset="1"></stop>
+</linearGradient>
+<clipPath id="SvgjsClipPath1110"><rect width="1000" height="1000" x="0" y="0" rx="500" ry="500"></rect></clipPath></defs>
+</svg></svg></g></g></svg>
