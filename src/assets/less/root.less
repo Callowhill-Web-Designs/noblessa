@@ -737,7 +737,7 @@ html {
             z-index: 10;
 
             span {
-                color: #fff;
+                color: #000;
                 font-weight: 500;
                 font-size: (14/16rem);
                 filter: drop-shadow(0px 0px 3px black);
@@ -752,7 +752,7 @@ html {
                 margin: 0;
                 padding: 0 (16/16rem);
                 color: #fff;
-                background-color: var(--primary);
+                background-color: #000;
                 border: none;
                 border-radius: (4/16rem);
                 cursor: pointer;
@@ -762,16 +762,9 @@ html {
                     background-color: var(--primaryLight);
                     transform: translateY(-2px);
                 }
-            }
 
-            #logout-btn {
-                background-color: transparent;
-                color: #fff;
-                border: 1px solid #fff;
-
-                &:hover {
-                    background-color: #fff;
-                    color: var(--primary);
+                .cs-hidden {
+                    display: none;
                 }
             }
         }

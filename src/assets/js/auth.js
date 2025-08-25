@@ -49,7 +49,7 @@ class AuthManager {
         const userInfo = document.getElementById('user-info');
         if (userInfo) {
             userInfo.innerHTML = `
-                <span>Welcome, ${user.name || user.email}</span>
+                <span>Hello, ${user.name}</span>
                 <button id="logout-btn" class="cs-button-solid">Logout</button>
             `;
             
