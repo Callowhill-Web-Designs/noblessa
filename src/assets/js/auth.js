@@ -105,7 +105,7 @@ class AuthManager {
         const userInfo = document.getElementById('user-info');
         if (userInfo) {
             userInfo.innerHTML = `
-                <a href="/login/" class="cs-button-solid">Login</a>
+                <a href="/login/" class="cs-button-solid cs-hidden">Login</a>
             `;
         }
     }

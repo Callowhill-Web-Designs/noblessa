@@ -11,7 +11,7 @@ exports.handler = async (event, context) => {
   const authUrl = `https://${process.env.AUTH0_DOMAIN}/authorize` +
     `?response_type=code` +
     `&client_id=${process.env.AUTH0_CLIENT_ID}` +
-    `&redirect_uri=${encodeURIComponent(process.env.URL || 'http://localhost:8888')}/.netlify/functions/auth-callback` +
+    `&redirect_uri=${encodeURIComponent(process.env.URL || 'http://localhost:8080')}/.netlify/functions/auth-callback` +
     `&scope=openid%20profile%20email` +
     `&state=${Math.random().toString(36).substring(7)}`;
 

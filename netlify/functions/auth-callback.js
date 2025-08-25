@@ -38,7 +38,7 @@ exports.handler = async (event, context) => {
           client_id: process.env.AUTH0_CLIENT_ID,
           client_secret: process.env.AUTH0_CLIENT_SECRET,
           code: code,
-          redirect_uri: `${process.env.URL || 'http://localhost:8888'}/.netlify/functions/auth-callback`,
+          redirect_uri: `${process.env.URL || 'http://localhost:8080'}/.netlify/functions/auth-callback`,
         }),
       });
 
@@ -113,7 +113,7 @@ exports.handler = async (event, context) => {
           client_id: process.env.AUTH0_CLIENT_ID,
           client_secret: process.env.AUTH0_CLIENT_SECRET,
           code: code,
-          redirect_uri: `${process.env.URL || 'http://localhost:8888'}/.netlify/functions/auth-callback`,
+          redirect_uri: `${process.env.URL || 'http://localhost:8080'}/.netlify/functions/auth-callback`,
         }),
       });
 
