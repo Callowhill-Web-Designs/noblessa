@@ -13,6 +13,7 @@ exports.handler = async (event, context) => {
     `&client_id=${process.env.AUTH0_CLIENT_ID}` +
     `&redirect_uri=${encodeURIComponent(process.env.URL || 'http://localhost:8080')}/.netlify/functions/auth-callback` +
     `&scope=openid%20profile%20email` +
+    `&organization=${process.env.AUTH0_ORGANIZATION_ID}` +
     `&state=${Math.random().toString(36).substring(7)}`;
 
   return {

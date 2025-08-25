@@ -68,10 +68,10 @@ When deploying to Netlify, add these environment variables in your Netlify dashb
 ### Authentication Flow
 
 1. User clicks "Login" → Redirected to `/.netlify/functions/auth-login`
-2. Function redirects to Auth0 login page
-3. User authenticates with Auth0
+2. Function redirects to Auth0 login page with organization parameter
+3. User authenticates with Auth0 within the specified organization
 4. Auth0 redirects to `/.netlify/functions/auth-callback` with authorization code
-5. Callback function exchanges code for user info and creates JWT session token
+5. Callback function exchanges code for user info (including organization data) and creates JWT session token
 6. User is redirected to `/partner-resources/` with secure cookie set
 
 ### Protected Route Access

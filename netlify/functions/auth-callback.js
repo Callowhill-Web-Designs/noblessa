@@ -39,6 +39,7 @@ exports.handler = async (event, context) => {
           client_secret: process.env.AUTH0_CLIENT_SECRET,
           code: code,
           redirect_uri: `${process.env.URL || 'http://localhost:8080'}/.netlify/functions/auth-callback`,
+          organization: process.env.AUTH0_ORGANIZATION_ID,
         }),
       });
 
@@ -67,6 +68,7 @@ exports.handler = async (event, context) => {
           sub: user.sub,
           email: user.email,
           name: user.name,
+          organization: user.org_id || process.env.AUTH0_ORGANIZATION_ID,
           exp: Math.floor(Date.now() / 1000) + (60 * 60 * 24 * 7) // 7 days
         },
         process.env.AUTH0_CLIENT_SECRET
@@ -114,6 +116,7 @@ exports.handler = async (event, context) => {
           client_secret: process.env.AUTH0_CLIENT_SECRET,
           code: code,
           redirect_uri: `${process.env.URL || 'http://localhost:8080'}/.netlify/functions/auth-callback`,
+          organization: process.env.AUTH0_ORGANIZATION_ID,
         }),
       });
 
@@ -142,6 +145,7 @@ exports.handler = async (event, context) => {
           sub: user.sub,
           email: user.email,
           name: user.name,
+          organization: user.org_id || process.env.AUTH0_ORGANIZATION_ID,
           exp: Math.floor(Date.now() / 1000) + (60 * 60 * 24 * 7) // 7 days
         },
         process.env.AUTH0_CLIENT_SECRET
@@ -158,6 +162,7 @@ exports.handler = async (event, context) => {
           user: {
             email: user.email,
             name: user.name,
+            organization: user.org_id || process.env.AUTH0_ORGANIZATION_ID,
           },
         }),
       };

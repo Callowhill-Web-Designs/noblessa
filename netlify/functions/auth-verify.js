@@ -37,6 +37,7 @@ exports.handler = async (event, context) => {
           sub: decoded.sub,
           email: decoded.email,
           name: decoded.name,
+          organization: decoded.organization,
         },
       }),
     };
